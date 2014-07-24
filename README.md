@@ -25,6 +25,12 @@ PhysX 9.12.1031
 
 Microsoft XNA 2.0 3.1 4.0
 
+<<<<<<< HEAD
 我只上传了主程序和源代码到GitHub。但是这其实是不够的！你还需要上述的东西。关于这些，请在http://pan.baidu.com/s/1o6jULke下载。
 
 欢迎合作。我没有别的要说的了。
+=======
+我只上传了主程序和源代码到GitHub。但是这其实是不够的！你还需要上述的东西。关于这些，请在http://pan.baidu.com/s/1o6jULke 下载。
+
+欢迎合作。我没有别的要说的了。
+>>>>>>> origin/master
