@@ -117,12 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="BackgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="AboutUs.Text" xml:space="preserve">
     <value>Runtime Express
-版本1.3，开发版本1471，编译时间为2014-3-14
+版本1.3.1，开发版本1472，编译时间为2014-7-24
 
 使用Microsoft Visual Studio Express 2013 For Windows Desktop 开发，基于.net Framework 3.5.1框架。
 
@@ -149,6 +146,9 @@ GitHub：https://github.com/feight-github/Feight-App-Box
 最后，使用愉快！
 ©Feight Software 2014，百度ID@无影无形F8 </value>
   </data>
+  <metadata name="BackgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

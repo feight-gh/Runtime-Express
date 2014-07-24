@@ -1,10 +1,19 @@
-﻿'开发手记
+﻿'下个版本：
 '1.添加文件夹校验
+'2.添加运行后指令
+'3.新图标
+'4.未选择系统时报错的错误修正
+'5.可选的语言
 Imports System.Net
 Imports System.IO
 Imports System.Text.RegularExpressions
 
 Public Class Form1
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
+        ScreenRE1.SelectedIndex = 0
+        DllHelper1.SelectedIndex = 0
+    End Sub
 
     Private Sub InstNow1_Click(sender As Object, e As EventArgs) Handles InstNow1.Click
         BackgroundWorker1.RunWorkerAsync()
@@ -25,9 +34,6 @@ Public Class Form1
     End Sub
 
     Private Sub AutoCheck2_Click(sender As Object, e As EventArgs) Handles AutoCheck2.Click
-        Dim OSver As String
-        OSver = ScreenRE1.SelectedItem.ToString.Trim
-
         '重置复选框状态
         VC20051.Checked = False
         VC20052.Checked = False
@@ -71,6 +77,9 @@ Public Class Form1
         mwse.Enabled = True
         physx912.Enabled = True
         '重置所有复选框可用状态
+
+        Dim OSver As String
+        OSver = ScreenRE1.SelectedItem.ToString.Trim
 
         '判断语句块：这个系统支持哪些运行库？
         If OSver = "Windows Vista x86" Then
@@ -311,10 +320,5 @@ Public Class Form1
         If msxml2.Checked Then System.Diagnostics.Process.Start("gruntime\msxml6_x64.msi").WaitForExit()
         MsgBox("已经完成指定的操作！可能需要重新启动计算机更改才会生效。", MsgBoxStyle.Exclamation, "提示")
     End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        About.Show()
-    End Sub
-
 
 End Class

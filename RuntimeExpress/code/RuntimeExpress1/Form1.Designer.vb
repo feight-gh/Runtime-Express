@@ -42,6 +42,7 @@ Partial Class Form1
         Me.DX9 = New System.Windows.Forms.CheckBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.dotnet451 = New System.Windows.Forms.CheckBox()
         Me.fsharp1 = New System.Windows.Forms.CheckBox()
         Me.jsharp1 = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -70,10 +71,9 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.InstNow1 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.dotnet451 = New System.Windows.Forms.CheckBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.AboutUs = New System.Windows.Forms.TextBox()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -314,6 +314,17 @@ Partial Class Form1
         Me.GroupBox8.TabIndex = 9
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = ".net"
+        '
+        'dotnet451
+        '
+        Me.dotnet451.AutoSize = True
+        Me.dotnet451.Location = New System.Drawing.Point(5, 33)
+        Me.dotnet451.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.dotnet451.Name = "dotnet451"
+        Me.dotnet451.Size = New System.Drawing.Size(123, 21)
+        Me.dotnet451.TabIndex = 9
+        Me.dotnet451.Text = "Framework 4.5.1"
+        Me.dotnet451.UseVisualStyleBackColor = True
         '
         'fsharp1
         '
@@ -643,21 +654,6 @@ Partial Class Form1
         Me.TabControl1.Size = New System.Drawing.Size(581, 343)
         Me.TabControl1.TabIndex = 5
         '
-        'BackgroundWorker1
-        '
-        Me.BackgroundWorker1.WorkerReportsProgress = True
-        '
-        'dotnet451
-        '
-        Me.dotnet451.AutoSize = True
-        Me.dotnet451.Location = New System.Drawing.Point(5, 33)
-        Me.dotnet451.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.dotnet451.Name = "dotnet451"
-        Me.dotnet451.Size = New System.Drawing.Size(123, 21)
-        Me.dotnet451.TabIndex = 9
-        Me.dotnet451.Text = "Framework 4.5.1"
-        Me.dotnet451.UseVisualStyleBackColor = True
-        '
         'TabPage4
         '
         Me.TabPage4.Controls.Add(Me.AboutUs)
@@ -682,6 +678,10 @@ Partial Class Form1
         Me.AboutUs.TabIndex = 2
         Me.AboutUs.TabStop = False
         Me.AboutUs.Text = resources.GetString("AboutUs.Text")
+        '
+        'BackgroundWorker1
+        '
+        Me.BackgroundWorker1.WorkerReportsProgress = True
         '
         'Form1
         '
