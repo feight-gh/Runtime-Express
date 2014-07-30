@@ -73,7 +73,7 @@ Partial Class Form1
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.AboutUs = New System.Windows.Forms.TextBox()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.Installer1 = New System.ComponentModel.BackgroundWorker()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -679,9 +679,9 @@ Partial Class Form1
         Me.AboutUs.TabStop = False
         Me.AboutUs.Text = resources.GetString("AboutUs.Text")
         '
-        'BackgroundWorker1
+        'Installer1
         '
-        Me.BackgroundWorker1.WorkerReportsProgress = True
+        Me.Installer1.WorkerReportsProgress = True
         '
         'Form1
         '
@@ -763,7 +763,7 @@ Partial Class Form1
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents DllHelper2 As System.Windows.Forms.Button
     Friend WithEvents DllHelper3 As System.Windows.Forms.Button
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents Installer1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents MSXMLtips1 As System.Windows.Forms.Label
     Friend WithEvents msxml2 As System.Windows.Forms.CheckBox
     Friend WithEvents msxml1 As System.Windows.Forms.CheckBox

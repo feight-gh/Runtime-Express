@@ -1,9 +1,9 @@
 ﻿'下个版本：
-'1.添加文件夹校验
-'2.添加运行后指令
+'1.添加文件校验(文件校验)
+'2.运行状态记录器
 '3.新图标
-'4.未选择系统时报错的错误修正
-'5.可选的语言
+'4.可选的语言
+'5.界面调整
 Imports System.Net
 Imports System.IO
 Imports System.Text.RegularExpressions
@@ -16,7 +16,7 @@ Public Class Form1
     End Sub
 
     Private Sub InstNow1_Click(sender As Object, e As EventArgs) Handles InstNow1.Click
-        BackgroundWorker1.RunWorkerAsync()
+        Installer1.RunWorkerAsync()
     End Sub
 
     Private Sub XNA2_CheckedChanged(sender As Object, e As EventArgs) Handles XNA2.CheckedChanged
@@ -295,9 +295,22 @@ Public Class Form1
         Shell("explorer.exe " & " https://www.google.com.hk")
     End Sub
 
-    Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
 
-        If VC20051.Checked Then System.Diagnostics.Process.Start("uruntime\vc2005_x86.exe").WaitForExit()
+    Private Function rexist(ByVal Str_Path As String) As Boolean
+        rexist = System.IO.File.Exists(Str_Path)
+    End Function
+
+
+    Private Sub Installer1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles Installer1.DoWork
+        Dim rPath As String = Application.StartupPath
+
+        If VC20051.Checked Then
+            If rexist(rPath & "\uruntime\vc2005_x86.exe") Then
+                System.Diagnostics.Process.Start("uruntime\vc2005_x86.exe").WaitForExit()
+            Else : MsgBox(System.IO.Directory.GetCurrentDirectory)
+            End If
+        End If
+
         If VC20052.Checked Then System.Diagnostics.Process.Start("uruntime\vc2005_x64.exe").WaitForExit()
         If VC20081.Checked Then System.Diagnostics.Process.Start("uruntime\vc2008_x86.exe").WaitForExit()
         If VC20082.Checked Then System.Diagnostics.Process.Start("uruntime\vc2008_x64.exe").WaitForExit()
