@@ -1,9 +1,11 @@
-Feight-App-Box
+Broken Lava
 ==============
 
-Feight应用盒子
+是的，我的盒子更名了，因为我不准备一个人单干了。
 
-这里是Feight，然后，这是我的应用盒子。你可以在下面看到说明。
+别的东西都是原来那样的。你可以在下面看到说明。
+
+别问我为何是这个名字，我不想告诉你我是个奇葩XD
 
 Runtime Express
 ===============
@@ -24,6 +26,8 @@ OpenAL 2.0.3
 PhysX 9.12.1031
 
 Microsoft XNA 2.0 3.1 4.0
+
+Java 7 Update 51 x86 & x64
 
 我只上传了主程序和源代码到GitHub。但是这其实是不够的！你还需要上述的东西。关于这些，请在 http://pan.baidu.com/s/1o6jULke 下载。
 
