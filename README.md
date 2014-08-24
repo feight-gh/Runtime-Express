@@ -1,33 +1,35 @@
-Broken Lava
+Project Facula 是什么？
 ==============
 
-是的，我的盒子更名了，因为我不准备一个人单干了。
+其实……这不是什么
 
-别的东西都是原来那样的。你可以在下面看到说明。
+这只是公开我平时写的小工具的一个空间……
 
-别问我为何是这个名字，我不想告诉你我是个奇葩XD
+欢迎加入。
 
-Runtime Express
+QQ群：http://shang.qq.com/wpa/qunwpa?idkey=7a7de242e1743d201009fda240a2e12881674c291124dd82798080d2142fc423
+
+Runtime Express —— 大量软件的运行平台的安装器
 ===============
 这是一个运行库集成安装器。其中包含了以下的运行库：
 
-VC++ 2005 2008 2010 2012 2013 x86 & x64
+>VC++ 2005 2008 2010 2012 2013 x86 & x64
 
-.net Framework 4.5.1
+>.net Framework 4.5.1
 
-DirectX 9c
+>DirectX 9c
 
-Microsoft Game For Windows - Live
+>Microsoft Game For Windows - Live
 
-Microsoft WSE 3.0
+>Microsoft WSE 3.0
 
-OpenAL 2.0.3
+>OpenAL 2.0.3
 
-PhysX 9.12.1031
+>PhysX 9.12.1031
 
-Microsoft XNA 2.0 3.1 4.0
+>Microsoft XNA 2.0 3.1 4.0
 
-Java 7 Update 51 x86 & x64
+>Java 7 Update 51 x86 & x64
 
 我只上传了主程序和源代码到GitHub。但是这其实是不够的！你还需要上述的东西。关于这些，请在 http://pan.baidu.com/s/1o6jULke 下载。
 
