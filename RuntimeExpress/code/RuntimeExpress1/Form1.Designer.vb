@@ -71,13 +71,15 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.InstNow1 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.AboutUs = New System.Windows.Forms.TextBox()
-        Me.Installer1 = New System.ComponentModel.BackgroundWorker()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.dxolmode = New System.Windows.Forms.CheckBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.AboutUs = New System.Windows.Forms.TextBox()
+        Me.Installer1 = New System.ComponentModel.BackgroundWorker()
+        Me.CheckUpdate = New System.Windows.Forms.Button()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -89,9 +91,10 @@ Partial Class Form1
         Me.GroupBox1.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabControl1.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabPage2
@@ -661,35 +664,6 @@ Partial Class Form1
         Me.TabControl1.Size = New System.Drawing.Size(581, 343)
         Me.TabControl1.TabIndex = 5
         '
-        'TabPage4
-        '
-        Me.TabPage4.BackColor = System.Drawing.SystemColors.Control
-        Me.TabPage4.Controls.Add(Me.AboutUs)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 26)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(573, 313)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "关于"
-        '
-        'AboutUs
-        '
-        Me.AboutUs.BackColor = System.Drawing.Color.Black
-        Me.AboutUs.Font = New System.Drawing.Font("微软雅黑", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.AboutUs.ForeColor = System.Drawing.Color.White
-        Me.AboutUs.Location = New System.Drawing.Point(-4, -1)
-        Me.AboutUs.Multiline = True
-        Me.AboutUs.Name = "AboutUs"
-        Me.AboutUs.ReadOnly = True
-        Me.AboutUs.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.AboutUs.Size = New System.Drawing.Size(581, 318)
-        Me.AboutUs.TabIndex = 2
-        Me.AboutUs.TabStop = False
-        Me.AboutUs.Text = resources.GetString("AboutUs.Text")
-        '
-        'Installer1
-        '
-        Me.Installer1.WorkerReportsProgress = True
-        '
         'TabPage5
         '
         Me.TabPage5.BackColor = System.Drawing.SystemColors.Control
@@ -711,16 +685,6 @@ Partial Class Form1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "安装"
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.ForeColor = System.Drawing.Color.Red
-        Me.Label4.Location = New System.Drawing.Point(21, 58)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(530, 17)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "在安装前面的DirectX无效时，可以尝试此模式。此模式需要联网，且安装时间较长。请耐心等待。"
-        '
         'dxolmode
         '
         Me.dxolmode.AutoSize = True
@@ -731,6 +695,68 @@ Partial Class Form1
         Me.dxolmode.TabIndex = 1
         Me.dxolmode.Text = "用在线安装包安装 DirectX"
         Me.dxolmode.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.ForeColor = System.Drawing.Color.Red
+        Me.Label4.Location = New System.Drawing.Point(21, 58)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(530, 17)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "在安装前面的DirectX无效时，可以尝试此模式。此模式需要联网，且安装时间较长。请耐心等待。"
+        '
+        'TabPage4
+        '
+        Me.TabPage4.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage4.Controls.Add(Me.CheckUpdate)
+        Me.TabPage4.Controls.Add(Me.PictureBox1)
+        Me.TabPage4.Controls.Add(Me.AboutUs)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 26)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Size = New System.Drawing.Size(573, 313)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "关于"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(573, 64)
+        Me.PictureBox1.TabIndex = 3
+        Me.PictureBox1.TabStop = False
+        '
+        'AboutUs
+        '
+        Me.AboutUs.BackColor = System.Drawing.Color.Black
+        Me.AboutUs.Font = New System.Drawing.Font("微软雅黑", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.AboutUs.ForeColor = System.Drawing.Color.White
+        Me.AboutUs.Location = New System.Drawing.Point(0, 64)
+        Me.AboutUs.Multiline = True
+        Me.AboutUs.Name = "AboutUs"
+        Me.AboutUs.ReadOnly = True
+        Me.AboutUs.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.AboutUs.Size = New System.Drawing.Size(573, 249)
+        Me.AboutUs.TabIndex = 2
+        Me.AboutUs.TabStop = False
+        Me.AboutUs.Text = resources.GetString("AboutUs.Text")
+        '
+        'Installer1
+        '
+        Me.Installer1.WorkerReportsProgress = True
+        '
+        'CheckUpdate
+        '
+        Me.CheckUpdate.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.CheckUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheckUpdate.ForeColor = System.Drawing.Color.Transparent
+        Me.CheckUpdate.Location = New System.Drawing.Point(430, 14)
+        Me.CheckUpdate.Name = "CheckUpdate"
+        Me.CheckUpdate.Size = New System.Drawing.Size(140, 37)
+        Me.CheckUpdate.TabIndex = 4
+        Me.CheckUpdate.Text = "检查更新"
+        Me.CheckUpdate.UseVisualStyleBackColor = False
         '
         'Form1
         '
@@ -766,11 +792,12 @@ Partial Class Form1
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
-        Me.TabPage4.ResumeLayout(False)
-        Me.TabPage4.PerformLayout()
         Me.TabPage5.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -829,5 +856,7 @@ Partial Class Form1
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents dxolmode As System.Windows.Forms.CheckBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents CheckUpdate As System.Windows.Forms.Button
 
 End Class
