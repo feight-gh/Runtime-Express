@@ -6,7 +6,7 @@ Imports System.Net
 Imports System.IO
 Imports System.Text.RegularExpressions
 
-Public Class Form1
+Public Class RuntimeExpressMain
 
 
     Private Function rexist(ByVal Str_Path As String) As Boolean
@@ -119,7 +119,7 @@ Public Class Form1
             VC20131.Enabled = True
             VC20132.Enabled = True
             Java71.Enabled = True
-            Java72.Enabled = False
+            Java72.Enabled = True
             msxml1.Enabled = True
             msxml2.Enabled = False
             '禁用不适合的选项
@@ -151,7 +151,7 @@ Public Class Form1
             VC20131.Enabled = True
             VC20132.Enabled = True
             Java71.Enabled = True
-            Java72.Enabled = False
+            Java72.Enabled = True
             msxml1.Enabled = True
             msxml2.Enabled = False
             '禁用不适合的选项
@@ -202,7 +202,7 @@ Public Class Form1
                 VC20122.Checked = False
                 VC20131.Checked = False
                 VC20132.Checked = False
-                Java71.Checked = True
+                Java71.Checked = False
                 Java72.Checked = False
                 '自动勾选
             ElseIf OSver = "Windows Vista x64" Then
@@ -216,7 +216,7 @@ Public Class Form1
                 VC20122.Checked = True
                 VC20131.Checked = False
                 VC20132.Checked = False
-                Java71.Checked = True
+                Java71.Checked = False
                 Java72.Checked = False
                 '自动勾选
             ElseIf OSver = "Windows 7 x86" Then
@@ -230,7 +230,7 @@ Public Class Form1
                 VC20122.Checked = False
                 VC20131.Checked = False
                 VC20132.Checked = False
-                Java71.Checked = True
+                Java71.Checked = False
                 Java72.Checked = False
                 '自动勾选
             ElseIf OSver = "Windows 7 x64" Then
@@ -244,7 +244,7 @@ Public Class Form1
                 VC20122.Checked = True
                 VC20131.Checked = False
                 VC20132.Checked = False
-                Java71.Checked = True
+                Java71.Checked = False
                 Java72.Checked = False
                 '自动勾选
             ElseIf OSver = "Windows 8/8.1 x86" Then
@@ -258,7 +258,7 @@ Public Class Form1
                 VC20122.Checked = False
                 VC20131.Checked = False
                 VC20132.Checked = False
-                Java71.Checked = True
+                Java71.Checked = False
                 Java72.Checked = False
                 '自动勾选
             ElseIf OSver = "Windows 8/8.1 x64" Then
@@ -272,13 +272,58 @@ Public Class Form1
                 VC20122.Checked = True
                 VC20131.Checked = False
                 VC20132.Checked = False
-                Java71.Checked = True
+                Java71.Checked = False
                 Java72.Checked = False
                 '自动勾选
             Else
                 MsgBox("请选择一个选项")
             End If
         End If
+    End Sub
+
+    Private Sub ResetFilter1_Click(sender As Object, e As EventArgs) Handles ResetFilter1.Click
+        '重置复选框状态
+        VC20051.Checked = False
+        VC20052.Checked = False
+        VC20081.Checked = False
+        VC20082.Checked = False
+        VC20101.Checked = False
+        VC20102.Checked = False
+        VC20121.Checked = False
+        VC20122.Checked = False
+        VC20131.Checked = False
+        VC20132.Checked = False
+        Java71.Checked = False
+        Java72.Checked = False
+        XNA2.Checked = False
+        XNA31.Checked = False
+        XNA4.Checked = False
+        DX9.Checked = False
+        oal203.Checked = False
+        mgfw.Checked = False
+        mwse.Checked = False
+        physx912.Checked = False
+        '重置所有复选框选择状态
+        VC20051.Enabled = True
+        VC20052.Enabled = True
+        VC20081.Enabled = True
+        VC20082.Enabled = True
+        VC20101.Enabled = True
+        VC20102.Enabled = True
+        VC20121.Enabled = True
+        VC20122.Enabled = True
+        VC20131.Enabled = True
+        VC20132.Enabled = True
+        Java71.Enabled = True
+        Java72.Enabled = True
+        XNA2.Enabled = True
+        XNA31.Enabled = True
+        XNA4.Enabled = True
+        DX9.Enabled = True
+        oal203.Enabled = True
+        mgfw.Enabled = True
+        mwse.Enabled = True
+        physx912.Enabled = True
     End Sub
 
     Private Sub DllHelper3_Click(sender As Object, e As EventArgs) Handles DllHelper3.Click
@@ -530,4 +575,5 @@ Public Class Form1
 
 
     End Sub
+
 End Class
