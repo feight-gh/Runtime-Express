@@ -500,7 +500,7 @@ Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles CheckUpdate.Click
         CheckUpdate.Text = "请稍后" '更新按钮上的提示信息
 
-        Const checkserver As String = "https://raw.githubusercontent.com/feight-github/Project-Facula/master/RuntimeExpress/version"
+        Const checkserver As String = "https://raw.githubusercontent.com/feight-github/Runtime-Express/master/Windows/version"
         Dim stream As IO.Stream
         Dim sr
         Dim newestver
