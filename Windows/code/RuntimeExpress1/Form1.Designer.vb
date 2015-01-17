@@ -369,7 +369,7 @@ Partial Class RuntimeExpressMain
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox3.Size = New System.Drawing.Size(335, 69)
+        Me.GroupBox3.Size = New System.Drawing.Size(584, 69)
         Me.GroupBox3.TabIndex = 8
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Java"
@@ -377,12 +377,12 @@ Partial Class RuntimeExpressMain
         'Java72
         '
         Me.Java72.AutoSize = True
-        Me.Java72.Location = New System.Drawing.Point(133, 27)
+        Me.Java72.Location = New System.Drawing.Point(234, 27)
         Me.Java72.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Java72.Name = "Java72"
-        Me.Java72.Size = New System.Drawing.Size(79, 21)
+        Me.Java72.Size = New System.Drawing.Size(123, 21)
         Me.Java72.TabIndex = 1
-        Me.Java72.Text = "7u51 x64"
+        Me.Java72.Text = "8 Update 25 x64"
         Me.Java72.UseVisualStyleBackColor = True
         '
         'Java71
@@ -391,9 +391,9 @@ Partial Class RuntimeExpressMain
         Me.Java71.Location = New System.Drawing.Point(20, 27)
         Me.Java71.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Java71.Name = "Java71"
-        Me.Java71.Size = New System.Drawing.Size(79, 21)
+        Me.Java71.Size = New System.Drawing.Size(123, 21)
         Me.Java71.TabIndex = 0
-        Me.Java71.Text = "7u51 x86"
+        Me.Java71.Text = "8 Update 25 x86"
         Me.Java71.UseVisualStyleBackColor = True
         '
         'GroupBox1
@@ -658,7 +658,7 @@ Partial Class RuntimeExpressMain
         '
         Me.DllHelper1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.DllHelper1.FormattingEnabled = True
-        Me.DllHelper1.Items.AddRange(New Object() {"d3dx9_**.dll", "MSVC**.dll", "xinput**.dll", "openal32.dll", "PhysXLoader.dll", "xlive.dll", "XAudio**.dll", "xactengine**.dll"})
+        Me.DllHelper1.Items.AddRange(New Object() {"d3dx9_**.dll", "MSVC**.dll", "xinput**.dll", "openal32.dll", "PhysXLoader.dll", "xlive.dll", "XAudio**.dll", "xactengine*_*.dll"})
         Me.DllHelper1.Location = New System.Drawing.Point(6, 51)
         Me.DllHelper1.Name = "DllHelper1"
         Me.DllHelper1.Size = New System.Drawing.Size(543, 25)
@@ -902,7 +902,7 @@ Partial Class RuntimeExpressMain
         Me.StatusText1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.StatusText1.Name = "StatusText1"
         Me.StatusText1.Size = New System.Drawing.Size(268, 17)
-        Me.StatusText1.Text = "Runtime Express 1.5(14121dev3)，开发版本。"
+        Me.StatusText1.Text = "Runtime Express 1.5(14121dev4)，开发版本。"
         '
         'RuntimeExpressMain
         '

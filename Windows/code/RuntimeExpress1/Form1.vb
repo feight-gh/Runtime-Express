@@ -1,6 +1,6 @@
-﻿'下次更新内容
-'1.更新器
-'2.语言
+﻿'下个版本：
+'1.更新dism模式
+'2.完成新版本更新器（双通道+下载）
 
 Imports System.Net
 Imports System.IO
@@ -329,14 +329,13 @@ Public Class RuntimeExpressMain
     Private Sub DllHelper3_Click(sender As Object, e As EventArgs) Handles DllHelper3.Click
         Dim DllBox As String
         DllBox = DllHelper1.SelectedItem.ToString.Trim
-        'xactengine**.dll
         If DllBox = "d3dx9_**.dll" Then
             MsgBox("看起来需要安装或修复DirectX 9c~", MsgBoxStyle.Information, "分析结果")
         ElseIf DllBox = "xinput**.dll" Then
             MsgBox("看起来需要安装或修复DirectX 9c~", MsgBoxStyle.Information, "分析结果")
         ElseIf DllBox = "XAudio**.dll" Then
             MsgBox("看起来需要安装或修复DirectX 9c~", MsgBoxStyle.Information, "分析结果")
-        ElseIf DllBox = "xactengine**.dll" Then
+        ElseIf DllBox = "xactengine*_*.dll" Then
             MsgBox("看起来需要安装或修复DirectX 9c~", MsgBoxStyle.Information, "分析结果")
         ElseIf DllBox = "MSVC**.dll" Then
             MsgBox("看起来需要安装或修复VC++运行库~", MsgBoxStyle.Information, "分析结果")
@@ -430,15 +429,15 @@ Public Class RuntimeExpressMain
         End If
 
         If Java71.Checked Then
-            If rexist(rPath & "\uruntime\jre7_x86.exe") Then
-                System.Diagnostics.Process.Start("uruntime\jre7_x86.exe").WaitForExit()
+            If rexist(rPath & "\uruntime\jre8_x86.exe") Then
+                System.Diagnostics.Process.Start("uruntime\jre8_x86.exe").WaitForExit()
             Else : instErr = True
             End If
         End If
 
         If Java72.Checked Then
-            If rexist(rPath & "\uruntime\jre7_x64.exe") Then
-                System.Diagnostics.Process.Start("uruntime\jre7_x64.exe").WaitForExit()
+            If rexist(rPath & "\uruntime\jre8_x64.exe") Then
+                System.Diagnostics.Process.Start("uruntime\jre8_x64.exe").WaitForExit()
             Else : instErr = True
             End If
         End If
@@ -543,37 +542,40 @@ Public Class RuntimeExpressMain
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles CheckUpdate.Click
-        CheckUpdate.Text = "请稍后" '更新按钮上的提示信息
+        Dim UpdateChannel As String = "Developer"
 
-        Const checkserver As String = "https://raw.githubusercontent.com/feight-github/Runtime-Express/master/Windows/version"
-        Dim stream As IO.Stream
-        Dim sr
-        Dim newestver
-        '进行一系列的变量/常量定义，以便进行验证操作
+        If UpdateChannel = "Release" Then
+            CheckUpdate.Text = "请稍后" '更新按钮上的提示信息
+
+            Const checkserver As String = "https://raw.githubusercontent.com/feight-github/Runtime-Express/master/Windows/version"
+            Dim stream As IO.Stream
+            Dim sr
+            Dim newestver
+            '进行一系列的变量/常量定义，以便进行验证操作
 
 
-        stream = WebRequest.Create(checkserver).GetResponse().GetResponseStream()
-        sr = New StreamReader(stream, System.Text.Encoding.UTF8)
-        newestver = Regex.Match(sr.ReadToEnd, "[\s\S]{4,5}").ToString
-        '使用sr.readtoend读取网页流到末尾，即使用正则表达式从网页流中提取布尔值
-        '读取网页内容头部分后4和5字节内容，刚好足够版本号使用，然后赋值给变量CheckUpdate
+            stream = WebRequest.Create(checkserver).GetResponse().GetResponseStream()
+            sr = New StreamReader(stream, System.Text.Encoding.UTF8)
+            newestver = Regex.Match(sr.ReadToEnd, "[\s\S]{4,5}").ToString
+            '使用sr.readtoend读取网页流到末尾，即使用正则表达式从网页流中提取布尔值
+            '读取网页内容头部分后4和5字节内容，刚好足够版本号使用，然后赋值给变量CheckUpdate
 
-        sr.Dispose() '关闭流
+            sr.Dispose() '关闭流
 
-        If newestver = 1482 Then
-            CheckUpdate.Text = "已是最新"
-        Else
-            CheckUpdate.Text = "有新版本"
-            If MsgBox("有新的版本：Build " & newestver & vbCrLf & "要现在更新吗？", MsgBoxStyle.Question + _
-            MsgBoxStyle.OkCancel, "Runtime Express") = MsgBoxResult.Ok Then
-                System.Diagnostics.Process.Start("http://pan.baidu.com/s/1o6jULke")
-            Else : CheckUpdate.Text = "检查更新"
+            If newestver = 1482 Then
+                CheckUpdate.Text = "已是最新"
+            Else
+                CheckUpdate.Text = "有新版本"
+                If MsgBox("有新的版本：Build " & newestver & vbCrLf & "要现在更新吗？", MsgBoxStyle.Question + _
+                MsgBoxStyle.OkCancel, "Runtime Express") = MsgBoxResult.Ok Then
+                    System.Diagnostics.Process.Start("http://pan.baidu.com/s/1o6jULke")
+                Else : CheckUpdate.Text = "检查更新"
+                End If
             End If
+            '判断
+        ElseIf UpdateChannel = "Developer" Then
+            MsgBox("你现在使用的是开发版本，软件更新已禁用。", MsgBoxStyle.Exclamation, "Runtime Express")
         End If
-        '判断
-
-
-
     End Sub
 
 End Class
