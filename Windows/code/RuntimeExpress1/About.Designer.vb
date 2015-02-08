@@ -54,7 +54,7 @@ Partial Class About
         Me.AboutText2.Name = "AboutText2"
         Me.AboutText2.Size = New System.Drawing.Size(191, 42)
         Me.AboutText2.TabIndex = 2
-        Me.AboutText2.Text = "版本：1.5-dev5（1522）" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "编译日期：2015-2-8"
+        Me.AboutText2.Text = "版本：1.5-dev5（1521）" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "编译日期：2015-2-8"
         '
         'CheckUpdate
         '

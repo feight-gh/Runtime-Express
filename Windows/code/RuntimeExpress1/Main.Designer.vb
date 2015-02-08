@@ -845,8 +845,8 @@ Partial Class RuntimeExpressMain
         '
         Me.StatusText1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.StatusText1.Name = "StatusText1"
-        Me.StatusText1.Size = New System.Drawing.Size(268, 17)
-        Me.StatusText1.Text = "Runtime Express 1.5(14122dev5)，开发版本。"
+        Me.StatusText1.Size = New System.Drawing.Size(261, 17)
+        Me.StatusText1.Text = "Runtime Express 1.5(1521dev5)。开发版本。"
         '
         'ShowAbout
         '
