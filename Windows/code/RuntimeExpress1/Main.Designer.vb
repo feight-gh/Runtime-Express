@@ -84,14 +84,11 @@ Partial Class RuntimeExpressMain
         Me.dxolmode = New System.Windows.Forms.CheckBox()
         Me.RuntimeFilter = New System.Windows.Forms.GroupBox()
         Me.ResetFilter1 = New System.Windows.Forms.Button()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.CheckUpdate = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.AboutUs = New System.Windows.Forms.TextBox()
         Me.Installer1 = New System.ComponentModel.BackgroundWorker()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatusText1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TipsBox1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ShowAbout = New System.Windows.Forms.Button()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -107,8 +104,6 @@ Partial Class RuntimeExpressMain
         Me.DllAssistant.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.RuntimeFilter.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -736,7 +731,6 @@ Partial Class RuntimeExpressMain
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.TabControl1.ItemSize = New System.Drawing.Size(120, 30)
         Me.TabControl1.Location = New System.Drawing.Point(12, 1)
@@ -834,56 +828,6 @@ Partial Class RuntimeExpressMain
         Me.ResetFilter1.Text = "重置筛选器"
         Me.ResetFilter1.UseVisualStyleBackColor = True
         '
-        'TabPage4
-        '
-        Me.TabPage4.BackColor = System.Drawing.SystemColors.Control
-        Me.TabPage4.Controls.Add(Me.CheckUpdate)
-        Me.TabPage4.Controls.Add(Me.PictureBox1)
-        Me.TabPage4.Controls.Add(Me.AboutUs)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 34)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(595, 309)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "关于"
-        '
-        'CheckUpdate
-        '
-        Me.CheckUpdate.BackColor = System.Drawing.Color.DeepSkyBlue
-        Me.CheckUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckUpdate.ForeColor = System.Drawing.Color.Transparent
-        Me.CheckUpdate.Location = New System.Drawing.Point(448, 11)
-        Me.CheckUpdate.Name = "CheckUpdate"
-        Me.CheckUpdate.Size = New System.Drawing.Size(140, 37)
-        Me.CheckUpdate.TabIndex = 4
-        Me.CheckUpdate.Text = "检查更新"
-        Me.CheckUpdate.UseVisualStyleBackColor = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(594, 64)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 3
-        Me.PictureBox1.TabStop = False
-        '
-        'AboutUs
-        '
-        Me.AboutUs.BackColor = System.Drawing.Color.Black
-        Me.AboutUs.Font = New System.Drawing.Font("微软雅黑", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.AboutUs.ForeColor = System.Drawing.Color.White
-        Me.AboutUs.Location = New System.Drawing.Point(0, 64)
-        Me.AboutUs.Multiline = True
-        Me.AboutUs.Name = "AboutUs"
-        Me.AboutUs.ReadOnly = True
-        Me.AboutUs.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.AboutUs.Size = New System.Drawing.Size(594, 243)
-        Me.AboutUs.TabIndex = 2
-        Me.AboutUs.TabStop = False
-        Me.AboutUs.Text = resources.GetString("AboutUs.Text")
-        '
         'Installer1
         '
         Me.Installer1.WorkerReportsProgress = True
@@ -902,16 +846,26 @@ Partial Class RuntimeExpressMain
         Me.StatusText1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.StatusText1.Name = "StatusText1"
         Me.StatusText1.Size = New System.Drawing.Size(268, 17)
-        Me.StatusText1.Text = "Runtime Express 1.5(14121dev4)，开发版本。"
+        Me.StatusText1.Text = "Runtime Express 1.5(14122dev5)，开发版本。"
+        '
+        'ShowAbout
+        '
+        Me.ShowAbout.Location = New System.Drawing.Point(497, 2)
+        Me.ShowAbout.Name = "ShowAbout"
+        Me.ShowAbout.Size = New System.Drawing.Size(114, 27)
+        Me.ShowAbout.TabIndex = 7
+        Me.ShowAbout.Text = "关于"
+        Me.ShowAbout.UseVisualStyleBackColor = True
         '
         'RuntimeExpressMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(629, 421)
+        Me.Controls.Add(Me.ShowAbout)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.InstNow1)
+        Me.Controls.Add(Me.TabControl1)
         Me.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -945,9 +899,6 @@ Partial Class RuntimeExpressMain
         Me.GroupBox2.PerformLayout()
         Me.RuntimeFilter.ResumeLayout(False)
         Me.RuntimeFilter.PerformLayout()
-        Me.TabPage4.ResumeLayout(False)
-        Me.TabPage4.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -1000,13 +951,9 @@ Partial Class RuntimeExpressMain
     Friend WithEvents fsharp1 As System.Windows.Forms.CheckBox
     Friend WithEvents jsharp1 As System.Windows.Forms.CheckBox
     Friend WithEvents dotnet As System.Windows.Forms.CheckBox
-    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
-    Friend WithEvents AboutUs As System.Windows.Forms.TextBox
     Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents dxolmode As System.Windows.Forms.CheckBox
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents CheckUpdate As System.Windows.Forms.Button
     Friend WithEvents dismDotNet As System.Windows.Forms.CheckBox
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
     Friend WithEvents StatusText1 As System.Windows.Forms.ToolStripStatusLabel
@@ -1022,5 +969,6 @@ Partial Class RuntimeExpressMain
     Friend WithEvents WelcomeText1 As System.Windows.Forms.Label
     Friend WithEvents WelcomeText3_1 As System.Windows.Forms.Label
     Friend WithEvents TipsBox1 As System.Windows.Forms.ToolTip
+    Friend WithEvents ShowAbout As System.Windows.Forms.Button
 
 End Class
