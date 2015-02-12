@@ -45,8 +45,8 @@ Partial Class RuntimeExpressMain
         Me.fsharp1 = New System.Windows.Forms.CheckBox()
         Me.jsharp1 = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Java72 = New System.Windows.Forms.CheckBox()
-        Me.Java71 = New System.Windows.Forms.CheckBox()
+        Me.Java82 = New System.Windows.Forms.CheckBox()
+        Me.Java81 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.VC20131 = New System.Windows.Forms.CheckBox()
         Me.VC20132 = New System.Windows.Forms.CheckBox()
@@ -80,15 +80,20 @@ Partial Class RuntimeExpressMain
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.DllAssistant = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.dismDotNet = New System.Windows.Forms.CheckBox()
         Me.dxolmode = New System.Windows.Forms.CheckBox()
         Me.RuntimeFilter = New System.Windows.Forms.GroupBox()
         Me.ResetFilter1 = New System.Windows.Forms.Button()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.VisitGithub = New System.Windows.Forms.Button()
+        Me.CheckUpdate = New System.Windows.Forms.Button()
+        Me.CpoyrightText = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.AboutText2 = New System.Windows.Forms.Label()
+        Me.AboutText1 = New System.Windows.Forms.Label()
         Me.Installer1 = New System.ComponentModel.BackgroundWorker()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatusText1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TipsBox1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ShowAbout = New System.Windows.Forms.Button()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -104,6 +109,8 @@ Partial Class RuntimeExpressMain
         Me.DllAssistant.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.RuntimeFilter.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -357,8 +364,8 @@ Partial Class RuntimeExpressMain
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.Java72)
-        Me.GroupBox3.Controls.Add(Me.Java71)
+        Me.GroupBox3.Controls.Add(Me.Java82)
+        Me.GroupBox3.Controls.Add(Me.Java81)
         Me.GroupBox3.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(7, 211)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -369,27 +376,27 @@ Partial Class RuntimeExpressMain
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Java"
         '
-        'Java72
+        'Java82
         '
-        Me.Java72.AutoSize = True
-        Me.Java72.Location = New System.Drawing.Point(234, 27)
-        Me.Java72.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Java72.Name = "Java72"
-        Me.Java72.Size = New System.Drawing.Size(123, 21)
-        Me.Java72.TabIndex = 1
-        Me.Java72.Text = "8 Update 25 x64"
-        Me.Java72.UseVisualStyleBackColor = True
+        Me.Java82.AutoSize = True
+        Me.Java82.Location = New System.Drawing.Point(234, 27)
+        Me.Java82.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Java82.Name = "Java82"
+        Me.Java82.Size = New System.Drawing.Size(123, 21)
+        Me.Java82.TabIndex = 1
+        Me.Java82.Text = "8 Update 25 x64"
+        Me.Java82.UseVisualStyleBackColor = True
         '
-        'Java71
+        'Java81
         '
-        Me.Java71.AutoSize = True
-        Me.Java71.Location = New System.Drawing.Point(20, 27)
-        Me.Java71.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Java71.Name = "Java71"
-        Me.Java71.Size = New System.Drawing.Size(123, 21)
-        Me.Java71.TabIndex = 0
-        Me.Java71.Text = "8 Update 25 x86"
-        Me.Java71.UseVisualStyleBackColor = True
+        Me.Java81.AutoSize = True
+        Me.Java81.Location = New System.Drawing.Point(20, 27)
+        Me.Java81.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Java81.Name = "Java81"
+        Me.Java81.Size = New System.Drawing.Size(123, 21)
+        Me.Java81.TabIndex = 0
+        Me.Java81.Text = "8 Update 25 x86"
+        Me.Java81.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
@@ -731,6 +738,7 @@ Partial Class RuntimeExpressMain
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.TabControl1.ItemSize = New System.Drawing.Size(120, 30)
         Me.TabControl1.Location = New System.Drawing.Point(12, 1)
@@ -770,27 +778,13 @@ Partial Class RuntimeExpressMain
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.dismDotNet)
         Me.GroupBox2.Controls.Add(Me.dxolmode)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 293)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(555, 91)
+        Me.GroupBox2.Size = New System.Drawing.Size(555, 60)
         Me.GroupBox2.TabIndex = 0
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "安装选项"
-        '
-        'dismDotNet
-        '
-        Me.dismDotNet.AutoSize = True
-        Me.dismDotNet.ForeColor = System.Drawing.Color.DodgerBlue
-        Me.dismDotNet.Location = New System.Drawing.Point(6, 52)
-        Me.dismDotNet.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.dismDotNet.Name = "dismDotNet"
-        Me.dismDotNet.Size = New System.Drawing.Size(223, 21)
-        Me.dismDotNet.TabIndex = 3
-        Me.dismDotNet.Text = "使用dism安装.net Framework【?】"
-        Me.TipsBox1.SetToolTip(Me.dismDotNet, "【提示】仅适用于Windows 8.1！安装过程中请不要中断安装，使用dism安装后必须重启。将会同时安装.net Framework 3.5。")
-        Me.dismDotNet.UseVisualStyleBackColor = True
         '
         'dxolmode
         '
@@ -828,6 +822,94 @@ Partial Class RuntimeExpressMain
         Me.ResetFilter1.Text = "重置筛选器"
         Me.ResetFilter1.UseVisualStyleBackColor = True
         '
+        'TabPage4
+        '
+        Me.TabPage4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.TabPage4.Controls.Add(Me.VisitGithub)
+        Me.TabPage4.Controls.Add(Me.CheckUpdate)
+        Me.TabPage4.Controls.Add(Me.CpoyrightText)
+        Me.TabPage4.Controls.Add(Me.PictureBox1)
+        Me.TabPage4.Controls.Add(Me.AboutText2)
+        Me.TabPage4.Controls.Add(Me.AboutText1)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 34)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Size = New System.Drawing.Size(595, 309)
+        Me.TabPage4.TabIndex = 5
+        Me.TabPage4.Text = "关于"
+        '
+        'VisitGithub
+        '
+        Me.VisitGithub.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.VisitGithub.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.VisitGithub.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.VisitGithub.ForeColor = System.Drawing.Color.Transparent
+        Me.VisitGithub.Location = New System.Drawing.Point(304, 269)
+        Me.VisitGithub.Name = "VisitGithub"
+        Me.VisitGithub.Size = New System.Drawing.Size(140, 37)
+        Me.VisitGithub.TabIndex = 11
+        Me.VisitGithub.Text = "转到 Github"
+        Me.VisitGithub.UseVisualStyleBackColor = False
+        '
+        'CheckUpdate
+        '
+        Me.CheckUpdate.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.CheckUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheckUpdate.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.CheckUpdate.ForeColor = System.Drawing.Color.Transparent
+        Me.CheckUpdate.Location = New System.Drawing.Point(450, 269)
+        Me.CheckUpdate.Name = "CheckUpdate"
+        Me.CheckUpdate.Size = New System.Drawing.Size(140, 37)
+        Me.CheckUpdate.TabIndex = 10
+        Me.CheckUpdate.Text = "检查更新"
+        Me.CheckUpdate.UseVisualStyleBackColor = False
+        '
+        'CpoyrightText
+        '
+        Me.CpoyrightText.BackColor = System.Drawing.SystemColors.Control
+        Me.CpoyrightText.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.CpoyrightText.ForeColor = System.Drawing.Color.Black
+        Me.CpoyrightText.Location = New System.Drawing.Point(4, 237)
+        Me.CpoyrightText.Name = "CpoyrightText"
+        Me.CpoyrightText.Size = New System.Drawing.Size(329, 69)
+        Me.CpoyrightText.TabIndex = 12
+        Me.CpoyrightText.Text = "使用Visual Basic 2013开发。基于.net Framework 3.5.1。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "在分发程序副本时请注明来源。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "©Feight Software" & _
+    " 2015,All rights reserved."
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(464, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(128, 128)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
+        '
+        'AboutText2
+        '
+        Me.AboutText2.AutoSize = True
+        Me.AboutText2.BackColor = System.Drawing.Color.Transparent
+        Me.AboutText2.Font = New System.Drawing.Font("微软雅黑", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.AboutText2.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.AboutText2.Location = New System.Drawing.Point(3, 44)
+        Me.AboutText2.Name = "AboutText2"
+        Me.AboutText2.Size = New System.Drawing.Size(301, 63)
+        Me.AboutText2.TabIndex = 4
+        Me.AboutText2.Text = "版本：1.5（1522）" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "编译日期：2015-2-11" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "制作者：Feight（百度：@无影无形F8）"
+        '
+        'AboutText1
+        '
+        Me.AboutText1.BackColor = System.Drawing.Color.Transparent
+        Me.AboutText1.Font = New System.Drawing.Font("微软雅黑 Light", 26.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(134, Byte))
+        Me.AboutText1.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.AboutText1.Location = New System.Drawing.Point(1, -1)
+        Me.AboutText1.Name = "AboutText1"
+        Me.AboutText1.Size = New System.Drawing.Size(589, 45)
+        Me.AboutText1.TabIndex = 3
+        Me.AboutText1.Text = "Runtime Express（Developer）"
+        Me.AboutText1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Installer1
         '
         Me.Installer1.WorkerReportsProgress = True
@@ -845,24 +927,14 @@ Partial Class RuntimeExpressMain
         '
         Me.StatusText1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.StatusText1.Name = "StatusText1"
-        Me.StatusText1.Size = New System.Drawing.Size(261, 17)
-        Me.StatusText1.Text = "Runtime Express 1.5(1521dev5)。开发版本。"
-        '
-        'ShowAbout
-        '
-        Me.ShowAbout.Location = New System.Drawing.Point(497, 2)
-        Me.ShowAbout.Name = "ShowAbout"
-        Me.ShowAbout.Size = New System.Drawing.Size(114, 27)
-        Me.ShowAbout.TabIndex = 7
-        Me.ShowAbout.Text = "关于"
-        Me.ShowAbout.UseVisualStyleBackColor = True
+        Me.StatusText1.Size = New System.Drawing.Size(233, 17)
+        Me.StatusText1.Text = "Runtime Express 1.5(1522)。正式版本。"
         '
         'RuntimeExpressMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(629, 421)
-        Me.Controls.Add(Me.ShowAbout)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.InstNow1)
         Me.Controls.Add(Me.TabControl1)
@@ -899,6 +971,9 @@ Partial Class RuntimeExpressMain
         Me.GroupBox2.PerformLayout()
         Me.RuntimeFilter.ResumeLayout(False)
         Me.RuntimeFilter.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -920,8 +995,8 @@ Partial Class RuntimeExpressMain
     Friend WithEvents DX9 As System.Windows.Forms.CheckBox
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents Java72 As System.Windows.Forms.CheckBox
-    Friend WithEvents Java71 As System.Windows.Forms.CheckBox
+    Friend WithEvents Java82 As System.Windows.Forms.CheckBox
+    Friend WithEvents Java81 As System.Windows.Forms.CheckBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents VC20131 As System.Windows.Forms.CheckBox
     Friend WithEvents VC20132 As System.Windows.Forms.CheckBox
@@ -954,7 +1029,6 @@ Partial Class RuntimeExpressMain
     Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents dxolmode As System.Windows.Forms.CheckBox
-    Friend WithEvents dismDotNet As System.Windows.Forms.CheckBox
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
     Friend WithEvents StatusText1 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents RuntimeFilter As System.Windows.Forms.GroupBox
@@ -969,6 +1043,12 @@ Partial Class RuntimeExpressMain
     Friend WithEvents WelcomeText1 As System.Windows.Forms.Label
     Friend WithEvents WelcomeText3_1 As System.Windows.Forms.Label
     Friend WithEvents TipsBox1 As System.Windows.Forms.ToolTip
-    Friend WithEvents ShowAbout As System.Windows.Forms.Button
+    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
+    Friend WithEvents AboutText2 As System.Windows.Forms.Label
+    Friend WithEvents AboutText1 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents VisitGithub As System.Windows.Forms.Button
+    Friend WithEvents CheckUpdate As System.Windows.Forms.Button
+    Friend WithEvents CpoyrightText As System.Windows.Forms.Label
 
 End Class

@@ -96,17 +96,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="About.Designer.vb">
-      <DependentUpon>About.vb</DependentUpon>
-    </Compile>
-    <Compile Include="About.vb">
+    <Compile Include="RuntimeExpressMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main.Designer.vb">
-      <DependentUpon>Main.vb</DependentUpon>
+    <Compile Include="RuntimeExpressMain.Designer.vb">
+      <DependentUpon>RuntimeExpressMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -126,11 +120,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="About.resx">
-      <DependentUpon>About.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.vb</DependentUpon>
+    <EmbeddedResource Include="RuntimeExpressMain.resx">
+      <DependentUpon>RuntimeExpressMain.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

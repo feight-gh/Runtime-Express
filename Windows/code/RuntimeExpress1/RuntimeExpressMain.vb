@@ -10,6 +10,43 @@ Public Class RuntimeExpressMain
 
     '<BEGINNING>奇怪的代码块
     '//////////////////////////////
+    Private Sub FeightUpdate()
+        Dim UpdateChannel As String = "Release"
+
+        If UpdateChannel = "Release" Then
+            CheckUpdate.Text = "请稍后" '更新按钮上的提示信息
+
+            Const checkserver As String = "https://raw.githubusercontent.com/feight-github/Runtime-Express/master/Windows/version"
+            Dim stream As IO.Stream
+            Dim sr
+            Dim newestver
+            '进行一系列的变量/常量定义，以便进行验证操作
+
+
+            stream = WebRequest.Create(checkserver).GetResponse().GetResponseStream()
+            sr = New StreamReader(stream, System.Text.Encoding.UTF8)
+            newestver = Regex.Match(sr.ReadToEnd, "[\s\S]{4,5}").ToString
+            '使用sr.readtoend读取网页流到末尾，即使用正则表达式从网页流中提取版本号
+            '读取网页内容头部分后4和5字节内容，刚好足够版本号使用，然后赋值给变量CheckUpdate
+
+            sr.Dispose() '关闭流
+
+            If newestver = 1522 Then
+                CheckUpdate.Text = "已是最新"
+            Else
+                CheckUpdate.Text = "有新版本"
+                If MsgBox("有新的版本：Build " & newestver & vbCrLf & "要现在更新吗？", MsgBoxStyle.Question + _
+                MsgBoxStyle.OkCancel, "Runtime Express") = MsgBoxResult.Ok Then
+                    System.Diagnostics.Process.Start("http://pan.baidu.com/s/1o6jULke")
+                Else : CheckUpdate.Text = "检查更新"
+                End If
+            End If
+            '判断
+        ElseIf UpdateChannel = "Developer" Then
+            MsgBox("你现在使用的是开发版本，软件更新已禁用。", MsgBoxStyle.Exclamation, "Runtime Express")
+        End If
+    End Sub
+
     Private Function rexist(ByVal rPath As String) As Boolean
         rexist = System.IO.File.Exists(rPath)
     End Function
@@ -22,10 +59,8 @@ Public Class RuntimeExpressMain
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
-
         ScreenRE1.SelectedIndex = 0
         DllHelper1.SelectedIndex = 0
-
     End Sub
 
     Private Sub InstNow1_Click(sender As Object, e As EventArgs) Handles InstNow1.Click
@@ -58,8 +93,8 @@ Public Class RuntimeExpressMain
         VC20122.Checked = False
         VC20131.Checked = False
         VC20132.Checked = False
-        Java71.Checked = False
-        Java72.Checked = False
+        Java81.Checked = False
+        Java82.Checked = False
         XNA2.Checked = False
         XNA31.Checked = False
         XNA4.Checked = False
@@ -79,8 +114,8 @@ Public Class RuntimeExpressMain
         VC20122.Enabled = True
         VC20131.Enabled = True
         VC20132.Enabled = True
-        Java71.Enabled = True
-        Java72.Enabled = True
+        Java81.Enabled = True
+        Java82.Enabled = True
         XNA2.Enabled = True
         XNA31.Enabled = True
         XNA4.Enabled = True
@@ -106,8 +141,8 @@ Public Class RuntimeExpressMain
             VC20122.Enabled = False
             VC20131.Enabled = True
             VC20132.Enabled = False
-            Java71.Enabled = True
-            Java72.Enabled = False
+            Java81.Enabled = True
+            Java82.Enabled = False
             msxml1.Enabled = True
             msxml2.Enabled = False
             '禁用不适合的选项
@@ -122,8 +157,8 @@ Public Class RuntimeExpressMain
             VC20122.Enabled = True
             VC20131.Enabled = True
             VC20132.Enabled = True
-            Java71.Enabled = True
-            Java72.Enabled = True
+            Java81.Enabled = True
+            Java82.Enabled = True
             msxml1.Enabled = True
             msxml2.Enabled = False
             '禁用不适合的选项
@@ -138,8 +173,8 @@ Public Class RuntimeExpressMain
             VC20122.Enabled = False
             VC20131.Enabled = True
             VC20132.Enabled = False
-            Java71.Enabled = True
-            Java72.Enabled = False
+            Java81.Enabled = True
+            Java82.Enabled = False
             msxml1.Enabled = True
             msxml2.Enabled = False
             '禁用不适合的选项
@@ -154,8 +189,8 @@ Public Class RuntimeExpressMain
             VC20122.Enabled = True
             VC20131.Enabled = True
             VC20132.Enabled = True
-            Java71.Enabled = True
-            Java72.Enabled = True
+            Java81.Enabled = True
+            Java82.Enabled = True
             msxml1.Enabled = True
             msxml2.Enabled = False
             '禁用不适合的选项
@@ -170,8 +205,8 @@ Public Class RuntimeExpressMain
             VC20122.Enabled = False
             VC20131.Enabled = True
             VC20132.Enabled = False
-            Java71.Enabled = True
-            Java72.Enabled = False
+            Java81.Enabled = True
+            Java82.Enabled = False
             msxml1.Enabled = True
             msxml2.Enabled = False
             '禁用不适合的选项
@@ -186,8 +221,8 @@ Public Class RuntimeExpressMain
             VC20122.Enabled = True
             VC20131.Enabled = True
             VC20132.Enabled = True
-            Java71.Enabled = True
-            Java72.Enabled = True
+            Java81.Enabled = True
+            Java82.Enabled = True
             msxml1.Enabled = True
             msxml2.Enabled = True
             '禁用不适合的选项
@@ -206,8 +241,8 @@ Public Class RuntimeExpressMain
                 VC20122.Checked = False
                 VC20131.Checked = False
                 VC20132.Checked = False
-                Java71.Checked = False
-                Java72.Checked = False
+                Java81.Checked = False
+                Java82.Checked = False
                 '自动勾选
             ElseIf OSver = "Windows Vista x64" Then
                 VC20051.Checked = True
@@ -220,8 +255,8 @@ Public Class RuntimeExpressMain
                 VC20122.Checked = True
                 VC20131.Checked = False
                 VC20132.Checked = False
-                Java71.Checked = False
-                Java72.Checked = False
+                Java81.Checked = False
+                Java82.Checked = False
                 '自动勾选
             ElseIf OSver = "Windows 7 x86" Then
                 VC20051.Checked = True
@@ -234,8 +269,8 @@ Public Class RuntimeExpressMain
                 VC20122.Checked = False
                 VC20131.Checked = False
                 VC20132.Checked = False
-                Java71.Checked = False
-                Java72.Checked = False
+                Java81.Checked = False
+                Java82.Checked = False
                 '自动勾选
             ElseIf OSver = "Windows 7 x64" Then
                 VC20051.Checked = True
@@ -248,8 +283,8 @@ Public Class RuntimeExpressMain
                 VC20122.Checked = True
                 VC20131.Checked = False
                 VC20132.Checked = False
-                Java71.Checked = False
-                Java72.Checked = False
+                Java81.Checked = False
+                Java82.Checked = False
                 '自动勾选
             ElseIf OSver = "Windows 8/8.1 x86" Then
                 VC20051.Checked = True
@@ -262,8 +297,8 @@ Public Class RuntimeExpressMain
                 VC20122.Checked = False
                 VC20131.Checked = False
                 VC20132.Checked = False
-                Java71.Checked = False
-                Java72.Checked = False
+                Java81.Checked = False
+                Java82.Checked = False
                 '自动勾选
             ElseIf OSver = "Windows 8/8.1 x64" Then
                 VC20051.Checked = True
@@ -276,8 +311,8 @@ Public Class RuntimeExpressMain
                 VC20122.Checked = True
                 VC20131.Checked = False
                 VC20132.Checked = False
-                Java71.Checked = False
-                Java72.Checked = False
+                Java81.Checked = False
+                Java82.Checked = False
                 '自动勾选
             Else
                 MsgBox("请选择一个选项")
@@ -297,8 +332,8 @@ Public Class RuntimeExpressMain
         VC20122.Checked = False
         VC20131.Checked = False
         VC20132.Checked = False
-        Java71.Checked = False
-        Java72.Checked = False
+        Java81.Checked = False
+        Java82.Checked = False
         XNA2.Checked = False
         XNA31.Checked = False
         XNA4.Checked = False
@@ -318,8 +353,8 @@ Public Class RuntimeExpressMain
         VC20122.Enabled = True
         VC20131.Enabled = True
         VC20132.Enabled = True
-        Java71.Enabled = True
-        Java72.Enabled = True
+        Java81.Enabled = True
+        Java82.Enabled = True
         XNA2.Enabled = True
         XNA31.Enabled = True
         XNA4.Enabled = True
@@ -354,8 +389,8 @@ Public Class RuntimeExpressMain
     End Sub
 
     Private Sub DllHelper2_Click(sender As Object, e As EventArgs) Handles DllHelper2.Click
-        MsgBox("Google大法好，删RE保平安", MsgBoxStyle.Exclamation, "Runtime Express")
-        Shell("explorer.exe " & " https://www.google.com.hk")
+        MsgBox("你为什么不问问神奇的度娘呢？", MsgBoxStyle.Information, "Runtime Express")
+        Shell("explorer.exe " & " http://www.baidu.com")
     End Sub
 
     Private Sub Installer1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles Installer1.DoWork
@@ -365,13 +400,6 @@ Public Class RuntimeExpressMain
         If dotnet.Checked Then
             If rexist(rPath & "\uruntime\dotnet.exe") Then
                 System.Diagnostics.Process.Start("uruntime\dotnet.exe").WaitForExit()
-            Else : instErr = True
-            End If
-        End If
-
-        If VC20051.Checked Then
-            If rexist(rPath & "\uruntime\vc2005_x86.exe") Then
-                System.Diagnostics.Process.Start("uruntime\vc2005_x86.exe").WaitForExit()
             Else : instErr = True
             End If
         End If
@@ -399,7 +427,7 @@ Public Class RuntimeExpressMain
 
         If VC20082.Checked Then
             If rexist(rPath & "\uruntime\vc2008_x64.exe") Then
-                System.Diagnostics.Process.Start("uruntime\vc2005_x64.exe").WaitForExit()
+                System.Diagnostics.Process.Start("uruntime\vc2008_x64.exe").WaitForExit()
             Else : instErr = True
             End If
         End If
@@ -432,14 +460,14 @@ Public Class RuntimeExpressMain
             End If
         End If
 
-        If Java71.Checked Then
+        If Java81.Checked Then
             If rexist(rPath & "\uruntime\jre8_x86.exe") Then
                 System.Diagnostics.Process.Start("uruntime\jre8_x86.exe").WaitForExit()
             Else : instErr = True
             End If
         End If
 
-        If Java72.Checked Then
+        If Java82.Checked Then
             If rexist(rPath & "\uruntime\jre8_x64.exe") Then
                 System.Diagnostics.Process.Start("uruntime\jre8_x64.exe").WaitForExit()
             Else : instErr = True
@@ -543,15 +571,11 @@ Public Class RuntimeExpressMain
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
+    Private Sub VisitGithub_Click(sender As Object, e As EventArgs) Handles VisitGithub.Click
+        Shell("explorer.exe " & " https://github.com/feight-github")
+    End Sub
+
+    Private Sub CheckUpdate_Click(sender As Object, e As EventArgs) Handles CheckUpdate.Click
         FeightUpdate()
-    End Sub
-
-    Private Sub FeightUpdate()
-        Throw New NotImplementedException
-    End Sub
-
-    Private Sub ShowAbout_Click(sender As Object, e As EventArgs) Handles ShowAbout.Click
-        About.Show()
     End Sub
 End Class

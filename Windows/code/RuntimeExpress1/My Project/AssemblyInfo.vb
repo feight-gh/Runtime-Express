@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("一款运行库集成安装器")> 
 <Assembly: AssemblyCompany("Feight Software")> 
 <Assembly: AssemblyProduct("Runtime Express")> 
-<Assembly: AssemblyCopyright("Copyright © Feight Soft 2014")> 
+<Assembly: AssemblyCopyright("Copyright © Feight Software 2015")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' 方法是按如下所示使用“*”: 
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.4.7.2")> 
-<Assembly: AssemblyFileVersion("1.3.1.0")> 
+<Assembly: AssemblyVersion("1.5.2.2")> 
+<Assembly: AssemblyFileVersion("1.5.0.0")> 
