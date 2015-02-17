@@ -4,7 +4,7 @@ Runtime Express —— 大量软件的运行平台的安装器
 
 >VC++ 2005 2008 2010 2012 2013 x86 & x64
 
->.net Framework 4.5.1
+>.net Framework 4.5.2
 
 >DirectX 9c
 
@@ -18,7 +18,7 @@ Runtime Express —— 大量软件的运行平台的安装器
 
 >Microsoft XNA 2.0 3.1 4.0
 
->Java 7 Update 51 x86 & x64
+>Java 8 Update 25 x86 & x64
 
 我只上传了主程序和源代码到GitHub。但是这其实是不够的！你还需要上述的东西。关于这些，请在 http://pan.baidu.com/s/1o6jULke 下载。
 
