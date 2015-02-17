@@ -11,40 +11,48 @@ Public Class RuntimeExpressMain
     '<BEGINNING>奇怪的代码块
     '//////////////////////////////
     Private Sub FeightUpdate()
-        Dim UpdateChannel As String = "Release"
+        Try
+            Dim UpdateChannel As String = "Release"
 
-        If UpdateChannel = "Release" Then
-            CheckUpdate.Text = "请稍后" '更新按钮上的提示信息
+            If UpdateChannel = "Release" Then
+                CheckUpdate.Text = "请稍后" '更新按钮上的提示信息
 
-            Const checkserver As String = "https://raw.githubusercontent.com/feight-github/Runtime-Express/master/Windows/version"
-            Dim stream As IO.Stream
-            Dim sr
-            Dim newestver
-            '进行一系列的变量/常量定义，以便进行验证操作
+                Const checkserver As String = "https://raw.githubusercontent.com/feight-github/Runtime-Express/master/Windows/version"
+                Dim stream As IO.Stream
+                Dim sr
+                Dim newestver
+                '进行一系列的变量/常量定义，以便进行验证操作
 
 
-            stream = WebRequest.Create(checkserver).GetResponse().GetResponseStream()
-            sr = New StreamReader(stream, System.Text.Encoding.UTF8)
-            newestver = Regex.Match(sr.ReadToEnd, "[\s\S]{4,5}").ToString
-            '使用sr.readtoend读取网页流到末尾，即使用正则表达式从网页流中提取版本号
-            '读取网页内容头部分后4和5字节内容，刚好足够版本号使用，然后赋值给变量CheckUpdate
+                stream = WebRequest.Create(checkserver).GetResponse().GetResponseStream()
+                sr = New StreamReader(stream, System.Text.Encoding.UTF8)
+                newestver = Regex.Match(sr.ReadToEnd, "[\s\S]{4,5}").ToString
+                '使用sr.readtoend读取网页流到末尾，即使用正则表达式从网页流中提取版本号
+                '读取网页内容头部分后4和5字节内容，刚好足够版本号使用，然后赋值给变量CheckUpdate
 
-            sr.Dispose() '关闭流
+                sr.Dispose() '关闭流
 
-            If newestver = 1522 Then
-                CheckUpdate.Text = "已是最新"
-            Else
-                CheckUpdate.Text = "有新版本"
-                If MsgBox("有新的版本：Build " & newestver & vbCrLf & "要现在更新吗？", MsgBoxStyle.Question + _
-                MsgBoxStyle.OkCancel, "Runtime Express") = MsgBoxResult.Ok Then
-                    System.Diagnostics.Process.Start("http://pan.baidu.com/s/1o6jULke")
-                Else : CheckUpdate.Text = "检查更新"
+                If newestver = 1523 Then
+                    CheckUpdate.Text = "已是最新"
+                    StatusText1.Text = "有新的版本可供更新。查看关于选项卡以获得更多信息。"
+                Else
+                    CheckUpdate.Text = "有新版本"
+                    If MsgBox("有新的版本：Build " & newestver & vbCrLf & "要现在更新吗？", MsgBoxStyle.Question + _
+                    MsgBoxStyle.OkCancel, "Runtime Express") = MsgBoxResult.Ok Then
+                        System.Diagnostics.Process.Start("http://pan.baidu.com/s/1o6jULke")
+                    Else
+                        CheckUpdate.Text = "检查更新"
+                    End If
                 End If
+                '判断
+            ElseIf UpdateChannel = "Developer" Then
+                MsgBox("你现在使用的是开发版本，软件更新已禁用。", MsgBoxStyle.Exclamation, "Runtime Express")
             End If
-            '判断
-        ElseIf UpdateChannel = "Developer" Then
-            MsgBox("你现在使用的是开发版本，软件更新已禁用。", MsgBoxStyle.Exclamation, "Runtime Express")
-        End If
+        Catch
+            CheckUpdate.Text = "检查更新"
+            StatusText1.Text = "Runtime Express，暂时无法连接到更新服务器。"
+            MsgBox("暂时无法连接到更新服务器，请检查网络连接或者稍后再试。", MsgBoxStyle.Exclamation)
+        End Try
     End Sub
 
     Private Function rexist(ByVal rPath As String) As Boolean
@@ -58,9 +66,10 @@ Public Class RuntimeExpressMain
     '<ENDING>奇怪的代码块
 
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub RuntimeExpressMain_Shown(sender As Object, e As EventArgs) Handles Me.Load
         ScreenRE1.SelectedIndex = 0
         DllHelper1.SelectedIndex = 0
+        FeightUpdate()
     End Sub
 
     Private Sub InstNow1_Click(sender As Object, e As EventArgs) Handles InstNow1.Click
@@ -578,4 +587,5 @@ Public Class RuntimeExpressMain
     Private Sub CheckUpdate_Click(sender As Object, e As EventArgs) Handles CheckUpdate.Click
         FeightUpdate()
     End Sub
+
 End Class

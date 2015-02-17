@@ -146,8 +146,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="runtimeexpress.ico" />
-    <Content Include="RuntimeExpressIcon3.ico" />
     <Content Include="RuntimeExpressIcon3_1.ico" />
   </ItemGroup>
   <ItemGroup>

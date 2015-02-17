@@ -91,8 +91,6 @@ Partial Class RuntimeExpressMain
         Me.AboutText2 = New System.Windows.Forms.Label()
         Me.AboutText1 = New System.Windows.Forms.Label()
         Me.Installer1 = New System.ComponentModel.BackgroundWorker()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.StatusText1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TipsBox1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TabPage2.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
@@ -111,7 +109,6 @@ Partial Class RuntimeExpressMain
         Me.RuntimeFilter.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabPage2
@@ -630,7 +627,8 @@ Partial Class RuntimeExpressMain
         '
         'WelcomeText1
         '
-        Me.WelcomeText1.Font = New System.Drawing.Font("微软雅黑 Light", 26.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, CType(134, Byte))
+        Me.WelcomeText1.Font = New System.Drawing.Font("微软雅黑", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.WelcomeText1.ForeColor = System.Drawing.Color.MidnightBlue
         Me.WelcomeText1.Location = New System.Drawing.Point(3, 4)
         Me.WelcomeText1.Name = "WelcomeText1"
         Me.WelcomeText1.Size = New System.Drawing.Size(589, 45)
@@ -680,7 +678,7 @@ Partial Class RuntimeExpressMain
         Me.AutoCheck2.Location = New System.Drawing.Point(6, 76)
         Me.AutoCheck2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.AutoCheck2.Name = "AutoCheck2"
-        Me.AutoCheck2.Size = New System.Drawing.Size(362, 33)
+        Me.AutoCheck2.Size = New System.Drawing.Size(377, 33)
         Me.AutoCheck2.TabIndex = 8
         Me.AutoCheck2.Text = "应用筛选器并重置所有选择项"
         Me.AutoCheck2.UseVisualStyleBackColor = True
@@ -724,7 +722,7 @@ Partial Class RuntimeExpressMain
         'InstNow1
         '
         Me.InstNow1.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.InstNow1.Location = New System.Drawing.Point(31, 356)
+        Me.InstNow1.Location = New System.Drawing.Point(31, 358)
         Me.InstNow1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.InstNow1.Name = "InstNow1"
         Me.InstNow1.Size = New System.Drawing.Size(562, 37)
@@ -815,9 +813,9 @@ Partial Class RuntimeExpressMain
         '
         'ResetFilter1
         '
-        Me.ResetFilter1.Location = New System.Drawing.Point(374, 76)
+        Me.ResetFilter1.Location = New System.Drawing.Point(388, 76)
         Me.ResetFilter1.Name = "ResetFilter1"
-        Me.ResetFilter1.Size = New System.Drawing.Size(174, 33)
+        Me.ResetFilter1.Size = New System.Drawing.Size(160, 33)
         Me.ResetFilter1.TabIndex = 9
         Me.ResetFilter1.Text = "重置筛选器"
         Me.ResetFilter1.UseVisualStyleBackColor = True
@@ -891,7 +889,7 @@ Partial Class RuntimeExpressMain
         Me.AboutText2.AutoSize = True
         Me.AboutText2.BackColor = System.Drawing.Color.Transparent
         Me.AboutText2.Font = New System.Drawing.Font("微软雅黑", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.AboutText2.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.AboutText2.ForeColor = System.Drawing.SystemColors.ControlText
         Me.AboutText2.Location = New System.Drawing.Point(3, 44)
         Me.AboutText2.Name = "AboutText2"
         Me.AboutText2.Size = New System.Drawing.Size(301, 63)
@@ -901,41 +899,24 @@ Partial Class RuntimeExpressMain
         'AboutText1
         '
         Me.AboutText1.BackColor = System.Drawing.Color.Transparent
-        Me.AboutText1.Font = New System.Drawing.Font("微软雅黑 Light", 26.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(134, Byte))
+        Me.AboutText1.Font = New System.Drawing.Font("微软雅黑", 26.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(134, Byte))
         Me.AboutText1.ForeColor = System.Drawing.Color.MidnightBlue
         Me.AboutText1.Location = New System.Drawing.Point(1, -1)
         Me.AboutText1.Name = "AboutText1"
         Me.AboutText1.Size = New System.Drawing.Size(589, 45)
         Me.AboutText1.TabIndex = 3
-        Me.AboutText1.Text = "Runtime Express（Developer）"
+        Me.AboutText1.Text = "Runtime Express"
         Me.AboutText1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Installer1
         '
         Me.Installer1.WorkerReportsProgress = True
         '
-        'StatusStrip1
-        '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StatusText1})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 399)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(629, 22)
-        Me.StatusStrip1.TabIndex = 6
-        Me.StatusStrip1.Text = "StatusStrip1"
-        '
-        'StatusText1
-        '
-        Me.StatusText1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.StatusText1.Name = "StatusText1"
-        Me.StatusText1.Size = New System.Drawing.Size(233, 17)
-        Me.StatusText1.Text = "Runtime Express 1.5(1522)。正式版本。"
-        '
         'RuntimeExpressMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(629, 421)
-        Me.Controls.Add(Me.StatusStrip1)
+        Me.ClientSize = New System.Drawing.Size(629, 408)
         Me.Controls.Add(Me.InstNow1)
         Me.Controls.Add(Me.TabControl1)
         Me.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
@@ -974,10 +955,7 @@ Partial Class RuntimeExpressMain
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.StatusStrip1.ResumeLayout(False)
-        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
@@ -1029,8 +1007,6 @@ Partial Class RuntimeExpressMain
     Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents dxolmode As System.Windows.Forms.CheckBox
-    Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
-    Friend WithEvents StatusText1 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents RuntimeFilter As System.Windows.Forms.GroupBox
     Friend WithEvents DllAssistant As System.Windows.Forms.GroupBox
     Friend WithEvents ResetFilter1 As System.Windows.Forms.Button
