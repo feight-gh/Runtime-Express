@@ -28,13 +28,12 @@ Public Class RuntimeExpressMain
                 sr = New StreamReader(stream, System.Text.Encoding.UTF8)
                 newestver = Regex.Match(sr.ReadToEnd, "[\s\S]{4,5}").ToString
                 '使用sr.readtoend读取网页流到末尾，即使用正则表达式从网页流中提取版本号
-                '读取网页内容头部分后4和5字节内容，刚好足够版本号使用，然后赋值给变量CheckUpdate
+                '读取网页内容头部分后4和5字节内容，刚好足够版本号使用，然后赋值给变量newestver
 
                 sr.Dispose() '关闭流
 
                 If newestver = 1523 Then
                     CheckUpdate.Text = "已是最新"
-                    StatusText1.Text = "有新的版本可供更新。查看关于选项卡以获得更多信息。"
                 Else
                     CheckUpdate.Text = "有新版本"
                     If MsgBox("有新的版本：Build " & newestver & vbCrLf & "要现在更新吗？", MsgBoxStyle.Question + _
@@ -50,7 +49,6 @@ Public Class RuntimeExpressMain
             End If
         Catch
             CheckUpdate.Text = "检查更新"
-            StatusText1.Text = "Runtime Express，暂时无法连接到更新服务器。"
             MsgBox("暂时无法连接到更新服务器，请检查网络连接或者稍后再试。", MsgBoxStyle.Exclamation)
         End Try
     End Sub
@@ -341,6 +339,9 @@ Public Class RuntimeExpressMain
         VC20122.Checked = False
         VC20131.Checked = False
         VC20132.Checked = False
+        dotnet.Checked = False
+        fsharp1.Checked = False
+        jsharp1.Checked = False
         Java81.Checked = False
         Java82.Checked = False
         XNA2.Checked = False
@@ -351,6 +352,8 @@ Public Class RuntimeExpressMain
         mgfw.Checked = False
         mwse.Checked = False
         physx912.Checked = False
+        msxml1.Checked = False
+        msxml2.Checked = False
         '重置所有复选框选择状态
         VC20051.Enabled = True
         VC20052.Enabled = True
@@ -362,6 +365,9 @@ Public Class RuntimeExpressMain
         VC20122.Enabled = True
         VC20131.Enabled = True
         VC20132.Enabled = True
+        dotnet.Enabled = True
+        fsharp1.Enabled = True
+        jsharp1.Enabled = True
         Java81.Enabled = True
         Java82.Enabled = True
         XNA2.Enabled = True
@@ -372,6 +378,8 @@ Public Class RuntimeExpressMain
         mgfw.Enabled = True
         mwse.Enabled = True
         physx912.Enabled = True
+        msxml1.Enabled = True
+        msxml2.Enabled = True
     End Sub
 
     Private Sub DllHelper3_Click(sender As Object, e As EventArgs) Handles DllHelper3.Click

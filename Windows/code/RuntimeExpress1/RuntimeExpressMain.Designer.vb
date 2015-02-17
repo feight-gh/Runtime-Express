@@ -184,9 +184,9 @@ Partial Class RuntimeExpressMain
         Me.mwse.Location = New System.Drawing.Point(6, 58)
         Me.mwse.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.mwse.Name = "mwse"
-        Me.mwse.Size = New System.Drawing.Size(124, 21)
+        Me.mwse.Size = New System.Drawing.Size(214, 38)
         Me.mwse.TabIndex = 1
-        Me.mwse.Text = "Microsoft WSE 3"
+        Me.mwse.Text = "Microsoft WSE 3（Web Services" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Enhancements）"
         Me.mwse.UseVisualStyleBackColor = True
         '
         'mgfw
@@ -275,7 +275,7 @@ Partial Class RuntimeExpressMain
         Me.oal203.Name = "oal203"
         Me.oal203.Size = New System.Drawing.Size(104, 21)
         Me.oal203.TabIndex = 1
-        Me.oal203.Text = "OpenAL 2.0.3"
+        Me.oal203.Text = "OpenAL 2.0.7"
         Me.oal203.UseVisualStyleBackColor = True
         '
         'physx912
@@ -817,7 +817,7 @@ Partial Class RuntimeExpressMain
         Me.ResetFilter1.Name = "ResetFilter1"
         Me.ResetFilter1.Size = New System.Drawing.Size(160, 33)
         Me.ResetFilter1.TabIndex = 9
-        Me.ResetFilter1.Text = "重置筛选器"
+        Me.ResetFilter1.Text = "重置筛选器和选项"
         Me.ResetFilter1.UseVisualStyleBackColor = True
         '
         'TabPage4
@@ -894,7 +894,7 @@ Partial Class RuntimeExpressMain
         Me.AboutText2.Name = "AboutText2"
         Me.AboutText2.Size = New System.Drawing.Size(301, 63)
         Me.AboutText2.TabIndex = 4
-        Me.AboutText2.Text = "版本：1.5（1522）" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "编译日期：2015-2-11" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "制作者：Feight（百度：@无影无形F8）"
+        Me.AboutText2.Text = "版本：1.5.1（Build 1523）" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "编译日期：2015-2-17" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "制作者：Feight（百度：@无影无形F8）"
         '
         'AboutText1
         '
