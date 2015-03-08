@@ -1,28 +1,33 @@
-﻿'下个版本：
-'1.更新dism模式
-
-Imports System.Net
+﻿Imports System.Net
 Imports System.IO
 Imports System.Text.RegularExpressions
 
 Public Class RuntimeExpressMain
 
+    '公用变量
+
+    '程序集信息
+    Public Const Build As Short = 1531
+    Public IsRelease As Boolean = True
+    '更新检查服务器
+    Const checkserver As String = "https://raw.githubusercontent.com/feight-github/Runtime-Express/master/Windows/version"
+
 
     '<BEGINNING>奇怪的代码块
     '//////////////////////////////
     Private Sub FeightUpdate()
+
+
         Try
             Dim UpdateChannel As String = "Release"
 
             If UpdateChannel = "Release" Then
                 CheckUpdate.Text = "请稍后" '更新按钮上的提示信息
 
-                Const checkserver As String = "https://raw.githubusercontent.com/feight-github/Runtime-Express/master/Windows/version"
                 Dim stream As IO.Stream
                 Dim sr
                 Dim newestver
                 '进行一系列的变量/常量定义，以便进行验证操作
-
 
                 stream = WebRequest.Create(checkserver).GetResponse().GetResponseStream()
                 sr = New StreamReader(stream, System.Text.Encoding.UTF8)
@@ -32,18 +37,20 @@ Public Class RuntimeExpressMain
 
                 sr.Dispose() '关闭流
 
-                If newestver = 1523 Then
+                If newestver = Build Then
                     CheckUpdate.Text = "已是最新"
                 Else
                     CheckUpdate.Text = "有新版本"
+
                     If MsgBox("有新的版本：Build " & newestver & vbCrLf & "要现在更新吗？", MsgBoxStyle.Question + _
                     MsgBoxStyle.OkCancel, "Runtime Express") = MsgBoxResult.Ok Then
                         System.Diagnostics.Process.Start("http://pan.baidu.com/s/1o6jULke")
                     Else
                         CheckUpdate.Text = "检查更新"
                     End If
+
                 End If
-                '判断
+
             ElseIf UpdateChannel = "Developer" Then
                 MsgBox("你现在使用的是开发版本，软件更新已禁用。", MsgBoxStyle.Exclamation, "Runtime Express")
             End If
@@ -51,6 +58,8 @@ Public Class RuntimeExpressMain
             CheckUpdate.Text = "检查更新"
             MsgBox("暂时无法连接到更新服务器，请检查网络连接或者稍后再试。", MsgBoxStyle.Exclamation)
         End Try
+
+
     End Sub
 
     Private Function rexist(ByVal rPath As String) As Boolean
@@ -65,30 +74,48 @@ Public Class RuntimeExpressMain
 
 
     Private Sub RuntimeExpressMain_Shown(sender As Object, e As EventArgs) Handles Me.Load
+
+
         ScreenRE1.SelectedIndex = 0
         DllHelper1.SelectedIndex = 0
         FeightUpdate()
+
+
     End Sub
 
     Private Sub InstNow1_Click(sender As Object, e As EventArgs) Handles InstNow1.Click
+
+
         Installer1.RunWorkerAsync()
+
+
     End Sub
 
     Private Sub XNA2_CheckedChanged(sender As Object, e As EventArgs) Handles XNA2.CheckedChanged
+
+
         If XNA2.Checked Then
             DX9.Checked = True
             MsgBox("已经自动勾选了所须的DX 9.0c！", MsgBoxStyle.Exclamation, "提示")
         End If
+
+
     End Sub
 
     Private Sub XNA4_CheckedChanged(sender As Object, e As EventArgs) Handles XNA4.CheckedChanged
+
+
         If XNA4.Checked Then
             dotnet.Checked = True
             MsgBox("已经自动勾选了所须的.net Framework 4.5.2！", MsgBoxStyle.Exclamation, "提示")
         End If
+
+
     End Sub
 
     Private Sub AutoCheck2_Click(sender As Object, e As EventArgs) Handles AutoCheck2.Click
+
+
         '重置复选框状态
         VC20051.Checked = False
         VC20052.Checked = False
@@ -325,6 +352,8 @@ Public Class RuntimeExpressMain
                 MsgBox("请选择一个选项")
             End If
         End If
+
+
     End Sub
 
     Private Sub ResetFilter1_Click(sender As Object, e As EventArgs) Handles ResetFilter1.Click
@@ -383,34 +412,50 @@ Public Class RuntimeExpressMain
     End Sub
 
     Private Sub DllHelper3_Click(sender As Object, e As EventArgs) Handles DllHelper3.Click
+
+
         Dim DllBox As String
         DllBox = DllHelper1.SelectedItem.ToString.Trim
+
         If DllBox = "d3dx9_**.dll" Then
             MsgBox("看起来需要安装或修复DirectX 9c~", MsgBoxStyle.Information, "分析结果")
+
         ElseIf DllBox = "xinput**.dll" Then
             MsgBox("看起来需要安装或修复DirectX 9c~", MsgBoxStyle.Information, "分析结果")
+
         ElseIf DllBox = "XAudio**.dll" Then
             MsgBox("看起来需要安装或修复DirectX 9c~", MsgBoxStyle.Information, "分析结果")
+
         ElseIf DllBox = "xactengine*_*.dll" Then
             MsgBox("看起来需要安装或修复DirectX 9c~", MsgBoxStyle.Information, "分析结果")
+
         ElseIf DllBox = "MSVC**.dll" Then
             MsgBox("看起来需要安装或修复VC++运行库~", MsgBoxStyle.Information, "分析结果")
+
         ElseIf DllBox = "openal32.dll" Then
             MsgBox("看起来需要安装或修复OpenAL~", MsgBoxStyle.Information, "分析结果")
+
         ElseIf DllBox = "PhysXLoader.dll" Then
             MsgBox("看起来需要安装或修复PhysX驱动~", MsgBoxStyle.Information, "分析结果")
+
         ElseIf DllBox = "xlive.dll" Then
             MsgBox("看起来需要安装或修复MGFW~", MsgBoxStyle.Information, "分析结果")
+
         End If
+
 
     End Sub
 
     Private Sub DllHelper2_Click(sender As Object, e As EventArgs) Handles DllHelper2.Click
+
         MsgBox("你为什么不问问神奇的度娘呢？", MsgBoxStyle.Information, "Runtime Express")
         Shell("explorer.exe " & " http://www.baidu.com")
+
     End Sub
 
     Private Sub Installer1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles Installer1.DoWork
+
+
         Dim rPath As String = Application.StartupPath
         Dim instErr As Boolean = False
 
@@ -586,14 +631,24 @@ Public Class RuntimeExpressMain
             MsgBox("已经完成指定的操作！可能需要重新启动计算机更改才会生效。", MsgBoxStyle.Information, "提示")
         Else : MsgBox("有些运行库没有被安装，请检查运行库文件完整性，然后再试一次。", MsgBoxStyle.Critical, "提示")
         End If
+
+
     End Sub
 
     Private Sub VisitGithub_Click(sender As Object, e As EventArgs) Handles VisitGithub.Click
-        Shell("explorer.exe " & " https://github.com/feight-github")
+
+
+        Shell("explorer.exe " & " http://feight-studio.lofter.com/")
+
+
     End Sub
 
     Private Sub CheckUpdate_Click(sender As Object, e As EventArgs) Handles CheckUpdate.Click
+
+
         FeightUpdate()
+
+
     End Sub
 
 End Class

@@ -224,7 +224,7 @@ Partial Class RuntimeExpressMain
         Me.XNA2.Size = New System.Drawing.Size(64, 21)
         Me.XNA2.TabIndex = 3
         Me.XNA2.Text = "2【?】"
-        Me.TipsBox1.SetToolTip(Me.XNA2, "需要先安装DirectX 9.0c！")
+        Me.TipsBox1.SetToolTip(Me.XNA2, "需要先安装DirectX 9.0c。")
         Me.XNA2.UseVisualStyleBackColor = True
         '
         'XNA31
@@ -237,7 +237,7 @@ Partial Class RuntimeExpressMain
         Me.XNA31.Size = New System.Drawing.Size(74, 21)
         Me.XNA31.TabIndex = 1
         Me.XNA31.Text = "3.1【?】"
-        Me.TipsBox1.SetToolTip(Me.XNA31, "需要先安装.net Framework 2！")
+        Me.TipsBox1.SetToolTip(Me.XNA31, "需要先安装.net Framework 2（一般已包含在Windows中）。")
         Me.XNA31.UseVisualStyleBackColor = True
         '
         'XNA4
@@ -250,7 +250,7 @@ Partial Class RuntimeExpressMain
         Me.XNA4.Size = New System.Drawing.Size(64, 21)
         Me.XNA4.TabIndex = 0
         Me.XNA4.Text = "4【?】"
-        Me.TipsBox1.SetToolTip(Me.XNA4, "需要先安装.net Framework 4！")
+        Me.TipsBox1.SetToolTip(Me.XNA4, "需要先安装.net Framework 4。")
         Me.XNA4.UseVisualStyleBackColor = True
         '
         'GroupBox4
@@ -381,7 +381,7 @@ Partial Class RuntimeExpressMain
         Me.Java82.Name = "Java82"
         Me.Java82.Size = New System.Drawing.Size(123, 21)
         Me.Java82.TabIndex = 1
-        Me.Java82.Text = "8 Update 25 x64"
+        Me.Java82.Text = "8 Update 40 x64"
         Me.Java82.UseVisualStyleBackColor = True
         '
         'Java81
@@ -392,7 +392,7 @@ Partial Class RuntimeExpressMain
         Me.Java81.Name = "Java81"
         Me.Java81.Size = New System.Drawing.Size(123, 21)
         Me.Java81.TabIndex = 0
-        Me.Java81.Text = "8 Update 25 x86"
+        Me.Java81.Text = "8 Update 40 x86"
         Me.Java81.UseVisualStyleBackColor = True
         '
         'GroupBox1
@@ -627,7 +627,7 @@ Partial Class RuntimeExpressMain
         '
         'WelcomeText1
         '
-        Me.WelcomeText1.Font = New System.Drawing.Font("微软雅黑", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.WelcomeText1.Font = New System.Drawing.Font("微软雅黑 Light", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.WelcomeText1.ForeColor = System.Drawing.Color.MidnightBlue
         Me.WelcomeText1.Location = New System.Drawing.Point(3, 4)
         Me.WelcomeText1.Name = "WelcomeText1"
@@ -675,13 +675,14 @@ Partial Class RuntimeExpressMain
         '
         'AutoCheck2
         '
+        Me.AutoCheck2.BackColor = System.Drawing.Color.Transparent
         Me.AutoCheck2.Location = New System.Drawing.Point(6, 76)
         Me.AutoCheck2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.AutoCheck2.Name = "AutoCheck2"
         Me.AutoCheck2.Size = New System.Drawing.Size(377, 33)
         Me.AutoCheck2.TabIndex = 8
         Me.AutoCheck2.Text = "应用筛选器并重置所有选择项"
-        Me.AutoCheck2.UseVisualStyleBackColor = True
+        Me.AutoCheck2.UseVisualStyleBackColor = False
         '
         'AutoChk1
         '
@@ -721,6 +722,7 @@ Partial Class RuntimeExpressMain
         '
         'InstNow1
         '
+        Me.InstNow1.BackColor = System.Drawing.Color.Transparent
         Me.InstNow1.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.InstNow1.Location = New System.Drawing.Point(31, 358)
         Me.InstNow1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -728,7 +730,7 @@ Partial Class RuntimeExpressMain
         Me.InstNow1.Size = New System.Drawing.Size(562, 37)
         Me.InstNow1.TabIndex = 0
         Me.InstNow1.Text = "安装"
-        Me.InstNow1.UseVisualStyleBackColor = True
+        Me.InstNow1.UseVisualStyleBackColor = False
         '
         'TabControl1
         '
@@ -813,12 +815,13 @@ Partial Class RuntimeExpressMain
         '
         'ResetFilter1
         '
+        Me.ResetFilter1.BackColor = System.Drawing.Color.Transparent
         Me.ResetFilter1.Location = New System.Drawing.Point(388, 76)
         Me.ResetFilter1.Name = "ResetFilter1"
         Me.ResetFilter1.Size = New System.Drawing.Size(160, 33)
         Me.ResetFilter1.TabIndex = 9
         Me.ResetFilter1.Text = "重置筛选器和选项"
-        Me.ResetFilter1.UseVisualStyleBackColor = True
+        Me.ResetFilter1.UseVisualStyleBackColor = False
         '
         'TabPage4
         '
@@ -845,7 +848,7 @@ Partial Class RuntimeExpressMain
         Me.VisitGithub.Name = "VisitGithub"
         Me.VisitGithub.Size = New System.Drawing.Size(140, 37)
         Me.VisitGithub.TabIndex = 11
-        Me.VisitGithub.Text = "转到 Github"
+        Me.VisitGithub.Text = "去我的Blog"
         Me.VisitGithub.UseVisualStyleBackColor = False
         '
         'CheckUpdate
@@ -894,12 +897,12 @@ Partial Class RuntimeExpressMain
         Me.AboutText2.Name = "AboutText2"
         Me.AboutText2.Size = New System.Drawing.Size(301, 63)
         Me.AboutText2.TabIndex = 4
-        Me.AboutText2.Text = "版本：1.5.1（Build 1523）" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "编译日期：2015-2-17" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "制作者：Feight（百度：@无影无形F8）"
+        Me.AboutText2.Text = "版本：1.5.2（Build 1531）" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "编译日期：2015-3-8" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "制作者：Feight（百度：@无影无形F8）"
         '
         'AboutText1
         '
         Me.AboutText1.BackColor = System.Drawing.Color.Transparent
-        Me.AboutText1.Font = New System.Drawing.Font("微软雅黑", 26.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(134, Byte))
+        Me.AboutText1.Font = New System.Drawing.Font("微软雅黑 Light", 26.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(134, Byte))
         Me.AboutText1.ForeColor = System.Drawing.Color.MidnightBlue
         Me.AboutText1.Location = New System.Drawing.Point(1, -1)
         Me.AboutText1.Name = "AboutText1"
