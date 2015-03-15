@@ -12,13 +12,13 @@ Runtime Express —— 大量软件的运行平台的安装器
 
 >Microsoft WSE 3.0
 
->OpenAL 2.0.3
+>OpenAL 2.0.7
 
 >PhysX 9.12.1031
 
 >Microsoft XNA 2.0 3.1 4.0
 
->Java 8 Update 25 x86 & x64
+>Java 8 Update 40 x86 & x64
 
 我只上传了主程序和源代码到GitHub。但是这其实是不够的！你还需要上述的东西。关于这些，请在 http://pan.baidu.com/s/1o6jULke 下载。
 
