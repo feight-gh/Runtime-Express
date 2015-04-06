@@ -1,7 +1,4 @@
-﻿'下个版本：
-'1.更新dism模式
-
-Imports System.Net
+﻿Imports System.Net
 Imports System.IO
 Imports System.Text.RegularExpressions
 
@@ -17,7 +14,7 @@ Public Class RuntimeExpressMain
             If UpdateChannel = "Release" Then
                 CheckUpdate.Text = "请稍后" '更新按钮上的提示信息
 
-                Const checkserver As String = "https://raw.githubusercontent.com/feight-github/Runtime-Express/master/Windows/version"
+                Const checkserver As String = "https://gitcafe.com/feight/Runtime-Express/raw/master/Windows/version"
                 Dim stream As IO.Stream
                 Dim sr
                 Dim newestver
@@ -32,7 +29,7 @@ Public Class RuntimeExpressMain
 
                 sr.Dispose() '关闭流
 
-                If newestver = 1523 Then
+                If newestver = 1531 Then
                     CheckUpdate.Text = "已是最新"
                 Else
                     CheckUpdate.Text = "有新版本"
@@ -64,7 +61,8 @@ Public Class RuntimeExpressMain
     '<ENDING>奇怪的代码块
 
 
-    Private Sub RuntimeExpressMain_Shown(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub RuntimeExpressMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Me.Show()
         ScreenRE1.SelectedIndex = 0
         DllHelper1.SelectedIndex = 0
         FeightUpdate()
@@ -329,8 +327,7 @@ Public Class RuntimeExpressMain
 
     Private Sub ResetFilter1_Click(sender As Object, e As EventArgs) Handles ResetFilter1.Click
         '重置复选框状态
-        VC20051.Checked = False
-        VC20052.Checked = False
+        VC20051.Checked = VC20052.Checked = False
         VC20081.Checked = False
         VC20082.Checked = False
         VC20101.Checked = False

@@ -20,6 +20,14 @@ Runtime Express —— 大量软件的运行平台的安装器
 
 >Java 8 Update 40 x86 & x64
 
-我只上传了主程序和源代码到GitHub。但是这其实是不够的！你还需要上述的东西。关于这些，请在 http://pan.baidu.com/s/1o6jULke 下载。
+我只上传了主程序和源代码到GitCafe。但是这其实是不够的！你还需要上述的东西。关于这些，请在提供的链接下载。
 
 欢迎合作。我没有别的要说的了。
+
+#链接
+*  [程序本身和所需要的库下载][Library]
+*  [Lofter轻博客][Blog]
+*  [开发群][QQ]
+[Library]:http://pan.baidu.com/s/1o6jULke/
+[Blog]:http://feight-studio.lofter.com/
+[QQ]:http://shang.qq.com/wpa/qunwpa?idkey=18f3d6a3c40ccc06f60854c4090345df408e0304ca89a3d41e7283a095c93832

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<version>
+  <newest_version>
+    <edition>1.6.0.0</edition>
+    <build>15.4.1.0</build>
+    <buildtime>2015/04/06</buildtime>
+  </newest_version>
+
+  <whatsnew>
+    1.6,Build 1541
+    1.更换了更新源到国内，速度更快更稳定
+    2.更新器开始使用XML，可显示更多内容
+    3.在启动检查更新时会显示界面
+    4.修复了检查更新后提示文字未变更的bug
+  </whatsnew>
+</version>
