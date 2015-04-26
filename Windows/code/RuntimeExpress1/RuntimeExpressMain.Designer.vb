@@ -712,7 +712,7 @@ Partial Class RuntimeExpressMain
         Me.ScreenRE1.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.ScreenRE1.FormattingEnabled = True
         Me.ScreenRE1.ImeMode = System.Windows.Forms.ImeMode.Disable
-        Me.ScreenRE1.Items.AddRange(New Object() {"Windows Vista x86", "Windows Vista x64", "Windows 7 x86", "Windows 7 x64", "Windows 8/8.1 x86", "Windows 8/8.1 x64"})
+        Me.ScreenRE1.Items.AddRange(New Object() {"Windows Vista x86", "Windows Vista x64", "Windows 7 x86", "Windows 7 x64", "Windows 8/8.1 x86", "Windows 8/8.1 x64", "Windows 10 Technical Preview x86", "Windows 10 Technical Preview x64"})
         Me.ScreenRE1.Location = New System.Drawing.Point(6, 44)
         Me.ScreenRE1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ScreenRE1.Name = "ScreenRE1"
@@ -845,7 +845,7 @@ Partial Class RuntimeExpressMain
         Me.VisitGithub.Name = "VisitGithub"
         Me.VisitGithub.Size = New System.Drawing.Size(140, 37)
         Me.VisitGithub.TabIndex = 11
-        Me.VisitGithub.Text = "转到 Github"
+        Me.VisitGithub.Text = "转到 Blog"
         Me.VisitGithub.UseVisualStyleBackColor = False
         '
         'CheckUpdate
@@ -870,8 +870,8 @@ Partial Class RuntimeExpressMain
         Me.CpoyrightText.Name = "CpoyrightText"
         Me.CpoyrightText.Size = New System.Drawing.Size(329, 69)
         Me.CpoyrightText.TabIndex = 12
-        Me.CpoyrightText.Text = "使用Visual Basic 2013开发。基于.net Framework 3.5.1。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "在分发程序副本时请注明来源。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "©Feight Software" & _
-    " 2015,All rights reserved."
+        Me.CpoyrightText.Text = "使用Visual Basic 2013开发。基于.net Framework 3.5.1。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "在分发程序副本时请注明来源。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "©2013-2015 Feigh" & _
+    "t Software,All rights reserved."
         '
         'PictureBox1
         '
@@ -894,7 +894,7 @@ Partial Class RuntimeExpressMain
         Me.AboutText2.Name = "AboutText2"
         Me.AboutText2.Size = New System.Drawing.Size(301, 63)
         Me.AboutText2.TabIndex = 4
-        Me.AboutText2.Text = "版本：1.6（Build 1541）" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "编译日期：2015-2-17" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "制作者：Feight（百度：@无影无形F8）"
+        Me.AboutText2.Text = "版本：1.6.0.101-dev（Build 1541）" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "编译日期：2015-4-26" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "制作者：Feight（百度：@无影无形F8）"
         '
         'AboutText1
         '
@@ -903,7 +903,7 @@ Partial Class RuntimeExpressMain
         Me.AboutText1.ForeColor = System.Drawing.Color.MidnightBlue
         Me.AboutText1.Location = New System.Drawing.Point(1, -1)
         Me.AboutText1.Name = "AboutText1"
-        Me.AboutText1.Size = New System.Drawing.Size(589, 45)
+        Me.AboutText1.Size = New System.Drawing.Size(457, 45)
         Me.AboutText1.TabIndex = 3
         Me.AboutText1.Text = "Runtime Express"
         Me.AboutText1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft

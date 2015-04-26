@@ -1,13 +1,21 @@
-﻿Imports System.Net
+﻿'1.实现自动检测系统版本
+'2.实现XML更新器
+
+Imports System.Net
 Imports System.IO
 Imports System.Text.RegularExpressions
+Imports System.Threading
 
 Public Class RuntimeExpressMain
 
 
-    '<BEGINNING>奇怪的代码块
-    '//////////////////////////////
-    Private Sub FeightUpdate()
+    '更新检查代码块
+    Dim UpdateChecker As New Thread(AddressOf FeightUpdate)
+
+    Sub FeightUpdate()
+
+        Control.CheckForIllegalCrossThreadCalls = False
+
         Try
             Dim UpdateChannel As String = "Release"
 
@@ -57,15 +65,16 @@ Public Class RuntimeExpressMain
     Private Function frexist(ByVal FPath As String) As Boolean
         frexist = System.IO.Directory.Exists(FPath)
     End Function
-    '//////////////////////////////
-    '<ENDING>奇怪的代码块
-
 
     Private Sub RuntimeExpressMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.Show()
         ScreenRE1.SelectedIndex = 0
         DllHelper1.SelectedIndex = 0
-        FeightUpdate()
+        UpdateChecker.Start()
+    End Sub
+
+    Private Sub RuntimeExpressMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        UpdateChecker.Abort()
     End Sub
 
     Private Sub InstNow1_Click(sender As Object, e As EventArgs) Handles InstNow1.Click
@@ -86,8 +95,11 @@ Public Class RuntimeExpressMain
         End If
     End Sub
 
-    Private Sub AutoCheck2_Click(sender As Object, e As EventArgs) Handles AutoCheck2.Click
-        '重置复选框状态
+    Public Sub ResetStatus() '重置状态的方法
+
+        '
+        '重置所有复选框选择状态
+        '
         VC20051.Checked = False
         VC20052.Checked = False
         VC20081.Checked = False
@@ -108,7 +120,15 @@ Public Class RuntimeExpressMain
         mgfw.Checked = False
         mwse.Checked = False
         physx912.Checked = False
-        '重置所有复选框选择状态
+        dotnet.Checked = False
+        jsharp1.Checked = False
+        fsharp1.Checked = False
+        msxml1.Checked = False
+        msxml2.Checked = False
+
+        '
+        '重置所有复选框可用状态
+        '
         VC20051.Enabled = True
         VC20052.Enabled = True
         VC20081.Enabled = True
@@ -129,254 +149,67 @@ Public Class RuntimeExpressMain
         mgfw.Enabled = True
         mwse.Enabled = True
         physx912.Enabled = True
-        '重置所有复选框可用状态
+        dotnet.Enabled = True
+        jsharp1.Enabled = True
+        fsharp1.Enabled = True
+        msxml1.Enabled = True
+        msxml2.Enabled = True
 
-        Dim OSver As String
-        OSver = ScreenRE1.SelectedItem.ToString.Trim
+    End Sub
 
+    Private Sub AutoCheck2_Click(sender As Object, e As EventArgs) Handles AutoCheck2.Click
+        
+        ResetStatus() '调用方法
+
+        '自动检测系统版本
+        Dim OSVer As String = My.Computer.Info.OSVersion.ToString
+
+        Dim osEdition As String = ScreenRE1.SelectedIndex.ToString.Trim
+
+        '
         '判断语句块：这个系统支持哪些运行库？
-        If OSver = "Windows Vista x86" Then
-            VC20051.Enabled = True
+        '
+        If osEdition = 0 Or osEdition = 2 Or osEdition = 4 Or osEdition = 6 Then
             VC20052.Enabled = False
-            VC20081.Enabled = True
             VC20082.Enabled = False
-            VC20101.Enabled = True
             VC20102.Enabled = False
-            VC20121.Enabled = True
             VC20122.Enabled = False
-            VC20131.Enabled = True
             VC20132.Enabled = False
-            Java81.Enabled = True
             Java82.Enabled = False
-            msxml1.Enabled = True
             msxml2.Enabled = False
-            '禁用不适合的选项
-        ElseIf OSver = "Windows Vista x64" Then
-            VC20051.Enabled = True
-            VC20052.Enabled = True
-            VC20081.Enabled = True
-            VC20082.Enabled = True
-            VC20101.Enabled = True
-            VC20102.Enabled = True
-            VC20121.Enabled = True
-            VC20122.Enabled = True
-            VC20131.Enabled = True
-            VC20132.Enabled = True
-            Java81.Enabled = True
-            Java82.Enabled = True
-            msxml1.Enabled = True
-            msxml2.Enabled = False
-            '禁用不适合的选项
-        ElseIf OSver = "Windows 7 x86" Then
-            VC20051.Enabled = True
-            VC20052.Enabled = False
-            VC20081.Enabled = True
-            VC20082.Enabled = False
-            VC20101.Enabled = True
-            VC20102.Enabled = False
-            VC20121.Enabled = True
-            VC20122.Enabled = False
-            VC20131.Enabled = True
-            VC20132.Enabled = False
-            Java81.Enabled = True
-            Java82.Enabled = False
-            msxml1.Enabled = True
-            msxml2.Enabled = False
-            '禁用不适合的选项
-        ElseIf OSver = "Windows 7 x64" Then
-            VC20051.Enabled = True
-            VC20052.Enabled = True
-            VC20081.Enabled = True
-            VC20082.Enabled = True
-            VC20101.Enabled = True
-            VC20102.Enabled = True
-            VC20121.Enabled = True
-            VC20122.Enabled = True
-            VC20131.Enabled = True
-            VC20132.Enabled = True
-            Java81.Enabled = True
-            Java82.Enabled = True
-            msxml1.Enabled = True
-            msxml2.Enabled = False
-            '禁用不适合的选项
-        ElseIf OSver = "Windows 8/8.1 x86" Then
-            VC20051.Enabled = True
-            VC20052.Enabled = False
-            VC20081.Enabled = True
-            VC20082.Enabled = False
-            VC20101.Enabled = True
-            VC20102.Enabled = False
-            VC20121.Enabled = True
-            VC20122.Enabled = False
-            VC20131.Enabled = True
-            VC20132.Enabled = False
-            Java81.Enabled = True
-            Java82.Enabled = False
-            msxml1.Enabled = True
-            msxml2.Enabled = False
-            '禁用不适合的选项
-        ElseIf OSver = "Windows 8/8.1 x64" Then
-            VC20051.Enabled = True
-            VC20052.Enabled = True
-            VC20081.Enabled = True
-            VC20082.Enabled = True
-            VC20101.Enabled = True
-            VC20102.Enabled = True
-            VC20121.Enabled = True
-            VC20122.Enabled = True
-            VC20131.Enabled = True
-            VC20132.Enabled = True
-            Java81.Enabled = True
-            Java82.Enabled = True
-            msxml1.Enabled = True
-            msxml2.Enabled = True
-            '禁用不适合的选项
         End If
 
+        '
         '判断语句块：需要勾选吗？要勾选哪些运行库？
+        '      
         If AutoChk1.Checked Then
-            If OSver = "Windows Vista x86" Then
-                VC20051.Checked = True
-                VC20052.Checked = False
-                VC20081.Checked = True
-                VC20082.Checked = False
-                VC20101.Checked = True
-                VC20102.Checked = False
-                VC20121.Checked = True
-                VC20122.Checked = False
-                VC20131.Checked = False
-                VC20132.Checked = False
-                Java81.Checked = False
-                Java82.Checked = False
-                '自动勾选
-            ElseIf OSver = "Windows Vista x64" Then
-                VC20051.Checked = True
+
+            '勾选所有系统均需要的运行库
+            VC20051.Checked = True
+            VC20081.Checked = True
+            VC20101.Checked = True
+            VC20121.Checked = True
+            VC20131.Checked = True
+            Java81.Checked = True
+
+            If osEdition = 1 Or osEdition = 3 Or osEdition = 5 Or osEdition = 7 Then
                 VC20052.Checked = True
-                VC20081.Checked = True
                 VC20082.Checked = True
-                VC20101.Checked = True
                 VC20102.Checked = True
-                VC20121.Checked = True
                 VC20122.Checked = True
-                VC20131.Checked = False
-                VC20132.Checked = False
-                Java81.Checked = False
-                Java82.Checked = False
-                '自动勾选
-            ElseIf OSver = "Windows 7 x86" Then
-                VC20051.Checked = True
-                VC20052.Checked = False
-                VC20081.Checked = True
-                VC20082.Checked = False
-                VC20101.Checked = True
-                VC20102.Checked = False
-                VC20121.Checked = True
-                VC20122.Checked = False
-                VC20131.Checked = False
-                VC20132.Checked = False
-                Java81.Checked = False
-                Java82.Checked = False
-                '自动勾选
-            ElseIf OSver = "Windows 7 x64" Then
-                VC20051.Checked = True
-                VC20052.Checked = True
-                VC20081.Checked = True
-                VC20082.Checked = True
-                VC20101.Checked = True
-                VC20102.Checked = True
-                VC20121.Checked = True
-                VC20122.Checked = True
-                VC20131.Checked = False
-                VC20132.Checked = False
-                Java81.Checked = False
-                Java82.Checked = False
-                '自动勾选
-            ElseIf OSver = "Windows 8/8.1 x86" Then
-                VC20051.Checked = True
-                VC20052.Checked = False
-                VC20081.Checked = True
-                VC20082.Checked = False
-                VC20101.Checked = True
-                VC20102.Checked = False
-                VC20121.Checked = True
-                VC20122.Checked = False
-                VC20131.Checked = False
-                VC20132.Checked = False
-                Java81.Checked = False
-                Java82.Checked = False
-                '自动勾选
-            ElseIf OSver = "Windows 8/8.1 x64" Then
-                VC20051.Checked = True
-                VC20052.Checked = True
-                VC20081.Checked = True
-                VC20082.Checked = True
-                VC20101.Checked = True
-                VC20102.Checked = True
-                VC20121.Checked = True
-                VC20122.Checked = True
-                VC20131.Checked = False
-                VC20132.Checked = False
-                Java81.Checked = False
-                Java82.Checked = False
-                '自动勾选
-            Else
-                MsgBox("请选择一个选项")
+                VC20132.Checked = True
+                Java82.Checked = True
+                '自动勾选64位Windows所需要的运行库
             End If
+
         End If
+
     End Sub
 
     Private Sub ResetFilter1_Click(sender As Object, e As EventArgs) Handles ResetFilter1.Click
-        '重置复选框状态
-        VC20051.Checked = VC20052.Checked = False
-        VC20081.Checked = False
-        VC20082.Checked = False
-        VC20101.Checked = False
-        VC20102.Checked = False
-        VC20121.Checked = False
-        VC20122.Checked = False
-        VC20131.Checked = False
-        VC20132.Checked = False
-        dotnet.Checked = False
-        fsharp1.Checked = False
-        jsharp1.Checked = False
-        Java81.Checked = False
-        Java82.Checked = False
-        XNA2.Checked = False
-        XNA31.Checked = False
-        XNA4.Checked = False
-        DX9.Checked = False
-        oal203.Checked = False
-        mgfw.Checked = False
-        mwse.Checked = False
-        physx912.Checked = False
-        msxml1.Checked = False
-        msxml2.Checked = False
-        '重置所有复选框选择状态
-        VC20051.Enabled = True
-        VC20052.Enabled = True
-        VC20081.Enabled = True
-        VC20082.Enabled = True
-        VC20101.Enabled = True
-        VC20102.Enabled = True
-        VC20121.Enabled = True
-        VC20122.Enabled = True
-        VC20131.Enabled = True
-        VC20132.Enabled = True
-        dotnet.Enabled = True
-        fsharp1.Enabled = True
-        jsharp1.Enabled = True
-        Java81.Enabled = True
-        Java82.Enabled = True
-        XNA2.Enabled = True
-        XNA31.Enabled = True
-        XNA4.Enabled = True
-        DX9.Enabled = True
-        oal203.Enabled = True
-        mgfw.Enabled = True
-        mwse.Enabled = True
-        physx912.Enabled = True
-        msxml1.Enabled = True
-        msxml2.Enabled = True
+
+        ResetStatus() '调用方法
+
     End Sub
 
     Private Sub DllHelper3_Click(sender As Object, e As EventArgs) Handles DllHelper3.Click
@@ -586,11 +419,13 @@ Public Class RuntimeExpressMain
     End Sub
 
     Private Sub VisitGithub_Click(sender As Object, e As EventArgs) Handles VisitGithub.Click
-        Shell("explorer.exe " & " https://github.com/feight-github")
+        Shell("explorer.exe " & " http://feight-studio.lofter.com/")
     End Sub
 
     Private Sub CheckUpdate_Click(sender As Object, e As EventArgs) Handles CheckUpdate.Click
+
         FeightUpdate()
+
     End Sub
 
 End Class
