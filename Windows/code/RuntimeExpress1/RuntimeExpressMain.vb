@@ -14,7 +14,7 @@ Public Class RuntimeExpressMain
     '实例化线程
     Dim UpdateChecker As New Thread(AddressOf FeightUpdate)
 
-    Sub FeightUpdate()
+    Private Sub FeightUpdate()
 
         Control.CheckForIllegalCrossThreadCalls = False
 

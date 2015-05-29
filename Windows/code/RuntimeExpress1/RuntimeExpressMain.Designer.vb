@@ -894,7 +894,7 @@ Partial Class RuntimeExpressMain
         Me.AboutText2.Name = "AboutText2"
         Me.AboutText2.Size = New System.Drawing.Size(301, 63)
         Me.AboutText2.TabIndex = 4
-        Me.AboutText2.Text = "版本：1.6.0.122-dev" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "编译版本：2015.5.29.0" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "制作者：Feight（百度：@无影无形F8）"
+        Me.AboutText2.Text = "版本：1.6.0.123-dev" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "编译版本：2015.5.29.1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "制作者：Feight（百度：@无影无形F8）"
         '
         'AboutText1
         '
