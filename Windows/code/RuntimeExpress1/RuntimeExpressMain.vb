@@ -1,5 +1,6 @@
 ﻿'1.实现自动检测系统版本
 '2.实现XML更新器
+'3.实现循环式的安装器和进度条
 
 Imports System.Net
 Imports System.IO
@@ -8,8 +9,9 @@ Imports System.Threading
 
 Public Class RuntimeExpressMain
 
+#Region "更新检查"
 
-    '更新检查代码块
+    '实例化线程
     Dim UpdateChecker As New Thread(AddressOf FeightUpdate)
 
     Sub FeightUpdate()
@@ -17,7 +19,7 @@ Public Class RuntimeExpressMain
         Control.CheckForIllegalCrossThreadCalls = False
 
         Try
-            Dim UpdateChannel As String = "Release"
+            Dim UpdateChannel As String = "Developer"
 
             If UpdateChannel = "Release" Then
                 CheckUpdate.Text = "请稍后" '更新按钮上的提示信息
@@ -56,43 +58,94 @@ Public Class RuntimeExpressMain
             CheckUpdate.Text = "检查更新"
             MsgBox("暂时无法连接到更新服务器，请检查网络连接或者稍后再试。", MsgBoxStyle.Exclamation)
         End Try
+
+        '初始化线程以便下次调用
+        UpdateChecker = Nothing
+        UpdateChecker = New Thread(AddressOf FeightUpdate)
+
     End Sub
 
+#End Region
+
     Private Function rexist(ByVal rPath As String) As Boolean
+
         rexist = System.IO.File.Exists(rPath)
+
     End Function
 
     Private Function frexist(ByVal FPath As String) As Boolean
+
         frexist = System.IO.Directory.Exists(FPath)
+
     End Function
 
     Private Sub RuntimeExpressMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+
         Me.Show()
+
+        '重置
         ScreenRE1.SelectedIndex = 0
         DllHelper1.SelectedIndex = 0
+
+        '
+        '合成环境
+        Dim osenvironment = Environment.OSVersion.ToString.Substring(0, 24) & "|" _
+                            & System.Runtime.InteropServices.Marshal.SizeOf(IntPtr.Zero) * 8
+
+        Select Case osenvironment
+
+            Case "Microsoft Windows NT 6.0|32"
+                ScreenRE1.SelectedIndex = 0
+
+            Case "Microsoft Windows NT 6.0|64"
+                ScreenRE1.SelectedIndex = 1
+
+            Case "Microsoft Windows NT 6.1|32"
+                ScreenRE1.SelectedIndex = 2
+
+            Case "Microsoft Windows NT 6.1|64"
+                ScreenRE1.SelectedIndex = 3
+
+            Case "Microsoft Windows NT 6.2|32"
+                ScreenRE1.SelectedIndex = 4
+
+            Case "Microsoft Windows NT 6.2|64"
+                ScreenRE1.SelectedIndex = 5
+
+        End Select
+
         UpdateChecker.Start()
+
     End Sub
 
     Private Sub RuntimeExpressMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+
         UpdateChecker.Abort()
+
     End Sub
 
     Private Sub InstNow1_Click(sender As Object, e As EventArgs) Handles InstNow1.Click
+
         Installer1.RunWorkerAsync()
+
     End Sub
 
     Private Sub XNA2_CheckedChanged(sender As Object, e As EventArgs) Handles XNA2.CheckedChanged
+
         If XNA2.Checked Then
             DX9.Checked = True
             MsgBox("已经自动勾选了所须的DX 9.0c！", MsgBoxStyle.Exclamation, "提示")
         End If
+
     End Sub
 
     Private Sub XNA4_CheckedChanged(sender As Object, e As EventArgs) Handles XNA4.CheckedChanged
+
         If XNA4.Checked Then
             dotnet.Checked = True
             MsgBox("已经自动勾选了所须的.net Framework 4.5.2！", MsgBoxStyle.Exclamation, "提示")
         End If
+
     End Sub
 
     Public Sub ResetStatus() '重置状态的方法
@@ -158,18 +211,15 @@ Public Class RuntimeExpressMain
     End Sub
 
     Private Sub AutoCheck2_Click(sender As Object, e As EventArgs) Handles AutoCheck2.Click
-        
+
         ResetStatus() '调用方法
 
-        '自动检测系统版本
-        Dim OSVer As String = My.Computer.Info.OSVersion.ToString
-
-        Dim osEdition As String = ScreenRE1.SelectedIndex.ToString.Trim
+        Dim selectedver As String = ScreenRE1.SelectedIndex.ToString.Trim
 
         '
         '判断语句块：这个系统支持哪些运行库？
         '
-        If osEdition = 0 Or osEdition = 2 Or osEdition = 4 Or osEdition = 6 Then
+        If selectedver = 0 Or selectedver = 2 Or selectedver = 4 Or selectedver = 6 Then
             VC20052.Enabled = False
             VC20082.Enabled = False
             VC20102.Enabled = False
@@ -192,7 +242,7 @@ Public Class RuntimeExpressMain
             VC20131.Checked = True
             Java81.Checked = True
 
-            If osEdition = 1 Or osEdition = 3 Or osEdition = 5 Or osEdition = 7 Then
+            If selectedver = 1 Or selectedver = 3 Or selectedver = 5 Or selectedver = 7 Then
                 VC20052.Checked = True
                 VC20082.Checked = True
                 VC20102.Checked = True
@@ -243,8 +293,10 @@ Public Class RuntimeExpressMain
     Private Sub Installer1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles Installer1.DoWork
         Dim rPath As String = Application.StartupPath
         Dim instErr As Boolean = False
+        Dim appflag As Short
 
         If dotnet.Checked Then
+            appflag += 1
             If rexist(rPath & "\uruntime\dotnet.exe") Then
                 System.Diagnostics.Process.Start("uruntime\dotnet.exe").WaitForExit()
             Else : instErr = True
@@ -412,10 +464,15 @@ Public Class RuntimeExpressMain
             End If
         End If
 
-        If instErr = False Then
-            MsgBox("已经完成指定的操作！可能需要重新启动计算机更改才会生效。", MsgBoxStyle.Information, "提示")
-        Else : MsgBox("有些运行库没有被安装，请检查运行库文件完整性，然后再试一次。", MsgBoxStyle.Critical, "提示")
+        If appflag = 0 Then
+            MsgBox("你好像没有勾选任何项，勾选几个试试？", MsgBoxStyle.Information, "Runtime Express")
+        Else
+            If instErr = False Then
+                MsgBox("已经完成指定的操作！可能需要重新启动计算机更改才会生效。", MsgBoxStyle.Information, "Runtime Express")
+            Else : MsgBox("有些运行库没有被安装，请检查运行库文件完整性，然后再试一次。", MsgBoxStyle.Critical, "Runtime Express")
+            End If
         End If
+
     End Sub
 
     Private Sub VisitGithub_Click(sender As Object, e As EventArgs) Handles VisitGithub.Click
@@ -424,7 +481,7 @@ Public Class RuntimeExpressMain
 
     Private Sub CheckUpdate_Click(sender As Object, e As EventArgs) Handles CheckUpdate.Click
 
-        FeightUpdate()
+        UpdateChecker.Start()
 
     End Sub
 
