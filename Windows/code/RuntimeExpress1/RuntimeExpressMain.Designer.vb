@@ -84,7 +84,7 @@ Partial Class RuntimeExpressMain
         Me.RuntimeFilter = New System.Windows.Forms.GroupBox()
         Me.ResetFilter1 = New System.Windows.Forms.Button()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.VisitGithub = New System.Windows.Forms.Button()
+        Me.VisitWebsite = New System.Windows.Forms.Button()
         Me.CheckUpdate = New System.Windows.Forms.Button()
         Me.CpoyrightText = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -627,7 +627,7 @@ Partial Class RuntimeExpressMain
         '
         'WelcomeText1
         '
-        Me.WelcomeText1.Font = New System.Drawing.Font("微软雅黑", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.WelcomeText1.Font = New System.Drawing.Font("微软雅黑 Light", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.WelcomeText1.ForeColor = System.Drawing.Color.MidnightBlue
         Me.WelcomeText1.Location = New System.Drawing.Point(3, 4)
         Me.WelcomeText1.Name = "WelcomeText1"
@@ -823,7 +823,7 @@ Partial Class RuntimeExpressMain
         'TabPage4
         '
         Me.TabPage4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.TabPage4.Controls.Add(Me.VisitGithub)
+        Me.TabPage4.Controls.Add(Me.VisitWebsite)
         Me.TabPage4.Controls.Add(Me.CheckUpdate)
         Me.TabPage4.Controls.Add(Me.CpoyrightText)
         Me.TabPage4.Controls.Add(Me.PictureBox1)
@@ -835,18 +835,18 @@ Partial Class RuntimeExpressMain
         Me.TabPage4.TabIndex = 5
         Me.TabPage4.Text = "关于"
         '
-        'VisitGithub
+        'VisitWebsite
         '
-        Me.VisitGithub.BackColor = System.Drawing.Color.DeepSkyBlue
-        Me.VisitGithub.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.VisitGithub.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.VisitGithub.ForeColor = System.Drawing.Color.Transparent
-        Me.VisitGithub.Location = New System.Drawing.Point(304, 269)
-        Me.VisitGithub.Name = "VisitGithub"
-        Me.VisitGithub.Size = New System.Drawing.Size(140, 37)
-        Me.VisitGithub.TabIndex = 11
-        Me.VisitGithub.Text = "转到 Blog"
-        Me.VisitGithub.UseVisualStyleBackColor = False
+        Me.VisitWebsite.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.VisitWebsite.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.VisitWebsite.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.VisitWebsite.ForeColor = System.Drawing.Color.Transparent
+        Me.VisitWebsite.Location = New System.Drawing.Point(304, 269)
+        Me.VisitWebsite.Name = "VisitWebsite"
+        Me.VisitWebsite.Size = New System.Drawing.Size(140, 37)
+        Me.VisitWebsite.TabIndex = 11
+        Me.VisitWebsite.Text = "转到 Blog"
+        Me.VisitWebsite.UseVisualStyleBackColor = False
         '
         'CheckUpdate
         '
@@ -899,7 +899,7 @@ Partial Class RuntimeExpressMain
         'AboutText1
         '
         Me.AboutText1.BackColor = System.Drawing.Color.Transparent
-        Me.AboutText1.Font = New System.Drawing.Font("微软雅黑", 26.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(134, Byte))
+        Me.AboutText1.Font = New System.Drawing.Font("微软雅黑 Light", 26.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(134, Byte))
         Me.AboutText1.ForeColor = System.Drawing.Color.MidnightBlue
         Me.AboutText1.Location = New System.Drawing.Point(1, -1)
         Me.AboutText1.Name = "AboutText1"
@@ -1023,7 +1023,7 @@ Partial Class RuntimeExpressMain
     Friend WithEvents AboutText2 As System.Windows.Forms.Label
     Friend WithEvents AboutText1 As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents VisitGithub As System.Windows.Forms.Button
+    Friend WithEvents VisitWebsite As System.Windows.Forms.Button
     Friend WithEvents CheckUpdate As System.Windows.Forms.Button
     Friend WithEvents CpoyrightText As System.Windows.Forms.Label
 

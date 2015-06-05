@@ -1,6 +1,5 @@
-﻿'1.实现自动检测系统版本
-'2.实现XML更新器
-'3.实现循环式的安装器和进度条
+﻿'1.实现XML更新器
+'2.实现更新信息，版权信息的显示
 
 Imports System.Net
 Imports System.IO
@@ -8,6 +7,9 @@ Imports System.Text.RegularExpressions
 Imports System.Threading
 
 Public Class RuntimeExpressMain
+
+    Public isStartup As Boolean
+    Dim UpdateChannel As String = "Developer" '定义当前所使用的软件版本
 
 #Region "更新检查"
 
@@ -19,9 +21,9 @@ Public Class RuntimeExpressMain
         Control.CheckForIllegalCrossThreadCalls = False
 
         Try
-            Dim UpdateChannel As String = "Developer"
 
             If UpdateChannel = "Release" Then
+
                 CheckUpdate.Text = "请稍后" '更新按钮上的提示信息
 
                 Const checkserver As String = "https://gitcafe.com/feight/Runtime-Express/raw/master/Windows/version"
@@ -29,7 +31,6 @@ Public Class RuntimeExpressMain
                 Dim sr
                 Dim newestver
                 '进行一系列的变量/常量定义，以便进行验证操作
-
 
                 stream = WebRequest.Create(checkserver).GetResponse().GetResponseStream()
                 sr = New StreamReader(stream, System.Text.Encoding.UTF8)
@@ -40,28 +41,42 @@ Public Class RuntimeExpressMain
                 sr.Dispose() '关闭流
 
                 If newestver = 1531 Then
+
                     CheckUpdate.Text = "已是最新"
+
                 Else
+
                     CheckUpdate.Text = "有新版本"
-                    If MsgBox("有新的版本：Build " & newestver & vbCrLf & "要现在更新吗？", MsgBoxStyle.Question + _
-                    MsgBoxStyle.OkCancel, "Runtime Express") = MsgBoxResult.Ok Then
-                        System.Diagnostics.Process.Start("http://pan.baidu.com/s/1o6jULke")
-                    Else
-                        CheckUpdate.Text = "检查更新"
+
+                        If MsgBox("有新的版本：Build " & newestver & vbCrLf & "要现在更新吗？", MsgBoxStyle.Question + _
+                        MsgBoxStyle.OkCancel, "Runtime Express") = MsgBoxResult.Ok Then
+                            System.Diagnostics.Process.Start("http://pan.baidu.com/s/1o6jULke")
+
+                        Else
+
+                            CheckUpdate.Text = "检查更新"
+
                     End If
+                    '判断
+
                 End If
-                '判断
+
             ElseIf UpdateChannel = "Developer" Then
-                MsgBox("你现在使用的是开发版本，软件更新已禁用。", MsgBoxStyle.Exclamation, "Runtime Express")
+                If isStartup = False Then MsgBox("你现在使用的是开发版本，软件更新已禁用。", MsgBoxStyle.Exclamation, "Runtime Express")
             End If
+
         Catch
+
             CheckUpdate.Text = "检查更新"
-            MsgBox("暂时无法连接到更新服务器，请检查网络连接或者稍后再试。", MsgBoxStyle.Exclamation)
+            If isStartup = False Then MsgBox("暂时无法连接到更新服务器，请检查网络连接或者稍后再试。", MsgBoxStyle.Exclamation)
+
         End Try
 
         '初始化线程以便下次调用
         UpdateChecker = Nothing
         UpdateChecker = New Thread(AddressOf FeightUpdate)
+
+        isStartup = False
 
     End Sub
 
@@ -81,13 +96,20 @@ Public Class RuntimeExpressMain
 
     Private Sub RuntimeExpressMain_Load(sender As Object, e As EventArgs) Handles Me.Load
 
+        isStartup = True
         Me.Show()
 
         '重置
         ScreenRE1.SelectedIndex = 0
         DllHelper1.SelectedIndex = 0
 
-        '
+        '填充程序自身的信息
+        AboutText2.Text = "版本：" & My.Application.Info.Version.ToString & vbCrLf _
+            & "更新通道：" & UpdateChannel & vbCrLf _
+            & "制作者：Feight"
+
+
+
         '合成环境
         Dim osenvironment = Environment.OSVersion.ToString.Substring(0, 24) & "|" _
                             & System.Runtime.InteropServices.Marshal.SizeOf(IntPtr.Zero) * 8
@@ -115,6 +137,7 @@ Public Class RuntimeExpressMain
         End Select
 
         UpdateChecker.Start()
+
 
     End Sub
 
@@ -148,7 +171,7 @@ Public Class RuntimeExpressMain
 
     End Sub
 
-    Public Sub ResetStatus() '重置状态的方法
+    Private Sub ResetStatus() '重置状态的方法
 
         '
         '重置所有复选框选择状态
@@ -304,6 +327,7 @@ Public Class RuntimeExpressMain
         End If
 
         If VC20051.Checked Then
+            appflag += 1
             If rexist(rPath & "\uruntime\vc2005_x86.exe") Then
                 System.Diagnostics.Process.Start("uruntime\vc2005_x86.exe").WaitForExit()
             Else : instErr = True
@@ -311,6 +335,7 @@ Public Class RuntimeExpressMain
         End If
 
         If VC20052.Checked Then
+            appflag += 1
             If rexist(rPath & "\uruntime\vc2005_x64.exe") Then
                 System.Diagnostics.Process.Start("uruntime\vc2005_x64.exe").WaitForExit()
             Else : instErr = True
@@ -318,6 +343,7 @@ Public Class RuntimeExpressMain
         End If
 
         If VC20081.Checked Then
+            appflag += 1
             If rexist(rPath & "\uruntime\vc2008_x86.exe") Then
                 System.Diagnostics.Process.Start("uruntime\vc2008_x86.exe").WaitForExit()
             Else : instErr = True
@@ -325,6 +351,7 @@ Public Class RuntimeExpressMain
         End If
 
         If VC20082.Checked Then
+            appflag += 1
             If rexist(rPath & "\uruntime\vc2008_x64.exe") Then
                 System.Diagnostics.Process.Start("uruntime\vc2008_x64.exe").WaitForExit()
             Else : instErr = True
@@ -332,6 +359,7 @@ Public Class RuntimeExpressMain
         End If
 
         If VC20101.Checked Then
+            appflag += 1
             If rexist(rPath & "\uruntime\vc2010_x86.exe") Then
                 System.Diagnostics.Process.Start("uruntime\vc2010_x86.exe").WaitForExit()
             Else : instErr = True
@@ -339,6 +367,7 @@ Public Class RuntimeExpressMain
         End If
 
         If VC20102.Checked Then
+            appflag += 1
             If rexist(rPath & "\uruntime\vc2010_x64.exe") Then
                 System.Diagnostics.Process.Start("uruntime\vc2010_x64.exe").WaitForExit()
             Else : instErr = True
@@ -346,6 +375,7 @@ Public Class RuntimeExpressMain
         End If
 
         If VC20131.Checked Then
+            appflag += 1
             If rexist(rPath & "\uruntime\vc2013_x86.exe") Then
                 System.Diagnostics.Process.Start("uruntime\vc2013_x86.exe").WaitForExit()
             Else : instErr = True
@@ -353,6 +383,7 @@ Public Class RuntimeExpressMain
         End If
 
         If VC20132.Checked Then
+            appflag += 1
             If rexist(rPath & "\uruntime\vc2013_x64.exe") Then
                 System.Diagnostics.Process.Start("uruntime\vc2013_x64.exe").WaitForExit()
             Else : instErr = True
@@ -360,6 +391,7 @@ Public Class RuntimeExpressMain
         End If
 
         If Java81.Checked Then
+            appflag += 1
             If rexist(rPath & "\uruntime\jre8_x86.exe") Then
                 System.Diagnostics.Process.Start("uruntime\jre8_x86.exe").WaitForExit()
             Else : instErr = True
@@ -367,6 +399,7 @@ Public Class RuntimeExpressMain
         End If
 
         If Java82.Checked Then
+            appflag += 1
             If rexist(rPath & "\uruntime\jre8_x64.exe") Then
                 System.Diagnostics.Process.Start("uruntime\jre8_x64.exe").WaitForExit()
             Else : instErr = True
@@ -374,6 +407,7 @@ Public Class RuntimeExpressMain
         End If
 
         If jsharp1.Checked Then
+            appflag += 1
             If rexist(rPath & "\uruntime\js.exe") Then
                 System.Diagnostics.Process.Start("uruntime\js.exe").WaitForExit()
             Else : instErr = True
@@ -381,6 +415,7 @@ Public Class RuntimeExpressMain
         End If
 
         If fsharp1.Checked Then
+            appflag += 1
             If rexist(rPath & "\uruntime\fs.exe") Then
                 System.Diagnostics.Process.Start("uruntime\fs.exe").WaitForExit()
             Else : instErr = True
@@ -388,6 +423,7 @@ Public Class RuntimeExpressMain
         End If
 
         If DX9.Checked Then
+            appflag += 1
             If dxolmode.Checked Then
                 If rexist(rPath & "\gruntime\dxwebsetup.exe") Then
                     System.Diagnostics.Process.Start("gruntime\dxwebsetup.exe").WaitForExit()
@@ -402,6 +438,7 @@ Public Class RuntimeExpressMain
         End If
 
         If XNA2.Checked Then
+            appflag += 1
             If rexist(rPath & "\gruntime\xna20.msi") Then
                 System.Diagnostics.Process.Start("gruntime\xna20.msi").WaitForExit()
             Else : instErr = True
@@ -409,6 +446,7 @@ Public Class RuntimeExpressMain
         End If
 
         If XNA31.Checked Then
+            appflag += 1
             If rexist(rPath & "\gruntime\xna31.msi") Then
                 System.Diagnostics.Process.Start("gruntime\xna31.msi").WaitForExit()
             Else : instErr = True
@@ -416,6 +454,7 @@ Public Class RuntimeExpressMain
         End If
 
         If XNA4.Checked Then
+            appflag += 1
             If rexist(rPath & "\gruntime\xna40.msi") Then
                 System.Diagnostics.Process.Start("gruntime\xna40.msi").WaitForExit()
             Else : instErr = True
@@ -423,6 +462,7 @@ Public Class RuntimeExpressMain
         End If
 
         If oal203.Checked Then
+            appflag += 1
             If rexist(rPath & "\gruntime\openal.exe") Then
                 System.Diagnostics.Process.Start("gruntime\openal.exe").WaitForExit()
             Else : instErr = True
@@ -430,6 +470,7 @@ Public Class RuntimeExpressMain
         End If
 
         If mgfw.Checked Then
+            appflag += 1
             If rexist(rPath & "\gruntime\gfwlive.exe") Then
                 System.Diagnostics.Process.Start("gruntime\gfwlive.exe").WaitForExit()
             Else : instErr = True
@@ -437,6 +478,7 @@ Public Class RuntimeExpressMain
         End If
 
         If physx912.Checked Then
+            appflag += 1
             If rexist(rPath & "\gruntime\physx.msi") Then
                 System.Diagnostics.Process.Start("gruntime\physx.msi").WaitForExit()
             Else : instErr = True
@@ -444,6 +486,7 @@ Public Class RuntimeExpressMain
         End If
 
         If mwse.Checked Then
+            appflag += 1
             If rexist(rPath & "\gruntime\mwse3.msi") Then
                 System.Diagnostics.Process.Start("gruntime\mwse3.msi").WaitForExit()
             Else : instErr = True
@@ -451,6 +494,7 @@ Public Class RuntimeExpressMain
         End If
 
         If msxml1.Checked Then
+            appflag += 1
             If rexist(rPath & "\gruntime\msxml6.msi") Then
                 System.Diagnostics.Process.Start("gruntime\msxml6.msi").WaitForExit()
             Else : instErr = True
@@ -458,6 +502,7 @@ Public Class RuntimeExpressMain
         End If
 
         If msxml2.Checked Then
+            appflag += 1
             If rexist(rPath & "\gruntime\msxml6_x64.msi") Then
                 System.Diagnostics.Process.Start("gruntime\msxml6_x64.msi").WaitForExit()
             Else : instErr = True
@@ -475,7 +520,7 @@ Public Class RuntimeExpressMain
 
     End Sub
 
-    Private Sub VisitGithub_Click(sender As Object, e As EventArgs) Handles VisitGithub.Click
+    Private Sub VisitWebsite_Click(sender As Object, e As EventArgs) Handles VisitWebsite.Click
         Shell("explorer.exe " & " http://feight-studio.lofter.com/")
     End Sub
 
