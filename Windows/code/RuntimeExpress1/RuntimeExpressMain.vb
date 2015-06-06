@@ -1,5 +1,9 @@
-﻿'1.实现XML更新器
-'2.实现更新信息，版权信息的显示
+﻿'1.界面改进
+'2.支持配置文件[1.7]
+'3.用python写DISM安装器
+'4.让DISM安装器支持Windows 10
+'5.海外速度优化
+'6.重新设计安装器[1.7]
 
 Imports System.Net
 Imports System.IO
@@ -10,6 +14,7 @@ Public Class RuntimeExpressMain
 
     Public isStartup As Boolean
     Dim UpdateChannel As String = "Developer" '定义当前所使用的软件版本
+    Const checkserver As String = "https://gitcafe.com/feight/Runtime-Express/raw/master/Windows/version.xml"
 
 #Region "更新检查"
 
@@ -21,59 +26,79 @@ Public Class RuntimeExpressMain
         Control.CheckForIllegalCrossThreadCalls = False
 
         Try
+            Select Case UpdateChannel
 
-            If UpdateChannel = "Release" Then
+                Case "Release"
 
-                CheckUpdate.Text = "请稍后" '更新按钮上的提示信息
+                    Dim doc As New Xml.XmlDocument
+                    doc.Load(checkserver.Trim)
+                    Dim re As Xml.XmlNodeReader = New Xml.XmlNodeReader(doc)
+                    Dim xmlnewestver As String
+                    Dim xmlnewestdate As String
+                    Dim xmlnewestinfo As String
+                    Dim name As String
+                    '进行一系列的定义
 
-                Const checkserver As String = "https://gitcafe.com/feight/Runtime-Express/raw/master/Windows/version"
-                Dim stream As IO.Stream
-                Dim sr
-                Dim newestver
-                '进行一系列的变量/常量定义，以便进行验证操作
+                    While re.Read
 
-                stream = WebRequest.Create(checkserver).GetResponse().GetResponseStream()
-                sr = New StreamReader(stream, System.Text.Encoding.UTF8)
-                newestver = Regex.Match(sr.ReadToEnd, "[\s\S]{4,5}").ToString
-                '使用sr.readtoend读取网页流到末尾，即使用正则表达式从网页流中提取版本号
-                '读取网页内容头部分后4和5字节内容，刚好足够版本号使用，然后赋值给变量newestver
+                        Select Case re.NodeType
 
-                sr.Dispose() '关闭流
+                            Case Xml.XmlNodeType.Element
+                                name = re.Name
 
-                If newestver = 1531 Then
+                            Case Xml.XmlNodeType.Text
+                                If name.Equals("edition") Then
+                                    xmlnewestver = re.Value
+                                End If
 
-                    CheckUpdate.Text = "已是最新"
+                                If name.Equals("buildtime") Then
+                                    xmlnewestdate = re.Value
+                                End If
 
-                Else
+                                If name.Equals("whatsnew") Then
+                                    xmlnewestinfo = re.Value
+                                End If
 
-                    CheckUpdate.Text = "有新版本"
+                        End Select
 
-                        If MsgBox("有新的版本：Build " & newestver & vbCrLf & "要现在更新吗？", MsgBoxStyle.Question + _
-                        MsgBoxStyle.OkCancel, "Runtime Express") = MsgBoxResult.Ok Then
-                            System.Diagnostics.Process.Start("http://pan.baidu.com/s/1o6jULke")
+                    End While
+                    '循环获取服务器端的版本信息
 
-                        Else
+                    If xmlnewestver = My.Application.Info.Version.ToString Then
 
-                            CheckUpdate.Text = "检查更新"
+                        CheckUpdate.Text = "已是最新"
+
+                    Else
+
+                        CheckUpdate.Text = "有新版本"
+
+                        If isStartup = False Then
+
+                            If MsgBox("检测到新版本：" & xmlnewestver & vbCrLf & _
+                                   "更新时间：" & xmlnewestdate & vbCrLf & _
+                                   "更新内容：" & xmlnewestinfo & vbCrLf & _
+                                   "要更新吗？", _
+                                    MsgBoxStyle.Question + MsgBoxStyle.OkCancel, "检测到新版本") = MsgBoxResult.Ok _
+                                Then System.Diagnostics.Process.Start("http://pan.baidu.com/s/1o6jULke")
+
+                        End If
 
                     End If
-                    '判断
 
-                End If
+                Case "Developer"
 
-            ElseIf UpdateChannel = "Developer" Then
-                If isStartup = False Then MsgBox("你现在使用的是开发版本，软件更新已禁用。", MsgBoxStyle.Exclamation, "Runtime Express")
-            End If
+                    If isStartup = False Then MsgBox("你目前处于Developer通道，软件更新不可用。" _
+                        , MsgBoxStyle.Exclamation, "Runtime Express")
 
-        Catch
+            End Select
 
-            CheckUpdate.Text = "检查更新"
-            If isStartup = False Then MsgBox("暂时无法连接到更新服务器，请检查网络连接或者稍后再试。", MsgBoxStyle.Exclamation)
-
+        Catch ex As Exception
+            If isStartup = False Then MsgBox("目前无法连接到服务器。请检查你的网络连接，然后再试一次。" _
+                , MsgBoxStyle.Critical, "Runtime Express")
+            '出于用户考虑没有显示出ex.StackTrace的堆栈信息和ex.Message的信息
         End Try
 
         '初始化线程以便下次调用
-        UpdateChecker = Nothing
         UpdateChecker = New Thread(AddressOf FeightUpdate)
 
         isStartup = False
@@ -314,6 +339,7 @@ Public Class RuntimeExpressMain
     End Sub
 
     Private Sub Installer1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles Installer1.DoWork
+
         Dim rPath As String = Application.StartupPath
         Dim instErr As Boolean = False
         Dim appflag As Short
@@ -526,7 +552,7 @@ Public Class RuntimeExpressMain
 
     Private Sub CheckUpdate_Click(sender As Object, e As EventArgs) Handles CheckUpdate.Click
 
-        UpdateChecker.Start()
+        If UpdateChecker.IsAlive = False Then UpdateChecker.Start()
 
     End Sub
 

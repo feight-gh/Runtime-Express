@@ -779,7 +779,7 @@ Partial Class RuntimeExpressMain
         Me.GroupBox2.Controls.Add(Me.dxolmode)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 293)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(555, 81)
+        Me.GroupBox2.Size = New System.Drawing.Size(555, 64)
         Me.GroupBox2.TabIndex = 0
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "安装选项"
