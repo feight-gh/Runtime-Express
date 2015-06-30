@@ -1,9 +1,8 @@
-﻿'1.界面改进
-'2.支持配置文件[1.7]
-'3.用python写DISM安装器
-'4.让DISM安装器支持Windows 10
-'5.海外速度优化[1.7]
-'6.重新设计安装器[1.7]
+﻿'1..net Framework 4 dism安装器[1.7]
+'2.支持配置文件和专用化部署[1.7]
+'3.海外速度优化[1.7]
+'4.重新设计安装器[1.7]
+'5.文件完整性校验[1.7]
 
 Imports System.Net
 Imports System.IO
@@ -13,7 +12,7 @@ Imports System.Threading
 Public Class RuntimeExpressMain
 
     Public isStartup As Boolean
-    Dim UpdateChannel As String = "Developer" '定义当前所使用的软件版本
+    Dim UpdateChannel As String = "Release" '定义当前所使用的软件版本
     Const checkserver As String = "https://gitcafe.com/feight/Runtime-Express/raw/master/Windows/version.xml"
 
 #Region "更新检查"
@@ -182,7 +181,7 @@ Public Class RuntimeExpressMain
 
         If XNA2.Checked Then
             DX9.Checked = True
-            MsgBox("已经自动勾选了所须的DX 9.0c！", MsgBoxStyle.Exclamation, "提示")
+            MsgBox("已经自动勾选了所须的DX 9.0c！", MsgBoxStyle.Information, "提示")
         End If
 
     End Sub
@@ -191,7 +190,7 @@ Public Class RuntimeExpressMain
 
         If XNA4.Checked Then
             dotnet.Checked = True
-            MsgBox("已经自动勾选了所须的.net Framework 4.5.2！", MsgBoxStyle.Exclamation, "提示")
+            MsgBox("已经自动勾选了所须的.net Framework 4.5.2！", MsgBoxStyle.Information, "提示")
         End If
 
     End Sub
@@ -211,6 +210,8 @@ Public Class RuntimeExpressMain
         VC20122.Checked = False
         VC20131.Checked = False
         VC20132.Checked = False
+        Java71.Checked = False
+        Java72.Checked = False
         Java81.Checked = False
         Java82.Checked = False
         XNA2.Checked = False
@@ -240,6 +241,8 @@ Public Class RuntimeExpressMain
         VC20122.Enabled = True
         VC20131.Enabled = True
         VC20132.Enabled = True
+        Java71.Enabled = True
+        Java72.Enabled = True
         Java81.Enabled = True
         Java82.Enabled = True
         XNA2.Enabled = True
@@ -273,8 +276,16 @@ Public Class RuntimeExpressMain
             VC20102.Enabled = False
             VC20122.Enabled = False
             VC20132.Enabled = False
+            Java72.Enabled = False
             Java82.Enabled = False
             msxml2.Enabled = False
+        End If
+
+        '
+        '判断语句块：Windows8及其以上版本不需要.net 4
+        '
+        If selectedver = 4 Or selectedver = 5 Or selectedver = 6 Or selectedver = 7 Then
+            dotnet.Enabled = False
         End If
 
         '
@@ -412,6 +423,22 @@ Public Class RuntimeExpressMain
             appflag += 1
             If rexist(rPath & "\uruntime\vc2013_x64.exe") Then
                 System.Diagnostics.Process.Start("uruntime\vc2013_x64.exe").WaitForExit()
+            Else : instErr = True
+            End If
+        End If
+
+        If Java71.Checked Then
+                appflag += 1
+                If rexist(rPath & "\uruntime\jre7_x86.exe") Then
+                    System.Diagnostics.Process.Start("uruntime\jre7_x86.exe").WaitForExit()
+                Else : instErr = True
+                End If
+        End If
+
+        If Java72.Checked Then
+            appflag += 1
+            If rexist(rPath & "\uruntime\jre7_x64.exe") Then
+                System.Diagnostics.Process.Start("uruntime\jre7_x64.exe").WaitForExit()
             Else : instErr = True
             End If
         End If

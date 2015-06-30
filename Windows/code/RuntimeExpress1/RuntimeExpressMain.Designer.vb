@@ -92,6 +92,8 @@ Partial Class RuntimeExpressMain
         Me.AboutText1 = New System.Windows.Forms.Label()
         Me.Installer1 = New System.ComponentModel.BackgroundWorker()
         Me.TipsBox1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Java72 = New System.Windows.Forms.CheckBox()
+        Me.Java71 = New System.Windows.Forms.CheckBox()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -122,19 +124,19 @@ Partial Class RuntimeExpressMain
         Me.TabPage2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage2.Size = New System.Drawing.Size(595, 309)
+        Me.TabPage2.Size = New System.Drawing.Size(644, 333)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "游戏"
+        Me.TabPage2.Text = "不是那么常用"
         '
         'GroupBox7
         '
         Me.GroupBox7.Controls.Add(Me.msxml2)
         Me.GroupBox7.Controls.Add(Me.msxml1)
-        Me.GroupBox7.Location = New System.Drawing.Point(309, 164)
+        Me.GroupBox7.Location = New System.Drawing.Point(383, 164)
         Me.GroupBox7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox7.Size = New System.Drawing.Size(282, 136)
+        Me.GroupBox7.Size = New System.Drawing.Size(249, 136)
         Me.GroupBox7.TabIndex = 4
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Microsoft XML Core"
@@ -173,7 +175,7 @@ Partial Class RuntimeExpressMain
         Me.GroupBox6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox6.Size = New System.Drawing.Size(295, 136)
+        Me.GroupBox6.Size = New System.Drawing.Size(366, 136)
         Me.GroupBox6.TabIndex = 3
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "游戏平台与其他组件"
@@ -262,7 +264,7 @@ Partial Class RuntimeExpressMain
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox4.Size = New System.Drawing.Size(329, 148)
+        Me.GroupBox4.Size = New System.Drawing.Size(370, 148)
         Me.GroupBox4.TabIndex = 1
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "视听"
@@ -310,7 +312,7 @@ Partial Class RuntimeExpressMain
         Me.TabPage1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage1.Size = New System.Drawing.Size(595, 309)
+        Me.TabPage1.Size = New System.Drawing.Size(644, 333)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "常用"
         '
@@ -319,9 +321,9 @@ Partial Class RuntimeExpressMain
         Me.GroupBox8.Controls.Add(Me.dotnet)
         Me.GroupBox8.Controls.Add(Me.fsharp1)
         Me.GroupBox8.Controls.Add(Me.jsharp1)
-        Me.GroupBox8.Location = New System.Drawing.Point(351, 8)
+        Me.GroupBox8.Location = New System.Drawing.Point(417, 7)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(240, 194)
+        Me.GroupBox8.Size = New System.Drawing.Size(221, 182)
         Me.GroupBox8.TabIndex = 9
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = ".net"
@@ -329,7 +331,7 @@ Partial Class RuntimeExpressMain
         'dotnet
         '
         Me.dotnet.AutoSize = True
-        Me.dotnet.Location = New System.Drawing.Point(5, 33)
+        Me.dotnet.Location = New System.Drawing.Point(6, 34)
         Me.dotnet.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dotnet.Name = "dotnet"
         Me.dotnet.Size = New System.Drawing.Size(123, 21)
@@ -361,14 +363,16 @@ Partial Class RuntimeExpressMain
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Java72)
+        Me.GroupBox3.Controls.Add(Me.Java71)
         Me.GroupBox3.Controls.Add(Me.Java82)
         Me.GroupBox3.Controls.Add(Me.Java81)
         Me.GroupBox3.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(7, 211)
+        Me.GroupBox3.Location = New System.Drawing.Point(7, 197)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox3.Size = New System.Drawing.Size(584, 69)
+        Me.GroupBox3.Size = New System.Drawing.Size(416, 128)
         Me.GroupBox3.TabIndex = 8
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Java"
@@ -376,7 +380,7 @@ Partial Class RuntimeExpressMain
         'Java82
         '
         Me.Java82.AutoSize = True
-        Me.Java82.Location = New System.Drawing.Point(234, 27)
+        Me.Java82.Location = New System.Drawing.Point(234, 86)
         Me.Java82.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Java82.Name = "Java82"
         Me.Java82.Size = New System.Drawing.Size(123, 21)
@@ -387,7 +391,7 @@ Partial Class RuntimeExpressMain
         'Java81
         '
         Me.Java81.AutoSize = True
-        Me.Java81.Location = New System.Drawing.Point(20, 27)
+        Me.Java81.Location = New System.Drawing.Point(8, 86)
         Me.Java81.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Java81.Name = "Java81"
         Me.Java81.Size = New System.Drawing.Size(123, 21)
@@ -412,7 +416,7 @@ Partial Class RuntimeExpressMain
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(335, 194)
+        Me.GroupBox1.Size = New System.Drawing.Size(404, 181)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Microsoft Visual C++"
@@ -529,7 +533,7 @@ Partial Class RuntimeExpressMain
         '
         'TabPage3
         '
-        Me.TabPage3.BackColor = System.Drawing.Color.Transparent
+        Me.TabPage3.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage3.Controls.Add(Me.WelcomeText3_1)
         Me.TabPage3.Controls.Add(Me.MainTip2)
         Me.TabPage3.Controls.Add(Me.MainTip4)
@@ -541,7 +545,7 @@ Partial Class RuntimeExpressMain
         Me.TabPage3.Location = New System.Drawing.Point(4, 34)
         Me.TabPage3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(595, 309)
+        Me.TabPage3.Size = New System.Drawing.Size(644, 333)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "主页"
         '
@@ -549,7 +553,7 @@ Partial Class RuntimeExpressMain
         '
         Me.WelcomeText3_1.AutoSize = True
         Me.WelcomeText3_1.ForeColor = System.Drawing.Color.DodgerBlue
-        Me.WelcomeText3_1.Location = New System.Drawing.Point(81, 157)
+        Me.WelcomeText3_1.Location = New System.Drawing.Point(91, 306)
         Me.WelcomeText3_1.Name = "WelcomeText3_1"
         Me.WelcomeText3_1.Size = New System.Drawing.Size(32, 17)
         Me.WelcomeText3_1.TabIndex = 3
@@ -559,11 +563,11 @@ Partial Class RuntimeExpressMain
         '
         Me.MainTip2.BackColor = System.Drawing.Color.SlateBlue
         Me.MainTip2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.MainTip2.Font = New System.Drawing.Font("微软雅黑 Light", 32.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.MainTip2.Font = New System.Drawing.Font("方正等线", 32.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainTip2.ForeColor = System.Drawing.Color.White
-        Me.MainTip2.Location = New System.Drawing.Point(168, 78)
+        Me.MainTip2.Location = New System.Drawing.Point(181, 120)
         Me.MainTip2.Name = "MainTip2"
-        Me.MainTip2.Size = New System.Drawing.Size(120, 67)
+        Me.MainTip2.Size = New System.Drawing.Size(128, 128)
         Me.MainTip2.TabIndex = 2
         Me.MainTip2.Text = "常用"
         Me.MainTip2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -572,11 +576,11 @@ Partial Class RuntimeExpressMain
         '
         Me.MainTip4.BackColor = System.Drawing.Color.DarkTurquoise
         Me.MainTip4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.MainTip4.Font = New System.Drawing.Font("微软雅黑 Light", 32.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.MainTip4.Font = New System.Drawing.Font("方正等线", 32.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainTip4.ForeColor = System.Drawing.Color.White
-        Me.MainTip4.Location = New System.Drawing.Point(460, 78)
+        Me.MainTip4.Location = New System.Drawing.Point(503, 107)
         Me.MainTip4.Name = "MainTip4"
-        Me.MainTip4.Size = New System.Drawing.Size(117, 67)
+        Me.MainTip4.Size = New System.Drawing.Size(128, 128)
         Me.MainTip4.TabIndex = 2
         Me.MainTip4.Text = "安装"
         Me.MainTip4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -585,11 +589,11 @@ Partial Class RuntimeExpressMain
         '
         Me.MainTip3.BackColor = System.Drawing.Color.Orange
         Me.MainTip3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.MainTip3.Font = New System.Drawing.Font("微软雅黑 Light", 32.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.MainTip3.Font = New System.Drawing.Font("方正等线", 32.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainTip3.ForeColor = System.Drawing.Color.White
-        Me.MainTip3.Location = New System.Drawing.Point(315, 78)
+        Me.MainTip3.Location = New System.Drawing.Point(342, 55)
         Me.MainTip3.Name = "MainTip3"
-        Me.MainTip3.Size = New System.Drawing.Size(118, 67)
+        Me.MainTip3.Size = New System.Drawing.Size(128, 128)
         Me.MainTip3.TabIndex = 2
         Me.MainTip3.Text = "游戏"
         Me.MainTip3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -598,11 +602,11 @@ Partial Class RuntimeExpressMain
         '
         Me.MainTip1.BackColor = System.Drawing.Color.ForestGreen
         Me.MainTip1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.MainTip1.Font = New System.Drawing.Font("微软雅黑 Light", 32.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.MainTip1.Font = New System.Drawing.Font("方正等线", 32.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainTip1.ForeColor = System.Drawing.Color.White
-        Me.MainTip1.Location = New System.Drawing.Point(15, 78)
+        Me.MainTip1.Location = New System.Drawing.Point(20, 84)
         Me.MainTip1.Name = "MainTip1"
-        Me.MainTip1.Size = New System.Drawing.Size(118, 67)
+        Me.MainTip1.Size = New System.Drawing.Size(128, 128)
         Me.MainTip1.TabIndex = 2
         Me.MainTip1.Text = "选项"
         Me.MainTip1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -610,7 +614,7 @@ Partial Class RuntimeExpressMain
         'WelcomeText3
         '
         Me.WelcomeText3.AutoSize = True
-        Me.WelcomeText3.Location = New System.Drawing.Point(3, 157)
+        Me.WelcomeText3.Location = New System.Drawing.Point(12, 306)
         Me.WelcomeText3.Name = "WelcomeText3"
         Me.WelcomeText3.Size = New System.Drawing.Size(446, 17)
         Me.WelcomeText3.TabIndex = 1
@@ -619,7 +623,7 @@ Partial Class RuntimeExpressMain
         'WelcomeText2
         '
         Me.WelcomeText2.AutoSize = True
-        Me.WelcomeText2.Location = New System.Drawing.Point(3, 52)
+        Me.WelcomeText2.Location = New System.Drawing.Point(12, 49)
         Me.WelcomeText2.Name = "WelcomeText2"
         Me.WelcomeText2.Size = New System.Drawing.Size(219, 17)
         Me.WelcomeText2.TabIndex = 1
@@ -627,29 +631,29 @@ Partial Class RuntimeExpressMain
         '
         'WelcomeText1
         '
-        Me.WelcomeText1.Font = New System.Drawing.Font("微软雅黑 Light", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.WelcomeText1.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.WelcomeText1.Location = New System.Drawing.Point(3, 4)
+        Me.WelcomeText1.Font = New System.Drawing.Font("Comic Sans MS", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.WelcomeText1.ForeColor = System.Drawing.Color.SteelBlue
+        Me.WelcomeText1.Location = New System.Drawing.Point(12, 4)
         Me.WelcomeText1.Name = "WelcomeText1"
-        Me.WelcomeText1.Size = New System.Drawing.Size(589, 45)
+        Me.WelcomeText1.Size = New System.Drawing.Size(620, 45)
         Me.WelcomeText1.TabIndex = 0
-        Me.WelcomeText1.Text = "欢迎使用Runtime Express！"
+        Me.WelcomeText1.Text = "Welcome!"
         Me.WelcomeText1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'DllHelper3
         '
         Me.DllHelper3.Location = New System.Drawing.Point(6, 82)
         Me.DllHelper3.Name = "DllHelper3"
-        Me.DllHelper3.Size = New System.Drawing.Size(377, 31)
+        Me.DllHelper3.Size = New System.Drawing.Size(414, 31)
         Me.DllHelper3.TabIndex = 12
         Me.DllHelper3.Text = "获取解决方案"
         Me.DllHelper3.UseVisualStyleBackColor = True
         '
         'DllHelper2
         '
-        Me.DllHelper2.Location = New System.Drawing.Point(388, 82)
+        Me.DllHelper2.Location = New System.Drawing.Point(426, 82)
         Me.DllHelper2.Name = "DllHelper2"
-        Me.DllHelper2.Size = New System.Drawing.Size(160, 31)
+        Me.DllHelper2.Size = New System.Drawing.Size(180, 31)
         Me.DllHelper2.TabIndex = 11
         Me.DllHelper2.Text = "没有找到DLL？"
         Me.DllHelper2.UseVisualStyleBackColor = True
@@ -661,7 +665,7 @@ Partial Class RuntimeExpressMain
         Me.DllHelper1.Items.AddRange(New Object() {"d3dx9_**.dll", "MSVC**.dll", "xinput**.dll", "openal32.dll", "PhysXLoader.dll", "xlive.dll", "XAudio**.dll", "xactengine*_*.dll"})
         Me.DllHelper1.Location = New System.Drawing.Point(6, 51)
         Me.DllHelper1.Name = "DllHelper1"
-        Me.DllHelper1.Size = New System.Drawing.Size(543, 25)
+        Me.DllHelper1.Size = New System.Drawing.Size(495, 25)
         Me.DllHelper1.TabIndex = 10
         '
         'DllAssistantTip1
@@ -678,7 +682,7 @@ Partial Class RuntimeExpressMain
         Me.AutoCheck2.Location = New System.Drawing.Point(6, 76)
         Me.AutoCheck2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.AutoCheck2.Name = "AutoCheck2"
-        Me.AutoCheck2.Size = New System.Drawing.Size(377, 33)
+        Me.AutoCheck2.Size = New System.Drawing.Size(414, 33)
         Me.AutoCheck2.TabIndex = 8
         Me.AutoCheck2.Text = "应用筛选器并重置所有选择项"
         Me.AutoCheck2.UseVisualStyleBackColor = True
@@ -688,7 +692,7 @@ Partial Class RuntimeExpressMain
         Me.AutoChk1.AutoSize = True
         Me.AutoChk1.Checked = True
         Me.AutoChk1.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.AutoChk1.Location = New System.Drawing.Point(474, 45)
+        Me.AutoChk1.Location = New System.Drawing.Point(531, 48)
         Me.AutoChk1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.AutoChk1.Name = "AutoChk1"
         Me.AutoChk1.Size = New System.Drawing.Size(75, 21)
@@ -712,20 +716,20 @@ Partial Class RuntimeExpressMain
         Me.ScreenRE1.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.ScreenRE1.FormattingEnabled = True
         Me.ScreenRE1.ImeMode = System.Windows.Forms.ImeMode.Disable
-        Me.ScreenRE1.Items.AddRange(New Object() {"Windows Vista x86", "Windows Vista x64", "Windows 7 x86", "Windows 7 x64", "Windows 8/8.1 x86", "Windows 8/8.1 x64", "Windows 10 Technical Preview x86", "Windows 10 Technical Preview x64"})
+        Me.ScreenRE1.Items.AddRange(New Object() {"Windows Vista x86", "Windows Vista x64", "Windows 7 x86", "Windows 7 x64", "Windows 8/8.1 x86", "Windows 8/8.1 x64", "Windows 10 Insider Preview x86", "Windows 10 Insider Preview x64"})
         Me.ScreenRE1.Location = New System.Drawing.Point(6, 44)
         Me.ScreenRE1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ScreenRE1.Name = "ScreenRE1"
-        Me.ScreenRE1.Size = New System.Drawing.Size(462, 25)
+        Me.ScreenRE1.Size = New System.Drawing.Size(519, 25)
         Me.ScreenRE1.TabIndex = 0
         '
         'InstNow1
         '
         Me.InstNow1.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.InstNow1.Location = New System.Drawing.Point(31, 358)
+        Me.InstNow1.Location = New System.Drawing.Point(14, 378)
         Me.InstNow1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.InstNow1.Name = "InstNow1"
-        Me.InstNow1.Size = New System.Drawing.Size(562, 37)
+        Me.InstNow1.Size = New System.Drawing.Size(618, 37)
         Me.InstNow1.TabIndex = 0
         Me.InstNow1.Text = "安装"
         Me.InstNow1.UseVisualStyleBackColor = True
@@ -738,13 +742,13 @@ Partial Class RuntimeExpressMain
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.TabControl1.ItemSize = New System.Drawing.Size(120, 30)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 1)
+        Me.TabControl1.ItemSize = New System.Drawing.Size(129, 30)
+        Me.TabControl1.Location = New System.Drawing.Point(-4, -2)
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.Padding = New System.Drawing.Point(3, 3)
+        Me.TabControl1.Padding = New System.Drawing.Point(5, 5)
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(603, 347)
+        Me.TabControl1.Size = New System.Drawing.Size(652, 371)
         Me.TabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabControl1.TabIndex = 5
         '
@@ -757,7 +761,7 @@ Partial Class RuntimeExpressMain
         Me.TabPage5.Controls.Add(Me.RuntimeFilter)
         Me.TabPage5.Location = New System.Drawing.Point(4, 34)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(595, 309)
+        Me.TabPage5.Size = New System.Drawing.Size(644, 333)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "选项"
         '
@@ -769,7 +773,7 @@ Partial Class RuntimeExpressMain
         Me.DllAssistant.Controls.Add(Me.DllHelper1)
         Me.DllAssistant.Location = New System.Drawing.Point(12, 150)
         Me.DllAssistant.Name = "DllAssistant"
-        Me.DllAssistant.Size = New System.Drawing.Size(555, 137)
+        Me.DllAssistant.Size = New System.Drawing.Size(612, 137)
         Me.DllAssistant.TabIndex = 14
         Me.DllAssistant.TabStop = False
         Me.DllAssistant.Text = "DLL助手"
@@ -779,7 +783,7 @@ Partial Class RuntimeExpressMain
         Me.GroupBox2.Controls.Add(Me.dxolmode)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 293)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(555, 64)
+        Me.GroupBox2.Size = New System.Drawing.Size(612, 64)
         Me.GroupBox2.TabIndex = 0
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "安装选项"
@@ -806,16 +810,16 @@ Partial Class RuntimeExpressMain
         Me.RuntimeFilter.Controls.Add(Me.AutoCheck2)
         Me.RuntimeFilter.Location = New System.Drawing.Point(12, 13)
         Me.RuntimeFilter.Name = "RuntimeFilter"
-        Me.RuntimeFilter.Size = New System.Drawing.Size(555, 130)
+        Me.RuntimeFilter.Size = New System.Drawing.Size(612, 130)
         Me.RuntimeFilter.TabIndex = 13
         Me.RuntimeFilter.TabStop = False
         Me.RuntimeFilter.Text = "运行库筛选器"
         '
         'ResetFilter1
         '
-        Me.ResetFilter1.Location = New System.Drawing.Point(388, 76)
+        Me.ResetFilter1.Location = New System.Drawing.Point(426, 76)
         Me.ResetFilter1.Name = "ResetFilter1"
-        Me.ResetFilter1.Size = New System.Drawing.Size(160, 33)
+        Me.ResetFilter1.Size = New System.Drawing.Size(180, 33)
         Me.ResetFilter1.TabIndex = 9
         Me.ResetFilter1.Text = "重置筛选器和选项"
         Me.ResetFilter1.UseVisualStyleBackColor = True
@@ -831,7 +835,7 @@ Partial Class RuntimeExpressMain
         Me.TabPage4.Controls.Add(Me.AboutText1)
         Me.TabPage4.Location = New System.Drawing.Point(4, 34)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(595, 309)
+        Me.TabPage4.Size = New System.Drawing.Size(644, 333)
         Me.TabPage4.TabIndex = 5
         Me.TabPage4.Text = "关于"
         '
@@ -841,7 +845,7 @@ Partial Class RuntimeExpressMain
         Me.VisitWebsite.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.VisitWebsite.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.VisitWebsite.ForeColor = System.Drawing.Color.Transparent
-        Me.VisitWebsite.Location = New System.Drawing.Point(304, 269)
+        Me.VisitWebsite.Location = New System.Drawing.Point(355, 293)
         Me.VisitWebsite.Name = "VisitWebsite"
         Me.VisitWebsite.Size = New System.Drawing.Size(140, 37)
         Me.VisitWebsite.TabIndex = 11
@@ -854,7 +858,7 @@ Partial Class RuntimeExpressMain
         Me.CheckUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CheckUpdate.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.CheckUpdate.ForeColor = System.Drawing.Color.Transparent
-        Me.CheckUpdate.Location = New System.Drawing.Point(450, 269)
+        Me.CheckUpdate.Location = New System.Drawing.Point(501, 293)
         Me.CheckUpdate.Name = "CheckUpdate"
         Me.CheckUpdate.Size = New System.Drawing.Size(140, 37)
         Me.CheckUpdate.TabIndex = 10
@@ -866,7 +870,7 @@ Partial Class RuntimeExpressMain
         Me.CpoyrightText.BackColor = System.Drawing.SystemColors.Control
         Me.CpoyrightText.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.CpoyrightText.ForeColor = System.Drawing.Color.Black
-        Me.CpoyrightText.Location = New System.Drawing.Point(4, 237)
+        Me.CpoyrightText.Location = New System.Drawing.Point(4, 261)
         Me.CpoyrightText.Name = "CpoyrightText"
         Me.CpoyrightText.Size = New System.Drawing.Size(329, 69)
         Me.CpoyrightText.TabIndex = 12
@@ -877,7 +881,7 @@ Partial Class RuntimeExpressMain
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(464, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(513, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(128, 128)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -892,15 +896,15 @@ Partial Class RuntimeExpressMain
         Me.AboutText2.ForeColor = System.Drawing.SystemColors.ControlText
         Me.AboutText2.Location = New System.Drawing.Point(3, 44)
         Me.AboutText2.Name = "AboutText2"
-        Me.AboutText2.Size = New System.Drawing.Size(301, 63)
+        Me.AboutText2.Size = New System.Drawing.Size(304, 84)
         Me.AboutText2.TabIndex = 4
-        Me.AboutText2.Text = "版本：1.6.0.123-dev" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "编译版本：2015.5.29.1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "制作者：Feight（百度：@无影无形F8）"
+        Me.AboutText2.Text = "版本：" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "更新通道：" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "制作者：" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "[To Develpoers]这里将在启动后被填充。"
         '
         'AboutText1
         '
         Me.AboutText1.BackColor = System.Drawing.Color.Transparent
-        Me.AboutText1.Font = New System.Drawing.Font("微软雅黑 Light", 26.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, CType(134, Byte))
-        Me.AboutText1.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.AboutText1.Font = New System.Drawing.Font("Segoe WP SemiLight", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AboutText1.ForeColor = System.Drawing.Color.SteelBlue
         Me.AboutText1.Location = New System.Drawing.Point(1, -1)
         Me.AboutText1.Name = "AboutText1"
         Me.AboutText1.Size = New System.Drawing.Size(457, 45)
@@ -912,11 +916,34 @@ Partial Class RuntimeExpressMain
         '
         Me.Installer1.WorkerReportsProgress = True
         '
+        'Java72
+        '
+        Me.Java72.AutoSize = True
+        Me.Java72.Location = New System.Drawing.Point(234, 24)
+        Me.Java72.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Java72.Name = "Java72"
+        Me.Java72.Size = New System.Drawing.Size(123, 21)
+        Me.Java72.TabIndex = 3
+        Me.Java72.Text = "7 Update 79 x64"
+        Me.Java72.UseVisualStyleBackColor = True
+        '
+        'Java71
+        '
+        Me.Java71.AutoSize = True
+        Me.Java71.Location = New System.Drawing.Point(8, 24)
+        Me.Java71.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Java71.Name = "Java71"
+        Me.Java71.Size = New System.Drawing.Size(123, 21)
+        Me.Java71.TabIndex = 2
+        Me.Java71.Text = "7 Update 79 x86"
+        Me.Java71.UseVisualStyleBackColor = True
+        '
         'RuntimeExpressMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(629, 408)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(644, 427)
         Me.Controls.Add(Me.InstNow1)
         Me.Controls.Add(Me.TabControl1)
         Me.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
@@ -1026,5 +1053,7 @@ Partial Class RuntimeExpressMain
     Friend WithEvents VisitWebsite As System.Windows.Forms.Button
     Friend WithEvents CheckUpdate As System.Windows.Forms.Button
     Friend WithEvents CpoyrightText As System.Windows.Forms.Label
+    Friend WithEvents Java72 As System.Windows.Forms.CheckBox
+    Friend WithEvents Java71 As System.Windows.Forms.CheckBox
 
 End Class

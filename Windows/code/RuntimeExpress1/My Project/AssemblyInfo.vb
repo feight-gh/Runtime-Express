@@ -15,7 +15,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyCopyright("Copyright © Feight Software 2015")> 
 <Assembly: AssemblyTrademark("")> 
 
-<Assembly: ComVisible(False)>
+<Assembly: ComVisible(False)> 
 
 '如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
 <Assembly: Guid("ad9f6907-3d55-4ee2-b467-4136110573eb")> 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' 方法是按如下所示使用“*”: 
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.6.0.125")> 
-<Assembly: AssemblyFileVersion("2015.6.6.0")> 
+<Assembly: AssemblyVersion("1.6.0.130")> 
+<Assembly: AssemblyFileVersion("2015.6.30.0")> 
