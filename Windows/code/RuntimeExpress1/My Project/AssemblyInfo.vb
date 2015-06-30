@@ -8,14 +8,14 @@ Imports System.Runtime.InteropServices
 
 ' 查看程序集特性的值
 
-<Assembly: AssemblyTitle("Runtime Express")> 
+<Assembly: AssemblyTitle("Runtime Express 1.6")> 
 <Assembly: AssemblyDescription("一款运行库集成安装器")> 
 <Assembly: AssemblyCompany("Feight Software")> 
 <Assembly: AssemblyProduct("Runtime Express")> 
 <Assembly: AssemblyCopyright("Copyright © Feight Software 2015")> 
 <Assembly: AssemblyTrademark("")> 
 
-<Assembly: ComVisible(False)> 
+<Assembly: ComVisible(True)> 
 
 '如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
 <Assembly: Guid("ad9f6907-3d55-4ee2-b467-4136110573eb")> 

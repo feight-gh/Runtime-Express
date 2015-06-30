@@ -45,6 +45,8 @@ Partial Class RuntimeExpressMain
         Me.fsharp1 = New System.Windows.Forms.CheckBox()
         Me.jsharp1 = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Java72 = New System.Windows.Forms.CheckBox()
+        Me.Java71 = New System.Windows.Forms.CheckBox()
         Me.Java82 = New System.Windows.Forms.CheckBox()
         Me.Java81 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -92,8 +94,6 @@ Partial Class RuntimeExpressMain
         Me.AboutText1 = New System.Windows.Forms.Label()
         Me.Installer1 = New System.ComponentModel.BackgroundWorker()
         Me.TipsBox1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Java72 = New System.Windows.Forms.CheckBox()
-        Me.Java71 = New System.Windows.Forms.CheckBox()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -377,6 +377,28 @@ Partial Class RuntimeExpressMain
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Java"
         '
+        'Java72
+        '
+        Me.Java72.AutoSize = True
+        Me.Java72.Location = New System.Drawing.Point(234, 24)
+        Me.Java72.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Java72.Name = "Java72"
+        Me.Java72.Size = New System.Drawing.Size(123, 21)
+        Me.Java72.TabIndex = 3
+        Me.Java72.Text = "7 Update 79 x64"
+        Me.Java72.UseVisualStyleBackColor = True
+        '
+        'Java71
+        '
+        Me.Java71.AutoSize = True
+        Me.Java71.Location = New System.Drawing.Point(8, 24)
+        Me.Java71.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Java71.Name = "Java71"
+        Me.Java71.Size = New System.Drawing.Size(123, 21)
+        Me.Java71.TabIndex = 2
+        Me.Java71.Text = "7 Update 79 x86"
+        Me.Java71.UseVisualStyleBackColor = True
+        '
         'Java82
         '
         Me.Java82.AutoSize = True
@@ -385,7 +407,7 @@ Partial Class RuntimeExpressMain
         Me.Java82.Name = "Java82"
         Me.Java82.Size = New System.Drawing.Size(123, 21)
         Me.Java82.TabIndex = 1
-        Me.Java82.Text = "8 Update 25 x64"
+        Me.Java82.Text = "8 Update 45 x64"
         Me.Java82.UseVisualStyleBackColor = True
         '
         'Java81
@@ -396,7 +418,7 @@ Partial Class RuntimeExpressMain
         Me.Java81.Name = "Java81"
         Me.Java81.Size = New System.Drawing.Size(123, 21)
         Me.Java81.TabIndex = 0
-        Me.Java81.Text = "8 Update 25 x86"
+        Me.Java81.Text = "8 Update 45 x86"
         Me.Java81.UseVisualStyleBackColor = True
         '
         'GroupBox1
@@ -915,28 +937,6 @@ Partial Class RuntimeExpressMain
         'Installer1
         '
         Me.Installer1.WorkerReportsProgress = True
-        '
-        'Java72
-        '
-        Me.Java72.AutoSize = True
-        Me.Java72.Location = New System.Drawing.Point(234, 24)
-        Me.Java72.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Java72.Name = "Java72"
-        Me.Java72.Size = New System.Drawing.Size(123, 21)
-        Me.Java72.TabIndex = 3
-        Me.Java72.Text = "7 Update 79 x64"
-        Me.Java72.UseVisualStyleBackColor = True
-        '
-        'Java71
-        '
-        Me.Java71.AutoSize = True
-        Me.Java71.Location = New System.Drawing.Point(8, 24)
-        Me.Java71.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Java71.Name = "Java71"
-        Me.Java71.Size = New System.Drawing.Size(123, 21)
-        Me.Java71.TabIndex = 2
-        Me.Java71.Text = "7 Update 79 x86"
-        Me.Java71.UseVisualStyleBackColor = True
         '
         'RuntimeExpressMain
         '
