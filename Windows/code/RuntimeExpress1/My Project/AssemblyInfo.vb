@@ -13,12 +13,12 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyCompany("Feight Software")> 
 <Assembly: AssemblyProduct("Runtime Express")> 
 <Assembly: AssemblyCopyright("Copyright © Feight Software 2015")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTrademark("")>
 
-<Assembly: ComVisible(True)> 
+<Assembly: ComVisible(False)>
 
 '如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-<Assembly: Guid("ad9f6907-3d55-4ee2-b467-4136110573eb")> 
+<Assembly: Guid("ad9f6907-3d55-4ee2-b467-4136110573eb")>
 
 ' 程序集的版本信息由下面四个值组成: 
 '
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' 方法是按如下所示使用“*”: 
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.6.0.130")> 
-<Assembly: AssemblyFileVersion("2015.6.30.0")> 
+<Assembly: AssemblyVersion("1.6.0.131")>
+<Assembly: AssemblyFileVersion("2015.8.5.0")>

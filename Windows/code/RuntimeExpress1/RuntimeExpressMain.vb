@@ -1,19 +1,15 @@
-﻿'1..net Framework 4 dism安装器[1.7]
-'2.支持配置文件和专用化部署[1.7]
-'3.海外速度优化[1.7]
-'4.重新设计安装器[1.7]
-'5.文件完整性校验[1.7]
+﻿'1.支持配置文件和专用化部署[2.0]
+'2.重新设计安装器[2.0]
+'3.文件完整性校验[1.7]
+'4.日志记录[2.0]
 
-Imports System.Net
-Imports System.IO
-Imports System.Text.RegularExpressions
 Imports System.Threading
 
 Public Class RuntimeExpressMain
 
     Public isStartup As Boolean
-    Dim UpdateChannel As String = "Release" '定义当前所使用的软件版本
-    Const checkserver As String = "https://gitcafe.com/feight/Runtime-Express/raw/master/Windows/version.xml"
+    Dim UpdateChannel As String = "Developer" '定义当前所使用的软件版本
+    Dim checkserver
 
 #Region "更新检查"
 
@@ -25,9 +21,20 @@ Public Class RuntimeExpressMain
         Control.CheckForIllegalCrossThreadCalls = False
 
         Try
+
+            CheckUpdate.Text = "正在检查"
+
             Select Case UpdateChannel
 
+
+
                 Case "Release"
+
+                    If SourceSelector1.Text <> "" Then
+                        checkserver = SourceSelector1.Text
+                    Else
+                        checkserver = "https://raw.githubusercontent.com/feight-github/Runtime-Express/master/Windows/version.xml"
+                    End If
 
                     Dim doc As New Xml.XmlDocument
                     doc.Load(checkserver.Trim)
@@ -73,18 +80,20 @@ Public Class RuntimeExpressMain
 
                         If isStartup = False Then
 
-                            If MsgBox("检测到新版本：" & xmlnewestver & vbCrLf & _
-                                   "更新时间：" & xmlnewestdate & vbCrLf & _
-                                   "更新内容：" & xmlnewestinfo & vbCrLf & _
-                                   "要更新吗？", _
+                            If MsgBox("检测到新版本：" & xmlnewestver & vbCrLf &
+                                   "更新时间：" & xmlnewestdate & vbCrLf &
+                                   "更新内容：" & xmlnewestinfo & vbCrLf &
+                                   "要更新吗？",
                                     MsgBoxStyle.Question + MsgBoxStyle.OkCancel, "检测到新版本") = MsgBoxResult.Ok _
-                                Then System.Diagnostics.Process.Start("http://pan.baidu.com/s/1o6jULke")
+                                Then Process.Start("http://pan.baidu.com/s/1o6jULke")
 
                         End If
 
                     End If
 
                 Case "Developer"
+
+                    CheckUpdate.Text = "不可用"
 
                     If isStartup = False Then MsgBox("你目前处于Developer通道，软件更新不可用。" _
                         , MsgBoxStyle.Exclamation, "Runtime Express")
@@ -137,6 +146,8 @@ Public Class RuntimeExpressMain
         '合成环境
         Dim osenvironment = Environment.OSVersion.ToString.Substring(0, 24) & "|" _
                             & System.Runtime.InteropServices.Marshal.SizeOf(IntPtr.Zero) * 8
+
+        SourceSelector1.SelectedIndex = 0
 
         Select Case osenvironment
 
@@ -210,6 +221,8 @@ Public Class RuntimeExpressMain
         VC20122.Checked = False
         VC20131.Checked = False
         VC20132.Checked = False
+        VC20151.Checked = False
+        VC20152.Checked = False
         Java71.Checked = False
         Java72.Checked = False
         Java81.Checked = False
@@ -241,6 +254,8 @@ Public Class RuntimeExpressMain
         VC20122.Enabled = True
         VC20131.Enabled = True
         VC20132.Enabled = True
+        VC20151.Enabled = True
+        VC20152.Enabled = True
         Java71.Enabled = True
         Java72.Enabled = True
         Java81.Enabled = True
@@ -276,13 +291,14 @@ Public Class RuntimeExpressMain
             VC20102.Enabled = False
             VC20122.Enabled = False
             VC20132.Enabled = False
+            VC20152.Enabled = False
             Java72.Enabled = False
             Java82.Enabled = False
             msxml2.Enabled = False
         End If
 
         '
-        '判断语句块：Windows8及其以上版本不需要.net 4
+        '判断语句块：Windows 8及其以上版本不需要.net 4
         '
         If selectedver = 4 Or selectedver = 5 Or selectedver = 6 Or selectedver = 7 Then
             dotnet.Enabled = False
@@ -299,6 +315,7 @@ Public Class RuntimeExpressMain
             VC20101.Checked = True
             VC20121.Checked = True
             VC20131.Checked = True
+            VC20151.Checked = True
             Java81.Checked = True
 
             If selectedver = 1 Or selectedver = 3 Or selectedver = 5 Or selectedver = 7 Then
@@ -307,6 +324,7 @@ Public Class RuntimeExpressMain
                 VC20102.Checked = True
                 VC20122.Checked = True
                 VC20132.Checked = True
+                VC20152.Checked = True
                 Java82.Checked = True
                 '自动勾选64位Windows所需要的运行库
             End If
@@ -427,12 +445,28 @@ Public Class RuntimeExpressMain
             End If
         End If
 
+        If VC20151.Checked Then
+            appflag += 1
+            If rexist(rPath & "\uruntime\vc2015_x86.exe") Then
+                System.Diagnostics.Process.Start("uruntime\vc2015_x86.exe").WaitForExit()
+            Else : instErr = True
+            End If
+        End If
+
+        If VC20152.Checked Then
+            appflag += 1
+            If rexist(rPath & "\uruntime\vc2015_x64.exe") Then
+                System.Diagnostics.Process.Start("uruntime\vc2015_x64.exe").WaitForExit()
+            Else : instErr = True
+            End If
+        End If
+
         If Java71.Checked Then
-                appflag += 1
-                If rexist(rPath & "\uruntime\jre7_x86.exe") Then
-                    System.Diagnostics.Process.Start("uruntime\jre7_x86.exe").WaitForExit()
-                Else : instErr = True
-                End If
+            appflag += 1
+            If rexist(rPath & "\uruntime\jre7_x86.exe") Then
+                System.Diagnostics.Process.Start("uruntime\jre7_x86.exe").WaitForExit()
+            Else : instErr = True
+            End If
         End If
 
         If Java72.Checked Then

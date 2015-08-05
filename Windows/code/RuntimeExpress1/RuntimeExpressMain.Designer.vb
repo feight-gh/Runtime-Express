@@ -80,6 +80,9 @@ Partial Class RuntimeExpressMain
         Me.InstNow1 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.SourceSelector1 = New System.Windows.Forms.ComboBox()
         Me.DllAssistant = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dxolmode = New System.Windows.Forms.CheckBox()
@@ -94,6 +97,8 @@ Partial Class RuntimeExpressMain
         Me.AboutText1 = New System.Windows.Forms.Label()
         Me.Installer1 = New System.ComponentModel.BackgroundWorker()
         Me.TipsBox1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.VC20151 = New System.Windows.Forms.CheckBox()
+        Me.VC20152 = New System.Windows.Forms.CheckBox()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -106,6 +111,7 @@ Partial Class RuntimeExpressMain
         Me.TabPage3.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage5.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
         Me.DllAssistant.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.RuntimeFilter.SuspendLayout()
@@ -334,9 +340,9 @@ Partial Class RuntimeExpressMain
         Me.dotnet.Location = New System.Drawing.Point(6, 34)
         Me.dotnet.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dotnet.Name = "dotnet"
-        Me.dotnet.Size = New System.Drawing.Size(123, 21)
+        Me.dotnet.Size = New System.Drawing.Size(113, 21)
         Me.dotnet.TabIndex = 9
-        Me.dotnet.Text = "Framework 4.5.2"
+        Me.dotnet.Text = "Framework 4.6"
         Me.dotnet.UseVisualStyleBackColor = True
         '
         'fsharp1
@@ -423,6 +429,8 @@ Partial Class RuntimeExpressMain
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.VC20151)
+        Me.GroupBox1.Controls.Add(Me.VC20152)
         Me.GroupBox1.Controls.Add(Me.VC20131)
         Me.GroupBox1.Controls.Add(Me.VC20132)
         Me.GroupBox1.Controls.Add(Me.VC20121)
@@ -585,7 +593,7 @@ Partial Class RuntimeExpressMain
         '
         Me.MainTip2.BackColor = System.Drawing.Color.SlateBlue
         Me.MainTip2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.MainTip2.Font = New System.Drawing.Font("方正等线", 32.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MainTip2.Font = New System.Drawing.Font("等线", 32.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainTip2.ForeColor = System.Drawing.Color.White
         Me.MainTip2.Location = New System.Drawing.Point(181, 120)
         Me.MainTip2.Name = "MainTip2"
@@ -598,7 +606,7 @@ Partial Class RuntimeExpressMain
         '
         Me.MainTip4.BackColor = System.Drawing.Color.DarkTurquoise
         Me.MainTip4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.MainTip4.Font = New System.Drawing.Font("方正等线", 32.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MainTip4.Font = New System.Drawing.Font("等线", 32.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainTip4.ForeColor = System.Drawing.Color.White
         Me.MainTip4.Location = New System.Drawing.Point(503, 107)
         Me.MainTip4.Name = "MainTip4"
@@ -611,7 +619,7 @@ Partial Class RuntimeExpressMain
         '
         Me.MainTip3.BackColor = System.Drawing.Color.Orange
         Me.MainTip3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.MainTip3.Font = New System.Drawing.Font("方正等线", 32.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MainTip3.Font = New System.Drawing.Font("等线", 32.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainTip3.ForeColor = System.Drawing.Color.White
         Me.MainTip3.Location = New System.Drawing.Point(342, 55)
         Me.MainTip3.Name = "MainTip3"
@@ -624,7 +632,7 @@ Partial Class RuntimeExpressMain
         '
         Me.MainTip1.BackColor = System.Drawing.Color.ForestGreen
         Me.MainTip1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.MainTip1.Font = New System.Drawing.Font("方正等线", 32.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MainTip1.Font = New System.Drawing.Font("等线", 32.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainTip1.ForeColor = System.Drawing.Color.White
         Me.MainTip1.Location = New System.Drawing.Point(20, 84)
         Me.MainTip1.Name = "MainTip1"
@@ -687,7 +695,7 @@ Partial Class RuntimeExpressMain
         Me.DllHelper1.Items.AddRange(New Object() {"d3dx9_**.dll", "MSVC**.dll", "xinput**.dll", "openal32.dll", "PhysXLoader.dll", "xlive.dll", "XAudio**.dll", "xactengine*_*.dll"})
         Me.DllHelper1.Location = New System.Drawing.Point(6, 51)
         Me.DllHelper1.Name = "DllHelper1"
-        Me.DllHelper1.Size = New System.Drawing.Size(495, 25)
+        Me.DllHelper1.Size = New System.Drawing.Size(600, 25)
         Me.DllHelper1.TabIndex = 10
         '
         'DllAssistantTip1
@@ -738,7 +746,7 @@ Partial Class RuntimeExpressMain
         Me.ScreenRE1.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.ScreenRE1.FormattingEnabled = True
         Me.ScreenRE1.ImeMode = System.Windows.Forms.ImeMode.Disable
-        Me.ScreenRE1.Items.AddRange(New Object() {"Windows Vista x86", "Windows Vista x64", "Windows 7 x86", "Windows 7 x64", "Windows 8/8.1 x86", "Windows 8/8.1 x64", "Windows 10 Insider Preview x86", "Windows 10 Insider Preview x64"})
+        Me.ScreenRE1.Items.AddRange(New Object() {"Windows Vista x86", "Windows Vista x64", "Windows 7 x86", "Windows 7 x64", "Windows 8/8.1 x86", "Windows 8/8.1 x64", "Windows 10 x86", "Windows 10 x64"})
         Me.ScreenRE1.Location = New System.Drawing.Point(6, 44)
         Me.ScreenRE1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.ScreenRE1.Name = "ScreenRE1"
@@ -778,6 +786,7 @@ Partial Class RuntimeExpressMain
         '
         Me.TabPage5.AutoScroll = True
         Me.TabPage5.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage5.Controls.Add(Me.GroupBox9)
         Me.TabPage5.Controls.Add(Me.DllAssistant)
         Me.TabPage5.Controls.Add(Me.GroupBox2)
         Me.TabPage5.Controls.Add(Me.RuntimeFilter)
@@ -786,6 +795,36 @@ Partial Class RuntimeExpressMain
         Me.TabPage5.Size = New System.Drawing.Size(644, 333)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "选项"
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.Label1)
+        Me.GroupBox9.Controls.Add(Me.SourceSelector1)
+        Me.GroupBox9.Location = New System.Drawing.Point(12, 369)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(612, 146)
+        Me.GroupBox9.TabIndex = 15
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "更新源"
+        '
+        'Label1
+        '
+        Me.Label1.Location = New System.Drawing.Point(6, 55)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(600, 88)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "一般这里内置了2个源用于更新。其中gitcafe.com为中国的源，raw.githubusercontent.com为Github国外源。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "将这里留空则程序默" &
+    "认使用GitHub作为源。如果你没有通过fork建立的源，保持此处为默认设置。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "如果有新的源，请通过issue方式告知。"
+        '
+        'SourceSelector1
+        '
+        Me.SourceSelector1.FormattingEnabled = True
+        Me.SourceSelector1.Items.AddRange(New Object() {"https://raw.githubusercontent.com/feight-github/Runtime-Express/master/Windows/ve" &
+                "rsion.xml", "https://gitcafe.com/feight/Runtime-Express/raw/master/Windows/version.xml"})
+        Me.SourceSelector1.Location = New System.Drawing.Point(6, 23)
+        Me.SourceSelector1.Name = "SourceSelector1"
+        Me.SourceSelector1.Size = New System.Drawing.Size(600, 25)
+        Me.SourceSelector1.TabIndex = 0
         '
         'DllAssistant
         '
@@ -805,7 +844,7 @@ Partial Class RuntimeExpressMain
         Me.GroupBox2.Controls.Add(Me.dxolmode)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 293)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(612, 64)
+        Me.GroupBox2.Size = New System.Drawing.Size(612, 70)
         Me.GroupBox2.TabIndex = 0
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "安装选项"
@@ -896,8 +935,8 @@ Partial Class RuntimeExpressMain
         Me.CpoyrightText.Name = "CpoyrightText"
         Me.CpoyrightText.Size = New System.Drawing.Size(329, 69)
         Me.CpoyrightText.TabIndex = 12
-        Me.CpoyrightText.Text = "使用Visual Basic 2013开发。基于.net Framework 3.5.1。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "在分发程序副本时请注明来源。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "©2013-2015 Feigh" & _
-    "t Software,All rights reserved."
+        Me.CpoyrightText.Text = "使用Visual Basic 2015开发。基于.net Framework 3.5。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "在分发程序副本时请注明来源。" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "©2013-2015 Feight " &
+    "Software,All rights reserved."
         '
         'PictureBox1
         '
@@ -925,7 +964,7 @@ Partial Class RuntimeExpressMain
         'AboutText1
         '
         Me.AboutText1.BackColor = System.Drawing.Color.Transparent
-        Me.AboutText1.Font = New System.Drawing.Font("Segoe WP SemiLight", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AboutText1.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AboutText1.ForeColor = System.Drawing.Color.SteelBlue
         Me.AboutText1.Location = New System.Drawing.Point(1, -1)
         Me.AboutText1.Name = "AboutText1"
@@ -937,6 +976,28 @@ Partial Class RuntimeExpressMain
         'Installer1
         '
         Me.Installer1.WorkerReportsProgress = True
+        '
+        'VC20151
+        '
+        Me.VC20151.AutoSize = True
+        Me.VC20151.Location = New System.Drawing.Point(234, 109)
+        Me.VC20151.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.VC20151.Name = "VC20151"
+        Me.VC20151.Size = New System.Drawing.Size(79, 21)
+        Me.VC20151.TabIndex = 10
+        Me.VC20151.Text = "2015 x86"
+        Me.VC20151.UseVisualStyleBackColor = True
+        '
+        'VC20152
+        '
+        Me.VC20152.AutoSize = True
+        Me.VC20152.Location = New System.Drawing.Point(234, 146)
+        Me.VC20152.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.VC20152.Name = "VC20152"
+        Me.VC20152.Size = New System.Drawing.Size(79, 21)
+        Me.VC20152.TabIndex = 11
+        Me.VC20152.Text = "2015 x64"
+        Me.VC20152.UseVisualStyleBackColor = True
         '
         'RuntimeExpressMain
         '
@@ -973,6 +1034,7 @@ Partial Class RuntimeExpressMain
         Me.TabPage3.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage5.ResumeLayout(False)
+        Me.GroupBox9.ResumeLayout(False)
         Me.DllAssistant.ResumeLayout(False)
         Me.DllAssistant.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -1055,5 +1117,9 @@ Partial Class RuntimeExpressMain
     Friend WithEvents CpoyrightText As System.Windows.Forms.Label
     Friend WithEvents Java72 As System.Windows.Forms.CheckBox
     Friend WithEvents Java71 As System.Windows.Forms.CheckBox
-
+    Friend WithEvents GroupBox9 As GroupBox
+    Friend WithEvents SourceSelector1 As ComboBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents VC20151 As CheckBox
+    Friend WithEvents VC20152 As CheckBox
 End Class
