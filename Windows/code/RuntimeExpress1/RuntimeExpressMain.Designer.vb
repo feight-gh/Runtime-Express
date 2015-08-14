@@ -24,7 +24,7 @@ Partial Class RuntimeExpressMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RuntimeExpressMain))
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.NotUsualTab = New System.Windows.Forms.TabPage()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.msxml2 = New System.Windows.Forms.CheckBox()
         Me.msxml1 = New System.Windows.Forms.CheckBox()
@@ -39,7 +39,7 @@ Partial Class RuntimeExpressMain
         Me.oal203 = New System.Windows.Forms.CheckBox()
         Me.physx912 = New System.Windows.Forms.CheckBox()
         Me.DX9 = New System.Windows.Forms.CheckBox()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.UsualTab = New System.Windows.Forms.TabPage()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.dotnet = New System.Windows.Forms.CheckBox()
         Me.fsharp1 = New System.Windows.Forms.CheckBox()
@@ -50,6 +50,8 @@ Partial Class RuntimeExpressMain
         Me.Java82 = New System.Windows.Forms.CheckBox()
         Me.Java81 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.VC20151 = New System.Windows.Forms.CheckBox()
+        Me.VC20152 = New System.Windows.Forms.CheckBox()
         Me.VC20131 = New System.Windows.Forms.CheckBox()
         Me.VC20132 = New System.Windows.Forms.CheckBox()
         Me.VC20121 = New System.Windows.Forms.CheckBox()
@@ -60,7 +62,7 @@ Partial Class RuntimeExpressMain
         Me.VC20081 = New System.Windows.Forms.CheckBox()
         Me.VC20052 = New System.Windows.Forms.CheckBox()
         Me.VC20051 = New System.Windows.Forms.CheckBox()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.IndexTab = New System.Windows.Forms.TabPage()
         Me.WelcomeText3_1 = New System.Windows.Forms.Label()
         Me.MainTip2 = New System.Windows.Forms.Label()
         Me.MainTip4 = New System.Windows.Forms.Label()
@@ -79,7 +81,7 @@ Partial Class RuntimeExpressMain
         Me.ScreenRE1 = New System.Windows.Forms.ComboBox()
         Me.InstNow1 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.ControlTab = New System.Windows.Forms.TabPage()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SourceSelector1 = New System.Windows.Forms.ComboBox()
@@ -88,7 +90,7 @@ Partial Class RuntimeExpressMain
         Me.dxolmode = New System.Windows.Forms.CheckBox()
         Me.RuntimeFilter = New System.Windows.Forms.GroupBox()
         Me.ResetFilter1 = New System.Windows.Forms.Button()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.AboutTab = New System.Windows.Forms.TabPage()
         Me.VisitWebsite = New System.Windows.Forms.Button()
         Me.CheckUpdate = New System.Windows.Forms.Button()
         Me.CpoyrightText = New System.Windows.Forms.Label()
@@ -97,42 +99,40 @@ Partial Class RuntimeExpressMain
         Me.AboutText1 = New System.Windows.Forms.Label()
         Me.Installer1 = New System.ComponentModel.BackgroundWorker()
         Me.TipsBox1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.VC20151 = New System.Windows.Forms.CheckBox()
-        Me.VC20152 = New System.Windows.Forms.CheckBox()
-        Me.TabPage2.SuspendLayout()
+        Me.NotUsualTab.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
+        Me.UsualTab.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
+        Me.IndexTab.SuspendLayout()
         Me.TabControl1.SuspendLayout()
-        Me.TabPage5.SuspendLayout()
+        Me.ControlTab.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
         Me.DllAssistant.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.RuntimeFilter.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
+        Me.AboutTab.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'TabPage2
+        'NotUsualTab
         '
-        Me.TabPage2.BackColor = System.Drawing.Color.Transparent
-        Me.TabPage2.Controls.Add(Me.GroupBox7)
-        Me.TabPage2.Controls.Add(Me.GroupBox6)
-        Me.TabPage2.Controls.Add(Me.GroupBox5)
-        Me.TabPage2.Controls.Add(Me.GroupBox4)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 34)
-        Me.TabPage2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage2.Size = New System.Drawing.Size(644, 333)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "不是那么常用"
+        Me.NotUsualTab.BackColor = System.Drawing.Color.White
+        Me.NotUsualTab.Controls.Add(Me.GroupBox7)
+        Me.NotUsualTab.Controls.Add(Me.GroupBox6)
+        Me.NotUsualTab.Controls.Add(Me.GroupBox5)
+        Me.NotUsualTab.Controls.Add(Me.GroupBox4)
+        Me.NotUsualTab.Location = New System.Drawing.Point(4, 34)
+        Me.NotUsualTab.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.NotUsualTab.Name = "NotUsualTab"
+        Me.NotUsualTab.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.NotUsualTab.Size = New System.Drawing.Size(644, 333)
+        Me.NotUsualTab.TabIndex = 1
+        Me.NotUsualTab.Text = "不是那么常用"
         '
         'GroupBox7
         '
@@ -308,19 +308,19 @@ Partial Class RuntimeExpressMain
         Me.DX9.Text = "DirectX 9.0c"
         Me.DX9.UseVisualStyleBackColor = True
         '
-        'TabPage1
+        'UsualTab
         '
-        Me.TabPage1.BackColor = System.Drawing.Color.Transparent
-        Me.TabPage1.Controls.Add(Me.GroupBox8)
-        Me.TabPage1.Controls.Add(Me.GroupBox3)
-        Me.TabPage1.Controls.Add(Me.GroupBox1)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 34)
-        Me.TabPage1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage1.Size = New System.Drawing.Size(644, 333)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "常用"
+        Me.UsualTab.BackColor = System.Drawing.Color.White
+        Me.UsualTab.Controls.Add(Me.GroupBox8)
+        Me.UsualTab.Controls.Add(Me.GroupBox3)
+        Me.UsualTab.Controls.Add(Me.GroupBox1)
+        Me.UsualTab.Location = New System.Drawing.Point(4, 34)
+        Me.UsualTab.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.UsualTab.Name = "UsualTab"
+        Me.UsualTab.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.UsualTab.Size = New System.Drawing.Size(644, 333)
+        Me.UsualTab.TabIndex = 0
+        Me.UsualTab.Text = "常用"
         '
         'GroupBox8
         '
@@ -451,6 +451,28 @@ Partial Class RuntimeExpressMain
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Microsoft Visual C++"
         '
+        'VC20151
+        '
+        Me.VC20151.AutoSize = True
+        Me.VC20151.Location = New System.Drawing.Point(234, 109)
+        Me.VC20151.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.VC20151.Name = "VC20151"
+        Me.VC20151.Size = New System.Drawing.Size(79, 21)
+        Me.VC20151.TabIndex = 10
+        Me.VC20151.Text = "2015 x86"
+        Me.VC20151.UseVisualStyleBackColor = True
+        '
+        'VC20152
+        '
+        Me.VC20152.AutoSize = True
+        Me.VC20152.Location = New System.Drawing.Point(234, 146)
+        Me.VC20152.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.VC20152.Name = "VC20152"
+        Me.VC20152.Size = New System.Drawing.Size(79, 21)
+        Me.VC20152.TabIndex = 11
+        Me.VC20152.Text = "2015 x64"
+        Me.VC20152.UseVisualStyleBackColor = True
+        '
         'VC20131
         '
         Me.VC20131.AutoSize = True
@@ -561,23 +583,23 @@ Partial Class RuntimeExpressMain
         Me.VC20051.Text = "2005 x86"
         Me.VC20051.UseVisualStyleBackColor = True
         '
-        'TabPage3
+        'IndexTab
         '
-        Me.TabPage3.BackColor = System.Drawing.SystemColors.Control
-        Me.TabPage3.Controls.Add(Me.WelcomeText3_1)
-        Me.TabPage3.Controls.Add(Me.MainTip2)
-        Me.TabPage3.Controls.Add(Me.MainTip4)
-        Me.TabPage3.Controls.Add(Me.MainTip3)
-        Me.TabPage3.Controls.Add(Me.MainTip1)
-        Me.TabPage3.Controls.Add(Me.WelcomeText3)
-        Me.TabPage3.Controls.Add(Me.WelcomeText2)
-        Me.TabPage3.Controls.Add(Me.WelcomeText1)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 34)
-        Me.TabPage3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(644, 333)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "主页"
+        Me.IndexTab.BackColor = System.Drawing.Color.White
+        Me.IndexTab.Controls.Add(Me.WelcomeText3_1)
+        Me.IndexTab.Controls.Add(Me.MainTip2)
+        Me.IndexTab.Controls.Add(Me.MainTip4)
+        Me.IndexTab.Controls.Add(Me.MainTip3)
+        Me.IndexTab.Controls.Add(Me.MainTip1)
+        Me.IndexTab.Controls.Add(Me.WelcomeText3)
+        Me.IndexTab.Controls.Add(Me.WelcomeText2)
+        Me.IndexTab.Controls.Add(Me.WelcomeText1)
+        Me.IndexTab.Location = New System.Drawing.Point(4, 34)
+        Me.IndexTab.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.IndexTab.Name = "IndexTab"
+        Me.IndexTab.Size = New System.Drawing.Size(644, 333)
+        Me.IndexTab.TabIndex = 2
+        Me.IndexTab.Text = "主页"
         '
         'WelcomeText3_1
         '
@@ -619,13 +641,13 @@ Partial Class RuntimeExpressMain
         '
         Me.MainTip3.BackColor = System.Drawing.Color.Orange
         Me.MainTip3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.MainTip3.Font = New System.Drawing.Font("等线", 32.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MainTip3.Font = New System.Drawing.Font("等线", 27.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainTip3.ForeColor = System.Drawing.Color.White
         Me.MainTip3.Location = New System.Drawing.Point(342, 55)
         Me.MainTip3.Name = "MainTip3"
         Me.MainTip3.Size = New System.Drawing.Size(128, 128)
         Me.MainTip3.TabIndex = 2
-        Me.MainTip3.Text = "游戏"
+        Me.MainTip3.Text = "不常用"
         Me.MainTip3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'MainTip1
@@ -655,9 +677,9 @@ Partial Class RuntimeExpressMain
         Me.WelcomeText2.AutoSize = True
         Me.WelcomeText2.Location = New System.Drawing.Point(12, 49)
         Me.WelcomeText2.Name = "WelcomeText2"
-        Me.WelcomeText2.Size = New System.Drawing.Size(219, 17)
+        Me.WelcomeText2.Size = New System.Drawing.Size(195, 17)
         Me.WelcomeText2.TabIndex = 1
-        Me.WelcomeText2.Text = "选择及安装运行库只需要完成4个选项："
+        Me.WelcomeText2.Text = "选择及安装运行库只需要完成4步："
         '
         'WelcomeText1
         '
@@ -741,7 +763,7 @@ Partial Class RuntimeExpressMain
         '
         'ScreenRE1
         '
-        Me.ScreenRE1.BackColor = System.Drawing.SystemColors.Control
+        Me.ScreenRE1.BackColor = System.Drawing.Color.White
         Me.ScreenRE1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ScreenRE1.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.ScreenRE1.FormattingEnabled = True
@@ -766,11 +788,11 @@ Partial Class RuntimeExpressMain
         '
         'TabControl1
         '
-        Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Controls.Add(Me.TabPage5)
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.Controls.Add(Me.IndexTab)
+        Me.TabControl1.Controls.Add(Me.ControlTab)
+        Me.TabControl1.Controls.Add(Me.UsualTab)
+        Me.TabControl1.Controls.Add(Me.NotUsualTab)
+        Me.TabControl1.Controls.Add(Me.AboutTab)
         Me.TabControl1.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.TabControl1.ItemSize = New System.Drawing.Size(129, 30)
         Me.TabControl1.Location = New System.Drawing.Point(-4, -2)
@@ -782,19 +804,19 @@ Partial Class RuntimeExpressMain
         Me.TabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabControl1.TabIndex = 5
         '
-        'TabPage5
+        'ControlTab
         '
-        Me.TabPage5.AutoScroll = True
-        Me.TabPage5.BackColor = System.Drawing.SystemColors.Control
-        Me.TabPage5.Controls.Add(Me.GroupBox9)
-        Me.TabPage5.Controls.Add(Me.DllAssistant)
-        Me.TabPage5.Controls.Add(Me.GroupBox2)
-        Me.TabPage5.Controls.Add(Me.RuntimeFilter)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 34)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(644, 333)
-        Me.TabPage5.TabIndex = 4
-        Me.TabPage5.Text = "选项"
+        Me.ControlTab.AutoScroll = True
+        Me.ControlTab.BackColor = System.Drawing.Color.White
+        Me.ControlTab.Controls.Add(Me.GroupBox9)
+        Me.ControlTab.Controls.Add(Me.DllAssistant)
+        Me.ControlTab.Controls.Add(Me.GroupBox2)
+        Me.ControlTab.Controls.Add(Me.RuntimeFilter)
+        Me.ControlTab.Location = New System.Drawing.Point(4, 34)
+        Me.ControlTab.Name = "ControlTab"
+        Me.ControlTab.Size = New System.Drawing.Size(644, 333)
+        Me.ControlTab.TabIndex = 4
+        Me.ControlTab.Text = "选项"
         '
         'GroupBox9
         '
@@ -885,20 +907,21 @@ Partial Class RuntimeExpressMain
         Me.ResetFilter1.Text = "重置筛选器和选项"
         Me.ResetFilter1.UseVisualStyleBackColor = True
         '
-        'TabPage4
+        'AboutTab
         '
-        Me.TabPage4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.TabPage4.Controls.Add(Me.VisitWebsite)
-        Me.TabPage4.Controls.Add(Me.CheckUpdate)
-        Me.TabPage4.Controls.Add(Me.CpoyrightText)
-        Me.TabPage4.Controls.Add(Me.PictureBox1)
-        Me.TabPage4.Controls.Add(Me.AboutText2)
-        Me.TabPage4.Controls.Add(Me.AboutText1)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 34)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(644, 333)
-        Me.TabPage4.TabIndex = 5
-        Me.TabPage4.Text = "关于"
+        Me.AboutTab.BackColor = System.Drawing.Color.White
+        Me.AboutTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.AboutTab.Controls.Add(Me.VisitWebsite)
+        Me.AboutTab.Controls.Add(Me.CheckUpdate)
+        Me.AboutTab.Controls.Add(Me.CpoyrightText)
+        Me.AboutTab.Controls.Add(Me.PictureBox1)
+        Me.AboutTab.Controls.Add(Me.AboutText2)
+        Me.AboutTab.Controls.Add(Me.AboutText1)
+        Me.AboutTab.Location = New System.Drawing.Point(4, 34)
+        Me.AboutTab.Name = "AboutTab"
+        Me.AboutTab.Size = New System.Drawing.Size(644, 333)
+        Me.AboutTab.TabIndex = 5
+        Me.AboutTab.Text = "关于"
         '
         'VisitWebsite
         '
@@ -910,7 +933,7 @@ Partial Class RuntimeExpressMain
         Me.VisitWebsite.Name = "VisitWebsite"
         Me.VisitWebsite.Size = New System.Drawing.Size(140, 37)
         Me.VisitWebsite.TabIndex = 11
-        Me.VisitWebsite.Text = "转到 Blog"
+        Me.VisitWebsite.Text = "项目主页"
         Me.VisitWebsite.UseVisualStyleBackColor = False
         '
         'CheckUpdate
@@ -928,7 +951,7 @@ Partial Class RuntimeExpressMain
         '
         'CpoyrightText
         '
-        Me.CpoyrightText.BackColor = System.Drawing.SystemColors.Control
+        Me.CpoyrightText.BackColor = System.Drawing.Color.Transparent
         Me.CpoyrightText.Font = New System.Drawing.Font("微软雅黑", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.CpoyrightText.ForeColor = System.Drawing.Color.Black
         Me.CpoyrightText.Location = New System.Drawing.Point(4, 261)
@@ -977,28 +1000,6 @@ Partial Class RuntimeExpressMain
         '
         Me.Installer1.WorkerReportsProgress = True
         '
-        'VC20151
-        '
-        Me.VC20151.AutoSize = True
-        Me.VC20151.Location = New System.Drawing.Point(234, 109)
-        Me.VC20151.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.VC20151.Name = "VC20151"
-        Me.VC20151.Size = New System.Drawing.Size(79, 21)
-        Me.VC20151.TabIndex = 10
-        Me.VC20151.Text = "2015 x86"
-        Me.VC20151.UseVisualStyleBackColor = True
-        '
-        'VC20152
-        '
-        Me.VC20152.AutoSize = True
-        Me.VC20152.Location = New System.Drawing.Point(234, 146)
-        Me.VC20152.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.VC20152.Name = "VC20152"
-        Me.VC20152.Size = New System.Drawing.Size(79, 21)
-        Me.VC20152.TabIndex = 11
-        Me.VC20152.Text = "2015 x64"
-        Me.VC20152.UseVisualStyleBackColor = True
-        '
         'RuntimeExpressMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
@@ -1014,7 +1015,7 @@ Partial Class RuntimeExpressMain
         Me.Name = "RuntimeExpressMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Runtime Express"
-        Me.TabPage2.ResumeLayout(False)
+        Me.NotUsualTab.ResumeLayout(False)
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
@@ -1023,17 +1024,17 @@ Partial Class RuntimeExpressMain
         Me.GroupBox5.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
-        Me.TabPage1.ResumeLayout(False)
+        Me.UsualTab.ResumeLayout(False)
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.TabPage3.ResumeLayout(False)
-        Me.TabPage3.PerformLayout()
+        Me.IndexTab.ResumeLayout(False)
+        Me.IndexTab.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
-        Me.TabPage5.ResumeLayout(False)
+        Me.ControlTab.ResumeLayout(False)
         Me.GroupBox9.ResumeLayout(False)
         Me.DllAssistant.ResumeLayout(False)
         Me.DllAssistant.PerformLayout()
@@ -1041,13 +1042,13 @@ Partial Class RuntimeExpressMain
         Me.GroupBox2.PerformLayout()
         Me.RuntimeFilter.ResumeLayout(False)
         Me.RuntimeFilter.PerformLayout()
-        Me.TabPage4.ResumeLayout(False)
-        Me.TabPage4.PerformLayout()
+        Me.AboutTab.ResumeLayout(False)
+        Me.AboutTab.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents NotUsualTab As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
     Friend WithEvents physx912 As System.Windows.Forms.CheckBox
     Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
@@ -1060,7 +1061,7 @@ Partial Class RuntimeExpressMain
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents oal203 As System.Windows.Forms.CheckBox
     Friend WithEvents DX9 As System.Windows.Forms.CheckBox
-    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
+    Friend WithEvents UsualTab As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents Java82 As System.Windows.Forms.CheckBox
     Friend WithEvents Java81 As System.Windows.Forms.CheckBox
@@ -1075,7 +1076,6 @@ Partial Class RuntimeExpressMain
     Friend WithEvents VC20081 As System.Windows.Forms.CheckBox
     Friend WithEvents VC20052 As System.Windows.Forms.CheckBox
     Friend WithEvents VC20051 As System.Windows.Forms.CheckBox
-    Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents RuntimeFilterTip1 As System.Windows.Forms.Label
     Friend WithEvents ScreenRE1 As System.Windows.Forms.ComboBox
     Friend WithEvents InstNow1 As System.Windows.Forms.Button
@@ -1093,7 +1093,7 @@ Partial Class RuntimeExpressMain
     Friend WithEvents fsharp1 As System.Windows.Forms.CheckBox
     Friend WithEvents jsharp1 As System.Windows.Forms.CheckBox
     Friend WithEvents dotnet As System.Windows.Forms.CheckBox
-    Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
+    Friend WithEvents ControlTab As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents dxolmode As System.Windows.Forms.CheckBox
     Friend WithEvents RuntimeFilter As System.Windows.Forms.GroupBox
@@ -1108,7 +1108,7 @@ Partial Class RuntimeExpressMain
     Friend WithEvents WelcomeText1 As System.Windows.Forms.Label
     Friend WithEvents WelcomeText3_1 As System.Windows.Forms.Label
     Friend WithEvents TipsBox1 As System.Windows.Forms.ToolTip
-    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
+    Friend WithEvents AboutTab As System.Windows.Forms.TabPage
     Friend WithEvents AboutText2 As System.Windows.Forms.Label
     Friend WithEvents AboutText1 As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
@@ -1122,4 +1122,5 @@ Partial Class RuntimeExpressMain
     Friend WithEvents Label1 As Label
     Friend WithEvents VC20151 As CheckBox
     Friend WithEvents VC20152 As CheckBox
+    Friend WithEvents IndexTab As TabPage
 End Class

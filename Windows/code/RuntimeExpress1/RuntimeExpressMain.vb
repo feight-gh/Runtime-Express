@@ -1,6 +1,6 @@
-﻿'1.支持配置文件和专用化部署[2.0]
-'2.重新设计安装器[2.0]
-'3.文件完整性校验[1.7]
+﻿'1.全新的数据处理器[2.0]
+'1.支持配置文件和专用化部署[2.0]
+'3.文件完整性校验[2.0]
 '4.日志记录[2.0]
 
 Imports System.Threading
@@ -76,23 +76,21 @@ Public Class RuntimeExpressMain
 
                     Else
 
+                        CheckUpdate.BackColor = Color.LimeGreen
                         CheckUpdate.Text = "有新版本"
 
-                        If isStartup = False Then
-
-                            If MsgBox("检测到新版本：" & xmlnewestver & vbCrLf &
+                        If MsgBox("检测到新版本：" & xmlnewestver & vbCrLf &
                                    "更新时间：" & xmlnewestdate & vbCrLf &
                                    "更新内容：" & xmlnewestinfo & vbCrLf &
                                    "要更新吗？",
                                     MsgBoxStyle.Question + MsgBoxStyle.OkCancel, "检测到新版本") = MsgBoxResult.Ok _
                                 Then Process.Start("http://pan.baidu.com/s/1o6jULke")
 
-                        End If
-
                     End If
 
                 Case "Developer"
 
+                    CheckUpdate.BackColor = Color.Gray
                     CheckUpdate.Text = "不可用"
 
                     If isStartup = False Then MsgBox("你目前处于Developer通道，软件更新不可用。" _
@@ -101,9 +99,13 @@ Public Class RuntimeExpressMain
             End Select
 
         Catch ex As Exception
+
             If isStartup = False Then MsgBox("目前无法连接到服务器。请检查你的网络连接，然后再试一次。" _
                 , MsgBoxStyle.Critical, "Runtime Express")
+            CheckUpdate.Text = "连接错误"
+            CheckUpdate.BackColor = Color.Red
             '出于用户考虑没有显示出ex.StackTrace的堆栈信息和ex.Message的信息
+
         End Try
 
         '初始化线程以便下次调用
@@ -201,7 +203,7 @@ Public Class RuntimeExpressMain
 
         If XNA4.Checked Then
             dotnet.Checked = True
-            MsgBox("已经自动勾选了所须的.net Framework 4.5.2！", MsgBoxStyle.Information, "提示")
+            MsgBox("已经自动勾选了所须的.net Framework 4.x！", MsgBoxStyle.Information, "提示")
         End If
 
     End Sub
@@ -363,8 +365,10 @@ Public Class RuntimeExpressMain
     End Sub
 
     Private Sub DllHelper2_Click(sender As Object, e As EventArgs) Handles DllHelper2.Click
+
         MsgBox("你为什么不问问神奇的度娘呢？", MsgBoxStyle.Information, "Runtime Express")
         Shell("explorer.exe " & " http://www.baidu.com")
+
     End Sub
 
     Private Sub Installer1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles Installer1.DoWork
@@ -608,7 +612,9 @@ Public Class RuntimeExpressMain
     End Sub
 
     Private Sub VisitWebsite_Click(sender As Object, e As EventArgs) Handles VisitWebsite.Click
-        Shell("explorer.exe " & " http://feight-studio.lofter.com/")
+
+        Process.Start("http://feight-gh.github.io/Runtime-Express/")
+
     End Sub
 
     Private Sub CheckUpdate_Click(sender As Object, e As EventArgs) Handles CheckUpdate.Click
