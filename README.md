@@ -2,11 +2,11 @@ Runtime Express —— 大量软件的运行平台的安装器
 ===============
 这是一个运行库集成安装器。其中包含了以下的运行库：
 
->VC++ 2005 2008 2010 2012 2013 x86 & x64
+>VC++ 2005 2008 2010 2012 2013 2015 x86 & x64
 
->.net Framework 4.5.2
+>.net Framework 4.6
 
->DirectX 9c
+>DirectX 9c June 2010
 
 >Microsoft Game For Windows - Live
 
@@ -20,9 +20,9 @@ Runtime Express —— 大量软件的运行平台的安装器
 
 >Java 7 Update 79 x86 & x64
 
->Java 8 Update 45 x86 & x64
+>Java 8 Update 60 x86 & x64
 
-我只上传了主程序和源代码到这儿，但是这其实是不够的！你还需要上述的东西。关于这些，请在提供的链接下载。
+我没有将二进制程序上传到Github。关于二进制程序及其随附的包，请在下方的链接中下载。
 
 欢迎合作。我没有别的要说的了。
 

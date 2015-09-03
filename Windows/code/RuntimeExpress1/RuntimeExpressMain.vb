@@ -1,14 +1,9 @@
-﻿'1.全新的数据处理器[2.0]
-'1.支持配置文件和专用化部署[2.0]
-'3.文件完整性校验[2.0]
-'4.日志记录[2.0]
-
-Imports System.Threading
+﻿Imports System.Threading
 
 Public Class RuntimeExpressMain
 
     Public isStartup As Boolean
-    Dim UpdateChannel As String = "Developer" '定义当前所使用的软件版本
+    Dim UpdateChannel As String = "Release" '定义当前所使用的软件版本
     Dim checkserver
 
 #Region "更新检查"
@@ -22,6 +17,7 @@ Public Class RuntimeExpressMain
 
         Try
 
+            CheckUpdate.BackColor = Color.DeepSkyBlue
             CheckUpdate.Text = "正在检查"
 
             Select Case UpdateChannel
@@ -149,7 +145,7 @@ Public Class RuntimeExpressMain
         Dim osenvironment = Environment.OSVersion.ToString.Substring(0, 24) & "|" _
                             & System.Runtime.InteropServices.Marshal.SizeOf(IntPtr.Zero) * 8
 
-        SourceSelector1.SelectedIndex = 0
+        SourceSelector1.SelectedIndex = 1
 
         Select Case osenvironment
 

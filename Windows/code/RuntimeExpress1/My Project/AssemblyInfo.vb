@@ -8,7 +8,7 @@ Imports System.Runtime.InteropServices
 
 ' 查看程序集特性的值
 
-<Assembly: AssemblyTitle("Runtime Express 1.7")>
+<Assembly: AssemblyTitle("Runtime Express")>
 <Assembly: AssemblyDescription("一款运行库集成安装器")> 
 <Assembly: AssemblyCompany("Feight Software")> 
 <Assembly: AssemblyProduct("Runtime Express")> 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' 方法是按如下所示使用“*”: 
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.7.0.132")>
-<Assembly: AssemblyFileVersion("2015.8.14.0")>
+<Assembly: AssemblyVersion("1.7.0.140")>
+<Assembly: AssemblyFileVersion("2015.9.3.0")>
