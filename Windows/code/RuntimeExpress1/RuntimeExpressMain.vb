@@ -96,8 +96,7 @@ Public Class RuntimeExpressMain
 
         Catch ex As Exception
 
-            If isStartup = False Then MsgBox("目前无法连接到服务器。请检查你的网络连接，然后再试一次。" _
-                , MsgBoxStyle.Critical, "Runtime Express")
+            If isStartup = False Then MsgBox("目前无法连接到服务器。请检查你的网络连接，然后再试一次。", MsgBoxStyle.Critical, "Runtime Express")
             CheckUpdate.Text = "连接错误"
             CheckUpdate.BackColor = Color.Red
             '出于用户考虑没有显示出ex.StackTrace的堆栈信息和ex.Message的信息

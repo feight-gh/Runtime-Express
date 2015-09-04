@@ -5,9 +5,10 @@
   <build>2015.9.3.0</build>
   <buildtime>2015/09/03</buildtime>
 
+  <!-- 不要在更新内容中使用类似 & 的字符 -->
   <whatsnew>
     1.更新了以下运行库：
-      +VC++ 2015 x86 & x64
+      +VC++ 2015 x86 and x64
       +.net Framework 4.6
       +Java 8 Update 60
       +DirectX 9.0c June 2010（感谢@-~綵sè亱晚- 的提醒）
