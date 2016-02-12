@@ -8,9 +8,9 @@ Imports System.Runtime.InteropServices
 
 '查看程序集特性的值
 
-<Assembly: AssemblyTitle("Runtime Express 2")>
+<Assembly: AssemblyTitle("Runtime Express")>
 <Assembly: AssemblyDescription("简单的运行环境安装器")>
-<Assembly: AssemblyCompany("Feight Studui")>
+<Assembly: AssemblyCompany("Feight Studuio")>
 <Assembly: AssemblyProduct("Runtime Express")>
 <Assembly: AssemblyCopyright("Copyright © Feight Software 2016")>
 <Assembly: AssemblyTrademark("")>
@@ -32,4 +32,4 @@ Imports System.Runtime.InteropServices
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
 <Assembly: AssemblyVersion("2.0.0.100")>
-<Assembly: AssemblyFileVersion("2016.2.11.0")>
+<Assembly: AssemblyFileVersion("2016.2.12.0")>
