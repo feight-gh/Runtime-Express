@@ -1,75 +1,255 @@
-<!DOCTYPE html>
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
 <html lang="zh-cn">
-  <head>
-    <meta charset="UTF-8">
-    <title>Runtime Express</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" >
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Runtime Express</h1>
-      <h2 class="project-tagline">安装运行库从未如此简单。</h2>
-      <a href="https://github.com/feight-github/Runtime-Express" class="btn">GitHub 上的源码</a>
-      <a href="http://pan.baidu.com/s/1o6jULke" class="btn">立即下载</a>
-    </section>
 
-    <section class="main-content">
-      <h1>
-<a id="runtime-express--大量软件的运行平台的安装器" class="anchor" href="#runtime-express--%E5%A4%A7%E9%87%8F%E8%BD%AF%E4%BB%B6%E7%9A%84%E8%BF%90%E8%A1%8C%E5%B9%B3%E5%8F%B0%E7%9A%84%E5%AE%89%E8%A3%85%E5%99%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Runtime Express —— 大量软件的运行平台的安装器</h1>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Runtime Express</title>
 
-<p>这是一个运行库集成安装器。其中包含了以下的运行库：</p>
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="images/android-desktop.png">
 
-<blockquote>
-<p>VC++ 2005 2008 2010 2012 2013 2015 x86 &amp; x64</p>
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Runtime Express">
+  <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
 
-<p>.net Framework 4.6</p>
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileColor" content="#3372DF">
 
-<p>DirectX 9c Jun 2010</p>
+  <link rel="shortcut icon" href="images/favicon.png">
 
-<p>Microsoft Game For Windows - Live</p>
+  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+  <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
 
-<p>Microsoft WSE 3.0</p>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="mdl/material.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-<p>OpenAL 2.0.7</p>
+<body class="mdl-re mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+      </div>
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        <h2>Runtime Express</h2>
+      </div>
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+      </div>
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+        <a href="#overview" class="mdl-layout__tab is-active">概览</a>
+        <a href="#features" class="mdl-layout__tab">功能</a>
+        <a href="#downloads" class="mdl-layout__tab">下载</a>
+        <a href="https://github.com/feightwywx/Runtime-Express" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent"
+          id="add">
+          <i class="material-icons" role="presentation">code</i>
+          <span class="visuallyhidden">github</span>
+        </a>
+      </div>
+    </header>
 
-<p>PhysX 9.12.1031</p>
 
-<p>Microsoft XNA 2.0 3.1 4.0</p>
+    <main class="mdl-layout__content">
 
-<p>Java 7 Update 79 x86 &amp; x64</p>
 
-<p>Java 8 Update 45 x86 &amp; x64</p>
-</blockquote>
+      <div class="mdl-layout__tab-panel is-active" id="overview">
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
+            <i class="material-icons">help</i>
+          </header>
+          <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+            <div class="mdl-card__supporting-text">
+              <h4>什么是 Runtime Express？</h4>
+              Runtime Express 是一个实用的集成环境安装器。通过它，你可以便捷地安装你所需要的运行库，让你的程序正常运行！
+            </div>
+            <!-- <div class="mdl-card__actions">
+                <a href="#features" class="mdl-button mdl-js-button mdl-js-ripple-effect">了解更多</a>
+              </div>
+            </div> -->
+        </section>
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-card mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+              <h4 class="mdl-cell mdl-cell--12-col">它有何优点？</h4>
+              <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                <div class="section__circle-container__circle mdl-color--primary"></div>
+              </div>
+              <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                <h5>更加聪明</h5>
+                Runtime Express 会根据你计算机的实际情况，选择恰当的安装包——当然，最终安装什么由你决定。
+              </div>
+              <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                <div class="section__circle-container__circle mdl-color--primary"></div>
+              </div>
+              <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                <h5>更加自由</h5>
+                Runtime Express 会给你充分的自由发挥空间，你可以调整是否静默安装，是否校验（尽管我们十分建议校验，因为这更安全）。
+              </div>
+              <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                <div class="section__circle-container__circle mdl-color--primary"></div>
+              </div>
+              <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                <h5>更加美观</h5>
+                得益于WPF，Runtime Express 拥有一个美观的界面。它也许不是最好看的，但它确实很美，而且也很安全。
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-card mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__supporting-text">
+              <h4>现在获取！</h4>
+              Runtime Express 完全免费！而且我们没有添加任何的广告和赞助信息（如果你喜欢你也可以打开广告）。你的支持就是最好的鼓励。
+            </div>
+          </div>
+        </section>
+        </div>
 
-<p>我只上传了主程序和源代码到这儿，但是这其实是不够的！你还需要上述的东西。关于这些，请在提供的链接下载。</p>
 
-<p>欢迎合作。我没有别的要说的了。</p>
+        <div class="mdl-layout__tab-panel" id="features">
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-card mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__supporting-text">
+              <h4>你可以在这个安装器中安装以下的运行库</h4>
 
-<h1>
-<a id="链接" class="anchor" href="#%E9%93%BE%E6%8E%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>链接</h1>
+              <ul class="toc">
+                <p>VC++ 2005 2008 2010 2012 2013 2015 x86 &amp; x64</p>
 
-<ul>
-<li> <a href="http://pan.baidu.com/s/1o6jULke/">程序本身和所需要的库下载</a>
-</li>
-<li> <a href="http://feight-studio.lofter.com/">Lofter轻博客</a>
-</li>
-<li> <a href="http://shang.qq.com/wpa/qunwpa?idkey=18f3d6a3c40ccc06f60854c4090345df408e0304ca89a3d41e7283a095c93832">开发群</a>
-</li>
-</ul>
+                <p>.net Framework 4.6</p>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/feightwywx/Runtime-Express">Runtime Express</a>由<a href="https://github.com/feightwywx">feight</a>维护。</span>
+                <p>DirectX 9c Jun 2010</p>
 
-        <span class="site-footer-credits">此页面由<a href="https://pages.github.com">GitHub Pages</a>使用<a href="https://twitter.com/jasonlong">Jason Long</a>的<a href="https://github.com/jasonlong/cayman-theme">Cayman 主题</a>创建。</span>
-      </footer>
+                <p>Microsoft Game For Windows - Live</p>
 
-    </section>
+                <p>Microsoft WSE 3.0</p>
 
-  
-  </body>
+                <p>OpenAL 2.0.7</p>
+
+                <p>PhysX 9.12.1031</p>
+
+                <p>Microsoft XNA 2.0 3.1 4.0</p>
+
+                <p>Java 7 Update 79 x86 &amp; x64</p>
+
+                <p>Java 8 Update 45 x86 &amp; x64</p>
+              </ul>
+
+              <p>请转到下载标签页来获取关于得到软件的详细信息。</p>
+
+              <h4>加入我们</h4>
+              <p>你可以通过以下方式加入我们。</p>
+              <ul>
+                <li>浏览作者的<a href="http://feight-studio.lofter.com/">Lofter轻博客</a>并发私信
+                </li>
+                <li>直接申请加入我们的<a href="http://shang.qq.com/wpa/qunwpa?idkey=18f3d6a3c40ccc06f60854c4090345df408e0304ca89a3d41e7283a095c93832">QQ开发群</a>389262164
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        </div>
+
+
+        <div class="mdl-layout__tab-panel" id="downloads">
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h4>我如何获取Runtime Express？</h4>
+                <p>在下方，你可以找到Runtime Express主程序和运行库包的链接。在时间充足的情况下，我们建议你同时下载主程序和运行库包来获得完整体验。</p>
+                <p>只下载主程序包是没有作用的！并且（在目前）我们也不支持程序内下载。
+              </div>
+            </div>
+          </section>
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <h4 class="mdl-cell mdl-cell--12-col">获取方式</h4>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--green">
+                    <div class="icon icon-ic_play-circle_outline_white_48dp"></div>
+                  </div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5>从网盘获取</h5>
+                  <p>你可以从网盘方便地获取本软件。</p>
+                  <a href="http://pan.baidu.com/s/1o6jULke" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                    <i class="material-icons">cloud_download</i>从百度云获取
+                  </a>
+                </div>
+
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--red"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5>从源代码获取</h5>
+                  <p>你可以从源代码获取本软件</p>
+                  <p class="mdl-text-warning"><i class="material-icons">warning</i><b>注意！</b>从源码获取是一个相对繁琐的方式。尽管你可以通过此方式获取任何版本的软件，但是同时，你也可能得到不稳定的软件。你仍然需要运行库包。</p>
+                  <p>你需要的东西：
+                    <li>Visual Studio 2015</li>
+                    <li>从Github仓库得到的源代码</li>
+                  </p>
+                  <p>使用 Visual Studio 打开sln文件。单击“运行”，稍等片刻就可以得到可执行文件了。</p>
+                  <a href="https://github.com/feightwywx/Runtime-Express/archive/re-2.zip" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                    <i class="material-icons">code</i>Runtime Express 2.x源代码（zip文件）
+                  </a>
+                  <a href="https://github.com/feightwywx/Runtime-Express/archive/re-1.zip" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                    <i class="material-icons">code</i>Runtime Express 1.x源代码（zip文件）
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+
+        <footer class="mdl-mega-footer">
+          <div class="mdl-mega-footer--bottom-section">
+            <div class="mdl-logo">
+              ©2016 Feight Software.All rights reserved.
+            </div>
+            <ul class="mdl-mega-footer--link-list">
+              <li><a href="">Feight Studio</a></li>
+              <li><a href="https://github.com/feightwywx/">在 Github 上查看</a></li>
+            </ul>
+            <p>Powered by <a href="https://getmdl.io/">Material Design Lite</a>.</p>
+          </div>
+        </footer>
+
+
+    </main>
+
+
+    </div>
+    <script src="mdl/material.min.js"></script>
+</body>
+
 </html>
