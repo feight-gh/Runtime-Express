@@ -5,22 +5,83 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RuntimeExpress"
         mc:Ignorable="d"
-        Title="Runtime Express" Height="500" Width="315" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="RuntimeExpressv2.ico" FontSize="9">
+        Title="Runtime Express" Height="500" Width="315" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="RuntimeExpressv2.ico">
     <Grid Background="DodgerBlue">
 
         <Grid x:Name="gridMain" Margin="0,0,0,32">
 
             <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="401" VerticalAlignment="Top" Width="309">
                 <TabItem Header="运行库" Margin="26,-2,-95,-1" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="Black" FontSize="13.333">
-                    <Grid Background="White" Margin="0,-2"/>
+                    <Grid Background="White" Margin="0,-2">
+                        <Grid>
+                            <Label Margin="5,0,115,350" FontSize="13.333">在下方选择你需要的运行库或者</Label>
+                            <Button Margin="193,3,0,354" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" FontSize="13.333">自动勾选运行库</Button>
+                        </Grid>
+                        <ListBox x:Name="listBoxRt" HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="303" Margin="0,26,0,0" FontSize="12">
+                            Microsoft Visual C++
+                            <CheckBox x:Name="ck2005x86" Content="2005 32位" />
+                            <CheckBox x:Name="ck2005x64" Content="2005 64位" />
+                            <CheckBox x:Name="ck2008x86" Content="2008 32位" />
+                            <CheckBox x:Name="ck2008x64" Content="2008 64位" />
+                            <CheckBox x:Name="ck2010x86" Content="2010 32位" />
+                            <CheckBox x:Name="ck2010x64" Content="2010 64位" />
+                            <CheckBox x:Name="ck2012x86" Content="2012 32位" />
+                            <CheckBox x:Name="ck2012x64" Content="2012 64位" />
+                            <CheckBox x:Name="ck2013x86" Content="2013 32位" />
+                            <CheckBox x:Name="ck2013x64" Content="2013 64位" />
+                            <CheckBox x:Name="ck2015x86" Content="2015 32位" />
+                            <CheckBox x:Name="ck2015x64" Content="2015 64位" />
+                            <Separator/>
+                            Microsoft .NET
+                            <CheckBox x:Name="ckdotnetfw" Content=".NET Framework 4.6" />
+                            <CheckBox x:Name="ckdotnetjs" Content="Visual J# .NET" />
+                            <CheckBox x:Name="ckdotnetfs" Content="Visual F# .NET" />
+                            <Separator/>
+                            Oracle Java
+                            <CheckBox x:Name="ckjre7x86" Content="Java 7 Update 49 32位" />
+                            <CheckBox x:Name="ckjre7x64" Content="Java 7 Update 49 64位" />
+                            <CheckBox x:Name="ckjre8x86" Content="Java 8 Update 91 32位" />
+                            <CheckBox x:Name="ckjre8x64" Content="Java 8 Update 91 64位" />
+                            <Separator/>
+                            Microsoft XNA Framework
+                            <CheckBox x:Name="ckxna2" Content="XNA Framework 2" />
+                            <CheckBox x:Name="ckxna3" Content="XNA Framework 3.1" />
+                            <CheckBox x:Name="ckxna4" Content="XNA Framework 4" />
+                            <Separator/>
+                            Microsoft XML Core
+                            <CheckBox x:Name="ckxmlc6x86" Content="XML Core 6 32位" />
+                            <CheckBox x:Name="ckxmlc6x64" Content="XML Core 6 64位" />
+                            <Separator/>
+                            杂项
+                            <CheckBox x:Name="ckdx9c" Content="DirectX 9.0c" />
+                            <CheckBox x:Name="ckoal" Content="OpenAL 2.0.7" />
+                            <CheckBox x:Name="ckmgfwl" Content="Microsoft Games for Windows - LIVE" />
+                            <CheckBox x:Name="ckmwse" Content="Microsoft Web Services Enhancements（WSE） 3" />
+                            <CheckBox x:Name="cknvpx" Content="Nvidia PhysX 9.12" />
+                        </ListBox>
+                    </Grid>
                 </TabItem>
 
                 <TabItem Header="选项" Margin="95,-2,-162,-1" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="#FF060000" FontSize="13.333">
                     <Grid Background="White" Margin="0,-2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="39*"/>
-                            <ColumnDefinition Width="68*"/>
-                        </Grid.ColumnDefinitions>
+                        <GroupBox x:Name="gbInstOptDotnet" Header=".NET Framework 安装选项（Windows 8+）" HorizontalAlignment="Left" VerticalAlignment="Top" Height="72" Width="303">
+                            <Grid Margin="0,0,0,-1">
+                                <RadioButton x:Name="rbDotnetOnlineT1" Content="在线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,7,0,0" FontSize="12"/>
+                                <RadioButton x:Name="rbDotnetOnlineF1" Content="离线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,26,0,0" FontSize="12"/>
+                            </Grid>
+                        </GroupBox>
+
+                        <GroupBox x:Name="gbInstOptDx" Header="DirextX 9.0c 安装选项" HorizontalAlignment="Left" VerticalAlignment="Top" Height="72" Width="303" Margin="0,77,0,0">
+                            <Grid Margin="0,0,0,-1">
+                                <RadioButton x:Name="rbDxOnlineT1" Content="在线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,7,0,0" FontSize="12"/>
+                                <RadioButton x:Name="rbDxOnlineF1" Content="离线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,26,0,0" FontSize="12"/>
+                            </Grid>
+                        </GroupBox>
+                        <Button x:Name="btnCheckUpdate" Content="检查更新" Margin="220,343,10,10" FontSize="12"/>
+                        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,320,0,10" TextWrapping="Wrap" FontSize="12" Width="205">
+                            Runtime Express by F8<LineBreak/> 
+                            基于.NET Framework 4。分发时请注明来源。
+                        </TextBlock>
                     </Grid>
                 </TabItem>
             </TabControl>
