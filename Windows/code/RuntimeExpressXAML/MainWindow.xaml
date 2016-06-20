@@ -5,23 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RuntimeExpress"
         mc:Ignorable="d"
-        Title="Runtime Express" Height="500" Width="315" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="RuntimeExpressv2.ico">
-    <Grid>
-        <Grid x:Name="gridTitle" Margin="0,0,0,407" Background="DodgerBlue">
-            <Image x:Name="imageLogo" HorizontalAlignment="Left" Height="31" Width="36" VerticalAlignment="Top" Source="RuntimeExpressv2-simple.png" Stretch="Fill" />
-            <Label x:Name="labelAppName" Content="RUNTIME EXPRESS" HorizontalAlignment="Left" Margin="33,0,0,0" VerticalAlignment="Top" Height="34" Width="276" FontSize="16" Foreground="White" FontWeight="Bold"/>
+        Title="Runtime Express" Height="500" Width="315" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="RuntimeExpressv2.ico" FontSize="9">
+    <Grid Background="DodgerBlue">
 
-        </Grid>
+        <Grid x:Name="gridMain" Margin="0,0,0,32">
 
-        <Grid x:Name="gridMain" Margin="0,38,0,32">
-
-            <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="407" VerticalAlignment="Top" Width="309" Margin="0,-6,0,0">
-                <TabItem Header="运行库" Margin="-3,0,-81,0" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="Black" FontSize="13.333">
-                    <Grid Background="White" Margin="-9,-4,-10,34"/>
+            <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="401" VerticalAlignment="Top" Width="309">
+                <TabItem Header="运行库" Margin="26,-2,-95,-1" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="Black" FontSize="13.333">
+                    <Grid Background="White" Margin="0,-2"/>
                 </TabItem>
 
-                <TabItem Header="选项" Margin="68,0,-153,0" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="#FF060000" FontSize="13.333">
-                    <Grid Background="White" Margin="-9,-2,-9,34">
+                <TabItem Header="选项" Margin="95,-2,-162,-1" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="#FF060000" FontSize="13.333">
+                    <Grid Background="White" Margin="0,-2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="39*"/>
                             <ColumnDefinition Width="68*"/>
@@ -29,7 +24,7 @@
                     </Grid>
                 </TabItem>
             </TabControl>
-            <Button x:Name="btnApply" Content="应用" Margin="11,371,10,7" IsDefault="True"/>
+            <Button x:Name="btnApply" Content="应用" Margin="10,406,10,7" IsDefault="True" FontSize="12"/>
 
         </Grid>
 
@@ -38,5 +33,9 @@
             <StatusBar x:Name="sbMain" Width="101" Height="22"/>
 
         </StatusBar>
+        <Grid x:Name="gridTitle" Margin="0,0,283,449" Background="DodgerBlue">
+            <Image x:Name="imageLogo" HorizontalAlignment="Left" Height="23" Width="27" VerticalAlignment="Top" Source="RuntimeExpressv2-simple.png" Stretch="Fill" />
+
+        </Grid>
     </Grid>
 </Window>
