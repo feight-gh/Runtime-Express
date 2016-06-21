@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RuntimeExpress"
         mc:Ignorable="d"
-        Title="Runtime Express" Height="500" Width="315" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="RuntimeExpressv2.ico">
+        Title="Runtime Express" Height="500" Width="315" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="REv2.ico">
     <Grid Background="DodgerBlue">
 
         <Grid x:Name="gridMain" Margin="0,0,0,32">
@@ -95,7 +95,7 @@
 
         </StatusBar>
         <Grid x:Name="gridTitle" Margin="0,0,283,449" Background="DodgerBlue">
-            <Image x:Name="imageLogo" HorizontalAlignment="Left" Height="23" Width="27" VerticalAlignment="Top" Source="RuntimeExpressv2-simple.png" Stretch="Fill" />
+            <Image x:Name="imageLogo" HorizontalAlignment="Left" Height="23" Width="27" VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Resources/REv2Simple.png" Stretch="Fill" />
 
         </Grid>
     </Grid>
