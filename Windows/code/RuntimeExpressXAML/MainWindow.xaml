@@ -1,24 +1,89 @@
-﻿<Window x:Class="MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RuntimeExpress"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:ee="http://schemas.microsoft.com/expression/2010/effects" xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="MainWindow"
         mc:Ignorable="d"
         Title="Runtime Express" Height="500" Width="315" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="REv2.ico">
+    <Window.Resources>
+        <Storyboard x:Key="tab1in">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="grid1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <SineEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grid1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-188"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <SineEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="tab2in">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-0.001">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <SineEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <SineEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-187.5">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <SineEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <SineEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="grid1">
+            <BeginStoryboard Storyboard="{StaticResource tab1in}"/>
+            <BeginStoryboard x:Name="tab2in_BeginStoryboard" Storyboard="{StaticResource tab2in}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="grid">
+            <BeginStoryboard x:Name="tab2in_BeginStoryboard1" Storyboard="{StaticResource tab2in}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
     <Grid Background="DodgerBlue">
 
         <Grid x:Name="gridMain" Margin="0,0,0,32">
 
             <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="401" VerticalAlignment="Top" Width="309">
-                <TabItem Header="运行库" Margin="26,-2,-95,-1" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="Black" FontSize="13.333">
-                    <Grid Background="White" Margin="0,-2">
-                        <Grid>
-                            <Label Margin="5,0,115,350" FontSize="13.333">在下方选择你需要的运行库或者</Label>
-                            <Button Margin="193,3,0,354" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" FontSize="13.333">自动勾选运行库</Button>
+                <TabItem x:Name="tiRuntime" Header="运行库" Margin="30,-2,-30,-1" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="Black" FontSize="13.333" HorizontalAlignment="Left" Width="134.44">
+                    <Grid x:Name="grid1" Background="White" Margin="0,-2" RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Grid.RenderTransform>
+                        <Grid x:Name="grid2">
+                            <Label Margin="5,0,115,350" FontSize="13.333" Content="在下方选择你需要的运行库或者"/>
+                            <Button Margin="193,3,0,354" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" FontSize="13.333" Content="自动勾选运行库"/>
                         </Grid>
-                        <ListBox x:Name="listBoxRt" HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="303" Margin="0,26,0,0" FontSize="12">
-                            Microsoft Visual C++
+                        <ListBox x:Name="listBoxRt" HorizontalAlignment="Left" Height="348" VerticalAlignment="Top" Width="303" Margin="0,26,0,0" FontSize="12">
+                            <System:String xml:space="preserve">Microsoft Visual C++ </System:String>
                             <CheckBox x:Name="ck2005x86" Content="2005 32位" />
                             <CheckBox x:Name="ck2005x64" Content="2005 64位" />
                             <CheckBox x:Name="ck2008x86" Content="2008 32位" />
@@ -32,27 +97,27 @@
                             <CheckBox x:Name="ck2015x86" Content="2015 32位" />
                             <CheckBox x:Name="ck2015x64" Content="2015 64位" />
                             <Separator/>
-                            Microsoft .NET
+                            <System:String xml:space="preserve"> Microsoft .NET </System:String>
                             <CheckBox x:Name="ckdotnetfw" Content=".NET Framework 4.6" />
                             <CheckBox x:Name="ckdotnetjs" Content="Visual J# .NET" />
                             <CheckBox x:Name="ckdotnetfs" Content="Visual F# .NET" />
                             <Separator/>
-                            Oracle Java
+                            <System:String xml:space="preserve"> Oracle Java </System:String>
                             <CheckBox x:Name="ckjre7x86" Content="Java 7 Update 49 32位" />
                             <CheckBox x:Name="ckjre7x64" Content="Java 7 Update 49 64位" />
                             <CheckBox x:Name="ckjre8x86" Content="Java 8 Update 91 32位" />
                             <CheckBox x:Name="ckjre8x64" Content="Java 8 Update 91 64位" />
                             <Separator/>
-                            Microsoft XNA Framework
+                            <System:String xml:space="preserve"> Microsoft XNA Framework </System:String>
                             <CheckBox x:Name="ckxna2" Content="XNA Framework 2" />
                             <CheckBox x:Name="ckxna3" Content="XNA Framework 3.1" />
                             <CheckBox x:Name="ckxna4" Content="XNA Framework 4" />
                             <Separator/>
-                            Microsoft XML Core
+                            <System:String xml:space="preserve"> Microsoft XML Core </System:String>
                             <CheckBox x:Name="ckxmlc6x86" Content="XML Core 6 32位" />
                             <CheckBox x:Name="ckxmlc6x64" Content="XML Core 6 64位" />
                             <Separator/>
-                            杂项
+                            <System:String xml:space="preserve"> 杂项 </System:String>
                             <CheckBox x:Name="ckdx9c" Content="DirectX 9.0c" />
                             <CheckBox x:Name="ckoal" Content="OpenAL 2.0.7" />
                             <CheckBox x:Name="ckmgfwl" Content="Microsoft Games for Windows - LIVE" />
@@ -62,26 +127,41 @@
                     </Grid>
                 </TabItem>
 
-                <TabItem Header="选项" Margin="95,-2,-162,-1" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="#FF060000" FontSize="13.333">
-                    <Grid Background="White" Margin="0,-2">
-                        <GroupBox x:Name="gbInstOptDotnet" Header=".NET Framework 安装选项（Windows 8+）" HorizontalAlignment="Left" VerticalAlignment="Top" Height="72" Width="303">
-                            <Grid Margin="0,0,0,-1">
-                                <RadioButton x:Name="rbDotnetOnlineT1" Content="在线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,7,0,0" FontSize="12"/>
-                                <RadioButton x:Name="rbDotnetOnlineF1" Content="离线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,26,0,0" FontSize="12"/>
-                            </Grid>
-                        </GroupBox>
+                <TabItem x:Name="tiOpinion" Header="选项" Margin="32.56,-3,-40.12,0" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="#FF060000" FontSize="13.333" HorizontalAlignment="Left" Width="142">
+                    <Grid x:Name="grid" Background="White" Margin="-1,-2,1,-2" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Grid.RenderTransform>
 
-                        <GroupBox x:Name="gbInstOptDx" Header="DirextX 9.0c 安装选项" HorizontalAlignment="Left" VerticalAlignment="Top" Height="72" Width="303" Margin="0,77,0,0">
+                        <GroupBox x:Name="gbInstOptDx" Header="DirextX 9.0c 安装选项" HorizontalAlignment="Left" VerticalAlignment="Top" Height="72" Width="303" Margin="0,98,0,0">
                             <Grid Margin="0,0,0,-1">
                                 <RadioButton x:Name="rbDxOnlineT1" Content="在线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,7,0,0" FontSize="12"/>
                                 <RadioButton x:Name="rbDxOnlineF1" Content="离线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,26,0,0" FontSize="12"/>
                             </Grid>
                         </GroupBox>
                         <Button x:Name="btnCheckUpdate" Content="检查更新" Margin="220,343,10,10" FontSize="12"/>
-                        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,320,0,10" TextWrapping="Wrap" FontSize="12" Width="205">
-                            Runtime Express by F8<LineBreak/> 
-                            基于.NET Framework 4。分发时请注明来源。
-                        </TextBlock>
+                        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,334,0,10" TextWrapping="Wrap" FontSize="12" Width="205"><Run Text="Runtime Express by 无影无形F8"/><LineBreak/><Run Text="基于.NET Framework 4。"/></TextBlock>
+                        <GroupBox x:Name="gbSysinfo" Header="系统信息" HorizontalAlignment="Left" Height="93" VerticalAlignment="Top" Width="303">
+                            <Grid>
+                                <TextBlock x:Name="tbSysinfo"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="293" Margin="0,10,-2,0" FontSize="12"><Run Text="在这里你可以看到本程序检查到的系统信息。"/><LineBreak/><Run Text="如果这些信息不正确，你可以修改它们。"/></TextBlock>
+                                <ComboBox x:Name="cbOSver" HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top" Width="180" IsSynchronizedWithCurrentItem="True" FontSize="12">
+                                    <ListBoxItem Content="Windows Vista" FontSize="12"/>
+                                    <ListBoxItem Content="Windows 7" FontSize="12"/>
+                                    <ListBoxItem Content="Windows 8/8.1" FontSize="12"/>
+                                    <ListBoxItem Content="Windows 10" FontSize="12"/>
+                                </ComboBox>
+                                <ComboBox x:Name="cbOStarget" HorizontalAlignment="Left" Margin="185,45,0,0" VerticalAlignment="Top" Width="106" IsSynchronizedWithCurrentItem="True" FontSize="12">
+                                    <ListBoxItem Content="32位(x86)" FontSize="12"/>
+                                    <ListBoxItem Content="64位(x86_64)" FontSize="12"/>
+                                </ComboBox>
+                            </Grid>
+                        </GroupBox>
+                        <Button x:Name="btnHomepage" Content="项目主页" Margin="220,317,10,36" FontSize="12"/>
                     </Grid>
                 </TabItem>
             </TabControl>
@@ -91,7 +171,7 @@
 
         <StatusBar Height="32" VerticalAlignment="Bottom" Width="309" Background="DodgerBlue">
             <Label x:Name="labelStat" Content="就绪" HorizontalAlignment="Left" Width="195" Foreground="White"/>
-            <StatusBar x:Name="sbMain" Width="101" Height="22"/>
+            <StatusBar x:Name="sbMain" Width="101" Height="22" Background="DodgerBlue"/>
 
         </StatusBar>
         <Grid x:Name="gridTitle" Margin="0,0,283,449" Background="DodgerBlue">
