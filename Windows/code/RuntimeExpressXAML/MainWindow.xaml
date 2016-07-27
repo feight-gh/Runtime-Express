@@ -9,7 +9,7 @@
         Title="Runtime Express" Height="500" Width="315" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="REv2.ico">
     <Window.Resources>
         <Storyboard x:Key="tab1in">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="grid1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="gridRuntime">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
                     <EasingDoubleKeyFrame.EasingFunction>
@@ -17,7 +17,7 @@
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grid1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="gridRuntime">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-188"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
                     <EasingDoubleKeyFrame.EasingFunction>
@@ -27,7 +27,7 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="tab2in">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="grid">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="gridOpinion">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-0.001">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <SineEase EasingMode="EaseIn"/>
@@ -39,7 +39,7 @@
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
             </DoubleAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grid">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="gridOpinion">
                 <EasingDoubleKeyFrame KeyTime="0" Value="-187.5">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <SineEase EasingMode="EaseIn"/>
@@ -54,11 +54,11 @@
         </Storyboard>
     </Window.Resources>
     <Window.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="grid1">
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="gridRuntime">
             <BeginStoryboard Storyboard="{StaticResource tab1in}"/>
             <BeginStoryboard x:Name="tab2in_BeginStoryboard" Storyboard="{StaticResource tab2in}"/>
         </EventTrigger>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="grid">
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="gridOpinion">
             <BeginStoryboard x:Name="tab2in_BeginStoryboard1" Storyboard="{StaticResource tab2in}"/>
         </EventTrigger>
     </Window.Triggers>
@@ -69,7 +69,7 @@
 
             <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="401" VerticalAlignment="Top" Width="309">
                 <TabItem x:Name="tiRuntime" Header="运行库" Margin="30,-2,-30,-1" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="Black" FontSize="13.333" HorizontalAlignment="Left" Width="134.44">
-                    <Grid x:Name="grid1" Background="White" Margin="0,-2" RenderTransformOrigin="0.5,0.5">
+                    <Grid x:Name="gridRuntime" Background="White" Margin="0,-2" RenderTransformOrigin="0.5,0.5">
                         <Grid.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -78,11 +78,11 @@
                                 <TranslateTransform/>
                             </TransformGroup>
                         </Grid.RenderTransform>
-                        <Grid x:Name="grid2">
+                        <Grid x:Name="gridRuntimeHeader">
                             <Label Margin="5,0,115,350" FontSize="13.333" Content="在下方选择你需要的运行库或者"/>
                             <Button Margin="193,3,0,354" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" FontSize="13.333" Content="自动勾选运行库"/>
                         </Grid>
-                        <ListBox x:Name="listBoxRt" HorizontalAlignment="Left" Height="348" VerticalAlignment="Top" Width="303" Margin="0,26,0,0" FontSize="12">
+                        <ListBox x:Name="listBoxRt" HorizontalAlignment="Left" Height="348" VerticalAlignment="Top" Width="303" Margin="0,26,0,0" FontSize="12" IsSynchronizedWithCurrentItem="True">
                             <System:String xml:space="preserve">Microsoft Visual C++ </System:String>
                             <CheckBox x:Name="ck2005x86" Content="2005 32位" />
                             <CheckBox x:Name="ck2005x64" Content="2005 64位" />
@@ -128,7 +128,7 @@
                 </TabItem>
 
                 <TabItem x:Name="tiOpinion" Header="选项" Margin="32.56,-3,-40.12,0" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="#FF060000" FontSize="13.333" HorizontalAlignment="Left" Width="142">
-                    <Grid x:Name="grid" Background="White" Margin="-1,-2,1,-2" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                    <Grid x:Name="gridOpinion" Background="White" Margin="-1,-2,1,-2" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
                         <Grid.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -140,12 +140,10 @@
 
                         <GroupBox x:Name="gbInstOptDx" Header="DirextX 9.0c 安装选项" HorizontalAlignment="Left" VerticalAlignment="Top" Height="72" Width="303" Margin="0,98,0,0">
                             <Grid Margin="0,0,0,-1">
-                                <RadioButton x:Name="rbDxOnlineT1" Content="在线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,7,0,0" FontSize="12"/>
-                                <RadioButton x:Name="rbDxOnlineF1" Content="离线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,26,0,0" FontSize="12"/>
+                                <RadioButton x:Name="rbDxOnlineT1" Content="在线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,29,0,0" FontSize="12"/>
+                                <RadioButton x:Name="rbDxOnlineF1" Content="离线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="12" IsChecked="True"/>
                             </Grid>
                         </GroupBox>
-                        <Button x:Name="btnCheckUpdate" Content="检查更新" Margin="220,343,10,10" FontSize="12"/>
-                        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,334,0,10" TextWrapping="Wrap" FontSize="12" Width="205"><Run Text="Runtime Express by 无影无形F8"/><LineBreak/><Run Text="基于.NET Framework 4。"/></TextBlock>
                         <GroupBox x:Name="gbSysinfo" Header="系统信息" HorizontalAlignment="Left" Height="93" VerticalAlignment="Top" Width="303">
                             <Grid>
                                 <TextBlock x:Name="tbSysinfo"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="293" Margin="0,10,-2,0" FontSize="12"><Run Text="在这里你可以看到本程序检查到的系统信息。"/><LineBreak/><Run Text="如果这些信息不正确，你可以修改它们。"/></TextBlock>
@@ -161,11 +159,12 @@
                                 </ComboBox>
                             </Grid>
                         </GroupBox>
-                        <Button x:Name="btnHomepage" Content="项目主页" Margin="220,317,10,36" FontSize="12"/>
+                        <Button x:Name="btnAbout" Content="关于 Runtime Express" Margin="155,343,10,10" FontSize="12"/>
                     </Grid>
                 </TabItem>
             </TabControl>
-            <Button x:Name="btnApply" Content="应用" Margin="10,406,10,7" IsDefault="True" FontSize="12"/>
+            <Button x:Name="btnApply" Content="应用" Margin="10,406,59,7" IsDefault="True" FontSize="12"/>
+            <Button x:Name="btnOverview" Content="概览" HorizontalAlignment="Left" Margin="255,406,0,0" VerticalAlignment="Top" Width="44" Height="26" Foreground="White" Background="#FFFF7E00" BorderBrush="White" FontWeight="Bold"/>
 
         </Grid>
 

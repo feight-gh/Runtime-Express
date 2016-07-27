@@ -17,7 +17,7 @@ Imports System.Windows
 <Assembly: AssemblyProduct("Runtime Express")>
 <Assembly: AssemblyCopyright("Copyright © Feight Studio 2016")>
 <Assembly: AssemblyTrademark("")>
-<Assembly: ComVisible(false)>
+<Assembly: ComVisible(False)>
 
 '若要开始生成可本地化的应用程序，请
 '在您的 .vbproj 文件中的 <PropertyGroup> 内设置 <UICulture>CultureYouAreCodingWith</UICulture>。

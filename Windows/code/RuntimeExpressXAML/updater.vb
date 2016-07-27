@@ -1,4 +1,4 @@
-﻿Imports System.Threading
+﻿#Disable Warning BC42104
 
 Public Class updater
 
