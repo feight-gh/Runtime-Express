@@ -2,12 +2,15 @@
 
 Public Class updater
 
-    Public Property isNewest() As Boolean
+    Public Property isNewest() As Boolean = True
 
     Public Sub check()
 
         Dim UpdateChannel As String = "Release" '定义当前所使用的软件版本
         Dim checkserver As String
+        Dim xmlnewestver As String
+        Dim xmlnewestdate As String
+        Dim xmlnewestinfo As String
 
         Try
 
@@ -19,9 +22,7 @@ Public Class updater
                     Dim doc As New Xml.XmlDocument
                     doc.Load(checkserver.Trim)
                     Dim re As Xml.XmlNodeReader = New Xml.XmlNodeReader(doc)
-                    Dim xmlnewestver As String
-                    Dim xmlnewestdate As String
-                    Dim xmlnewestinfo As String
+
                     Dim name As String
                     '进行一系列的定义
 
@@ -58,12 +59,7 @@ Public Class updater
 
                         isNewest = False
 
-                        If MsgBox("检测到新版本：" & xmlnewestver & vbCrLf &
-                                   "更新时间：" & xmlnewestdate & vbCrLf &
-                                   "更新内容：" & xmlnewestinfo & vbCrLf &
-                                   "要更新吗？",
-                                    MsgBoxStyle.Question + MsgBoxStyle.OkCancel, "检测到新版本") = MsgBoxResult.Ok _
-                                Then Process.Start("http://pan.baidu.com/s/1o6jULke")
+
 
                     End If
 
@@ -76,9 +72,19 @@ Public Class updater
         Catch ex As Exception
 
             MsgBox("目前无法连接到更新服务器。请检查你的网络连接，然后再试一次。", MsgBoxStyle.Critical, "Runtime Express")
-            '出于用户考虑没有显示出ex.StackTrace的堆栈信息和ex.Message的信息
+            '出于用户考虑没有显示出ex.StackTrace的信息和ex.Message的信息
+            '日后会加入日志记录
 
         End Try
+
+        If isNewest = False Then
+            If MsgBox("检测到新版本：" & xmlnewestver & vbCrLf &
+                                   "更新时间：" & xmlnewestdate & vbCrLf &
+                                   "更新内容：" & xmlnewestinfo & vbCrLf &
+                                   "要更新吗？",
+                                    MsgBoxStyle.Question + MsgBoxStyle.OkCancel, "检测到新版本") = MsgBoxResult.Ok _
+                                Then Process.Start("http://pan.baidu.com/s/1o6jULke")
+        End If
 
     End Sub
 

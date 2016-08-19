@@ -3,7 +3,7 @@
 Public Class About
 
     Private Sub About_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
-        labelAbout.Content = "Runtime Express " & My.Application.Info.Version.ToString
+        labelVersion.Content = My.Application.Info.Version.ToString
     End Sub
 
     Private Sub btnCheckUpdate_Click(sender As Object, e As RoutedEventArgs) Handles btnCheckUpdate.Click
@@ -11,6 +11,8 @@ Public Class About
         Dim up As updater = New updater()
         Dim updateActivity As New Thread(AddressOf up.check)
         updateActivity.Start()
+
+        If up.isNewest = False Then labelVersion.Content = My.Application.Info.Version.ToString & "（有新版本）"
 
     End Sub
 

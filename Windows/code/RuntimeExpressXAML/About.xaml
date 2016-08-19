@@ -10,6 +10,7 @@
         <Button x:Name="btnCheckUpdate" Content="检查更新" Margin="456,290,10,10" FontSize="12"/>
         <Button x:Name="btnHomepage" Content="项目主页" Margin="378,290,88,10" FontSize="12"/>
         <Label x:Name="labelAbout" Content="Runtime Express" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" Foreground="DodgerBlue" FontFamily="Segoe UI Light"/>
+        <Label x:Name="labelVersion" Content="2.0.100" HorizontalAlignment="Right" Margin="0,27,10,0" VerticalAlignment="Top" Width="341"/>
 
     </Grid>
 </Window>

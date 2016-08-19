@@ -80,7 +80,7 @@
                         </Grid.RenderTransform>
                         <Grid x:Name="gridRuntimeHeader">
                             <Label Margin="5,0,115,350" FontSize="13.333" Content="在下方选择你需要的运行库或者"/>
-                            <Button Margin="193,3,0,354" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" FontSize="13.333" Content="自动勾选运行库"/>
+                            <Button x:Name="btnAutochk" Margin="193,3,0,354" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" FontSize="13.333" Content="自动勾选运行库"/>
                         </Grid>
                         <ListBox x:Name="listBoxRt" HorizontalAlignment="Left" Height="348" VerticalAlignment="Top" Width="303" Margin="0,26,0,0" FontSize="12" IsSynchronizedWithCurrentItem="True">
                             <System:String xml:space="preserve">Microsoft Visual C++ </System:String>
@@ -95,7 +95,7 @@
                             <CheckBox x:Name="ck2013x86" Content="2013 32位" />
                             <CheckBox x:Name="ck2013x64" Content="2013 64位" />
                             <CheckBox x:Name="ck2015x86" Content="2015 32位" />
-                            <CheckBox x:Name="ck2015x64" Content="2015 64位" />
+                            <CheckBox x:Name="ck2015x64" Content="2015 64位" IsChecked="True" IsEnabled="False" />
                             <Separator/>
                             <System:String xml:space="preserve"> Microsoft .NET </System:String>
                             <CheckBox x:Name="ckdotnetfw" Content=".NET Framework 4.6" />
