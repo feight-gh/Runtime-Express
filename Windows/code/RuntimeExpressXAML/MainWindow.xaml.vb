@@ -1,8 +1,12 @@
 ﻿Class MainWindow
 
-
-    Public selectStatus(39) As Boolean
+    Private Const countTotal As Integer = 39
+    Private selectStatus(countTotal) As Boolean
     Public path As String = My.Application.Info.DirectoryPath
+    Public sys32path As String = Environment.GetFolderPath(Environment.SpecialFolder.SystemX86)
+    Public syspath As String = Environment.GetFolderPath(Environment.SpecialFolder.System)
+    Public winpath As String = Environment.GetFolderPath(Environment.SpecialFolder.Windows)
+
 
     Private Sub fetchAll()
 
@@ -100,7 +104,48 @@
                 ckjre8x64.IsEnabled = False
                 ckxmlc6x64.IsEnabled = False
 
+                If ckSmart.IsChecked = True Then
+                    If IO.File.Exists(syspath & "\msvcp100.dll") = False Then ck2010x86.IsChecked = True
+                    If IO.File.Exists(syspath & "\msvcr100.dll") = False Then ck2010x86.IsChecked = True
+                    If IO.File.Exists(syspath & "\msvcp110.dll") = False Then ck2012x86.IsChecked = True
+                    If IO.File.Exists(syspath & "\msvcr110.dll") = False Then ck2012x86.IsChecked = True
+                    If IO.File.Exists(syspath & "\msvcp120.dll") = False Then ck2013x86.IsChecked = True
+                    If IO.File.Exists(syspath & "\msvcr120.dll") = False Then ck2013x86.IsChecked = True
+                    If IO.File.Exists(syspath & "\msvcp140.dll") = False Then ck2015x86.IsChecked = True
+
+                End If
+
+            Case 1
+                If ckSmart.IsChecked = True Then
+                    If IO.File.Exists(sys32path & "\msvcp100.dll") = False Then ck2010x86.IsChecked = True
+                    If IO.File.Exists(sys32path & "\msvcr100.dll") = False Then ck2010x86.IsChecked = True
+                    If IO.File.Exists(sys32path & "\msvcp110.dll") = False Then ck2012x86.IsChecked = True
+                    If IO.File.Exists(sys32path & "\msvcr110.dll") = False Then ck2012x86.IsChecked = True
+                    If IO.File.Exists(sys32path & "\msvcp120.dll") = False Then ck2013x86.IsChecked = True
+                    If IO.File.Exists(sys32path & "\msvcr120.dll") = False Then ck2013x86.IsChecked = True
+                    If IO.File.Exists(sys32path & "\msvcp140.dll") = False Then ck2015x86.IsChecked = True
+
+                End If
+
         End Select
+
+    End Sub
+
+    Private Sub btnOverview_Click(sender As Object, e As RoutedEventArgs) Handles btnOverview.Click
+
+        fetchAll()
+        Dim listRt As String = Nothing
+
+        For i = 0 To countTotal
+            If selectStatus(i) = True And i <> 0 And i <> 13 And i <> 14 And i <> 18 And i <> 19 And i <> 24 And
+                i <> 25 And i <> 29 And i <> 30 And i <> 33 And i <> 34 Then
+                listRt &= listBoxRt.Items.Item(i).Content & vbCrLf
+
+            End If
+
+        Next
+
+        MsgBox("目前已勾选的有：" & vbCrLf & listRt, MsgBoxStyle.Information, "Runtime Express 概览")
 
     End Sub
 
@@ -124,7 +169,7 @@
 
         fetchAll()
 
-        Dim rtsrc(39) '定义安装源
+        Dim rtsrc(countTotal) '定义安装源
         rtsrc = {
             "", '0 Microsoft Visual C++ 
             "\sources\vc2005_x86.exe", "\sources\vc2005_x64.exe", "\sources\vc2008_x86.exe", "\sources\vc2008_x64.exe", "\sources\vc2010_x86.exe", '1-5
@@ -139,12 +184,12 @@
             "", "", '29-30 Microsoft XML Core
             "\sources\msxml6_x86.msi", "\sources\msxml6_x64.msi", '31-32
             "", "", '33-34 Others
-            "\sources\DX\DXSETUP.exe", "\sources\openal.exe", "\sources\gfwlive.exe", "\sources\mwse3.msi", "\sources\physx.msi" '35-39
+            "\sources\DX\DXSETUP.exe", "\sources\openal.exe", "\sources\gfwlive.exe", "\sources\mwse3.msi", "\sources\physx.msi" '35-countTotal
         }
 
         If rbDxOnlineT1.IsChecked = True Then rtsrc(35) = "\sources\dxwebsetup.exe" '读取DX安装选项
 
-        For i = 0 To 39
+        For i = 0 To countTotal
             If selectStatus(i) = True Then
                 If IO.File.Exists(path & rtsrc(i)) = True Then
                     Process.Start(path & rtsrc(i)).WaitForExit()

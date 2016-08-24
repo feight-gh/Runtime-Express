@@ -64,12 +64,21 @@
     </Window.Triggers>
 
     <Grid Background="DodgerBlue">
-
+        
+        <Grid x:Name="gridTitle" Margin="0,0,283,449" Background="DodgerBlue">
+            
+            <Image x:Name="imageLogo" HorizontalAlignment="Left" Height="23" Width="27" VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Resources/REv2Simple.png" Stretch="Fill" />
+        
+        </Grid>
+        
         <Grid x:Name="gridMain" Margin="0,0,0,32">
 
             <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="401" VerticalAlignment="Top" Width="309">
+                
                 <TabItem x:Name="tiRuntime" Header="运行库" Margin="30,-2,-30,-1" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="Black" FontSize="13.333" HorizontalAlignment="Left" Width="134.44">
+                    
                     <Grid x:Name="gridRuntime" Background="White" Margin="0,-2" RenderTransformOrigin="0.5,0.5">
+                        
                         <Grid.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -78,57 +87,65 @@
                                 <TranslateTransform/>
                             </TransformGroup>
                         </Grid.RenderTransform>
+                        
                         <Grid x:Name="gridRuntimeHeader">
                             <Label Margin="5,0,115,350" FontSize="13.333" Content="在下方选择你需要的运行库或者"/>
-                            <Button x:Name="btnAutochk" Margin="193,3,0,354" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" FontSize="13.333" Content="自动勾选运行库"/>
+                            <Button x:Name="btnAutochk" Margin="193,3,0,354" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110" FontSize="13.333" Content="自动过滤/勾选"/>
                         </Grid>
-                        <ListBox x:Name="listBoxRt" HorizontalAlignment="Left" Height="348" VerticalAlignment="Top" Width="303" Margin="0,26,0,0" FontSize="12" IsSynchronizedWithCurrentItem="True">
-                            <System:String xml:space="preserve">Microsoft Visual C++ </System:String>
-                            <CheckBox x:Name="ck2005x86" Content="2005 32位" />
-                            <CheckBox x:Name="ck2005x64" Content="2005 64位" />
-                            <CheckBox x:Name="ck2008x86" Content="2008 32位" />
-                            <CheckBox x:Name="ck2008x64" Content="2008 64位" />
-                            <CheckBox x:Name="ck2010x86" Content="2010 32位" />
-                            <CheckBox x:Name="ck2010x64" Content="2010 64位" />
-                            <CheckBox x:Name="ck2012x86" Content="2012 32位" />
-                            <CheckBox x:Name="ck2012x64" Content="2012 64位" />
-                            <CheckBox x:Name="ck2013x86" Content="2013 32位" />
-                            <CheckBox x:Name="ck2013x64" Content="2013 64位" />
-                            <CheckBox x:Name="ck2015x86" Content="2015 32位" />
-                            <CheckBox x:Name="ck2015x64" Content="2015 64位" IsChecked="True" IsEnabled="False" />
-                            <Separator/>
-                            <System:String xml:space="preserve"> Microsoft .NET </System:String>
-                            <CheckBox x:Name="ckdotnetfw" Content=".NET Framework 4.6" />
-                            <CheckBox x:Name="ckdotnetjs" Content="Visual J# .NET" />
-                            <CheckBox x:Name="ckdotnetfs" Content="Visual F# .NET" />
-                            <Separator/>
-                            <System:String xml:space="preserve"> Oracle Java </System:String>
-                            <CheckBox x:Name="ckjre7x86" Content="Java 7 Update 49 32位" />
-                            <CheckBox x:Name="ckjre7x64" Content="Java 7 Update 49 64位" />
-                            <CheckBox x:Name="ckjre8x86" Content="Java 8 Update 91 32位" />
-                            <CheckBox x:Name="ckjre8x64" Content="Java 8 Update 91 64位" />
-                            <Separator/>
-                            <System:String xml:space="preserve"> Microsoft XNA Framework </System:String>
-                            <CheckBox x:Name="ckxna2" Content="XNA Framework 2" />
-                            <CheckBox x:Name="ckxna3" Content="XNA Framework 3.1" />
-                            <CheckBox x:Name="ckxna4" Content="XNA Framework 4" />
-                            <Separator/>
-                            <System:String xml:space="preserve"> Microsoft XML Core </System:String>
-                            <CheckBox x:Name="ckxmlc6x86" Content="XML Core 6 32位" />
-                            <CheckBox x:Name="ckxmlc6x64" Content="XML Core 6 64位" />
-                            <Separator/>
-                            <System:String xml:space="preserve"> 杂项 </System:String>
-                            <CheckBox x:Name="ckdx9c" Content="DirectX 9.0c" />
-                            <CheckBox x:Name="ckoal" Content="OpenAL 2.0.7" />
-                            <CheckBox x:Name="ckmgfwl" Content="Microsoft Games for Windows - LIVE" />
-                            <CheckBox x:Name="ckmwse" Content="Microsoft Web Services Enhancements（WSE） 3" />
-                            <CheckBox x:Name="cknvpx" Content="Nvidia PhysX 9.12" />
-                        </ListBox>
+                        
+                        <Grid x:Name="gridRuntimeChooser">
+                            <ListBox x:Name="listBoxRt" HorizontalAlignment="Left" Height="340" VerticalAlignment="Top" Width="303" Margin="0,26,0,0" FontSize="12" IsSynchronizedWithCurrentItem="True">
+                                <System:String xml:space="preserve">Microsoft Visual C++ </System:String>
+                                <CheckBox x:Name="ck2005x86" Content="Visual C++ 2005 32位" />
+                                <CheckBox x:Name="ck2005x64" Content="Visual C++ 2005 64位" />
+                                <CheckBox x:Name="ck2008x86" Content="Visual C++ 2008 32位" />
+                                <CheckBox x:Name="ck2008x64" Content="Visual C++ 2008 64位" />
+                                <CheckBox x:Name="ck2010x86" Content="Visual C++ 2010 32位" />
+                                <CheckBox x:Name="ck2010x64" Content="Visual C++ 2010 64位" />
+                                <CheckBox x:Name="ck2012x86" Content="Visual C++ 2012 32位" />
+                                <CheckBox x:Name="ck2012x64" Content="Visual C++ 2012 64位" />
+                                <CheckBox x:Name="ck2013x86" Content="Visual C++ 2013 32位" />
+                                <CheckBox x:Name="ck2013x64" Content="Visual C++ 2013 64位" />
+                                <CheckBox x:Name="ck2015x86" Content="Visual C++ 2015 32位" />
+                                <CheckBox x:Name="ck2015x64" Content="Visual C++ 2015 64位" />
+                                <Separator/>
+                                <System:String xml:space="preserve"> Microsoft .NET </System:String>
+                                <CheckBox x:Name="ckdotnetfw" Content=".NET Framework 4.6" />
+                                <CheckBox x:Name="ckdotnetjs" Content="Visual J# .NET" />
+                                <CheckBox x:Name="ckdotnetfs" Content="Visual F# .NET" />
+                                <Separator/>
+                                <System:String xml:space="preserve"> Oracle Java </System:String>
+                                <CheckBox x:Name="ckjre7x86" Content="Java 7 Update 49 32位" />
+                                <CheckBox x:Name="ckjre7x64" Content="Java 7 Update 49 64位" />
+                                <CheckBox x:Name="ckjre8x86" Content="Java 8 Update 91 32位" />
+                                <CheckBox x:Name="ckjre8x64" Content="Java 8 Update 91 64位" />
+                                <Separator/>
+                                <System:String xml:space="preserve"> Microsoft XNA Framework </System:String>
+                                <CheckBox x:Name="ckxna2" Content="XNA Framework 2" />
+                                <CheckBox x:Name="ckxna3" Content="XNA Framework 3.1" />
+                                <CheckBox x:Name="ckxna4" Content="XNA Framework 4" />
+                                <Separator/>
+                                <System:String xml:space="preserve"> Microsoft XML Core </System:String>
+                                <CheckBox x:Name="ckxmlc6x86" Content="XML Core 6 32位" />
+                                <CheckBox x:Name="ckxmlc6x64" Content="XML Core 6 64位" />
+                                <Separator/>
+                                <System:String xml:space="preserve"> 杂项 </System:String>
+                                <CheckBox x:Name="ckdx9c" Content="DirectX 9.0c" />
+                                <CheckBox x:Name="ckoal" Content="OpenAL 2.0.7" />
+                                <CheckBox x:Name="ckmgfwl" Content="Microsoft Games for Windows - LIVE" />
+                                <CheckBox x:Name="ckmwse" Content="Microsoft Web Services Enhancements 3" />
+                                <CheckBox x:Name="cknvpx" Content="NVIDIA PhysX 9.12" />
+                            </ListBox>
+                        </Grid>
+                        
                     </Grid>
+                    
                 </TabItem>
 
                 <TabItem x:Name="tiOpinion" Header="选项" Margin="32.56,-3,-40.12,0" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="#FF060000" FontSize="13.333" HorizontalAlignment="Left" Width="142">
+                    
                     <Grid x:Name="gridOpinion" Background="White" Margin="-1,-2,1,-2" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        
                         <Grid.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -138,13 +155,14 @@
                             </TransformGroup>
                         </Grid.RenderTransform>
 
-                        <GroupBox x:Name="gbInstOptDx" Header="DirextX 9.0c 安装选项" HorizontalAlignment="Left" VerticalAlignment="Top" Height="72" Width="303" Margin="0,98,0,0">
+                        <GroupBox x:Name="gbInstOptDx" Header="DirextX 9.0c 安装选项" HorizontalAlignment="Left" VerticalAlignment="Top" Height="72" Width="303" Margin="0,176,0,0">
                             <Grid Margin="0,0,0,-1">
                                 <RadioButton x:Name="rbDxOnlineT1" Content="在线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,29,0,0" FontSize="12"/>
                                 <RadioButton x:Name="rbDxOnlineF1" Content="离线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="12" IsChecked="True"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="gbSysinfo" Header="系统信息" HorizontalAlignment="Left" Height="93" VerticalAlignment="Top" Width="303">
+                        
+                        <GroupBox x:Name="gbFilterOpt" Header="过滤器选项" HorizontalAlignment="Left" Height="171" VerticalAlignment="Top" Width="303">
                             <Grid>
                                 <TextBlock x:Name="tbSysinfo"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="293" Margin="0,10,-2,0" FontSize="12"><Run Text="在这里你可以看到本程序检查到的系统信息。"/><LineBreak/><Run Text="如果这些信息不正确，你可以修改它们。"/></TextBlock>
                                 <ComboBox x:Name="cbOSver" HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top" Width="180" IsSynchronizedWithCurrentItem="True" FontSize="12">
@@ -157,25 +175,32 @@
                                     <ListBoxItem Content="32位(x86)" FontSize="12"/>
                                     <ListBoxItem Content="64位(x86_64)" FontSize="12"/>
                                 </ComboBox>
+                                <CheckBox x:Name="ckSmart" Content="智能过滤" HorizontalAlignment="Left" Margin="0,122,0,0" VerticalAlignment="Top"/>
+                                <TextBlock x:Name="tbSmart"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="293" Margin="0,71,-2,0" FontSize="12" TextWrapping="Wrap">通过智能过滤，Runtime Express可以检查运行库安装情况并决定安装哪些运行库。<LineBreak/>注意！本功能可能无法识别所有的运行库。</TextBlock>
                             </Grid>
                         </GroupBox>
+                        
                         <Button x:Name="btnAbout" Content="关于 Runtime Express" Margin="155,343,10,10" FontSize="12"/>
                     </Grid>
+                    
                 </TabItem>
+                
             </TabControl>
-            <Button x:Name="btnApply" Content="应用" Margin="10,406,59,7" IsDefault="True" FontSize="12"/>
+            
+        </Grid>
+
+        <Grid x:Name="gridBottom">
+            
+            <Button x:Name="btnApply" Content="应用" Margin="10,406,59,0" IsDefault="True" FontSize="12" VerticalAlignment="Top" Height="26"/>
             <Button x:Name="btnOverview" Content="概览" HorizontalAlignment="Left" Margin="255,406,0,0" VerticalAlignment="Top" Width="44" Height="26" Foreground="White" Background="#FFFF7E00" BorderBrush="White" FontWeight="Bold"/>
+            <StatusBar Height="32" VerticalAlignment="Bottom" Width="309" Background="DodgerBlue">
+                
+                <Label x:Name="labelStat" Content="就绪" HorizontalAlignment="Left" Width="195" Foreground="White"/>
+                <ProgressBar x:Name="sbMain" Width="101" Height="22" Background="DodgerBlue"/>
 
+            </StatusBar>
+            
         </Grid>
-
-        <StatusBar Height="32" VerticalAlignment="Bottom" Width="309" Background="DodgerBlue">
-            <Label x:Name="labelStat" Content="就绪" HorizontalAlignment="Left" Width="195" Foreground="White"/>
-            <StatusBar x:Name="sbMain" Width="101" Height="22" Background="DodgerBlue"/>
-
-        </StatusBar>
-        <Grid x:Name="gridTitle" Margin="0,0,283,449" Background="DodgerBlue">
-            <Image x:Name="imageLogo" HorizontalAlignment="Left" Height="23" Width="27" VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Resources/REv2Simple.png" Stretch="Fill" />
-
-        </Grid>
+        
     </Grid>
 </Window>
