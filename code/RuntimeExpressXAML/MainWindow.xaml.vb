@@ -108,7 +108,7 @@
 
         End If
 
-        Select Case ckSmart.IsChecked '判断是否进入Smart模式
+        Select Case rbSmart.IsChecked '判断是否进入Smart模式
             Case True 'Smart模式
                 '查找VC++ 2005/2008（WinSxS索引）
                 If IO.Directory.Exists(winpath & "\winsxs\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.4940_none_d08cc06a442b34fc") = False And
@@ -459,7 +459,7 @@
 
                 End If
 
-            Case False '不进入Smart模式 而是开始根据无脑勾选
+            Case False '不进入Smart模式 而是开始无脑勾选
                 '如果被选项禁用则不勾选
                 For i = 0 To listBoxRt.Items.Count - 1
                     If i <> 0 And i <> 13 And i <> 14 And i <> 18 And i <> 19 And i <> 24 And i <> 25 And i <> 29 And
@@ -490,28 +490,15 @@
             End If
 
         Next
-
-        MsgBox("目前已勾选的有：" & vbCrLf & listRt, MsgBoxStyle.Information, "Runtime Express 概览")
+        If listRt <> Nothing Then
+            MsgBox("目前已勾选的有：" & vbCrLf & listRt, MsgBoxStyle.Information, "Runtime Express 概览")
+        Else
+            MsgBox("你还没有勾选任何选项，要不去勾几个？", MsgBoxStyle.Information, "Runtime Express 概览")
+        End If
 
     End Sub
 
     Private Sub btnApply_Click(sender As Object, e As RoutedEventArgs) Handles btnApply.Click
-
-        '获取管理员权限
-        If My.Computer.Info.OSVersion.Substring(0, 1) >= 6 Then
-            Dim psi As New ProcessStartInfo()
-            psi.FileName = path & "\" & My.Application.Info.AssemblyName & ".exe"
-            psi.Verb = "runas"
-            Try
-                Process.Start(psi)
-                My.Application.Shutdown()
-
-            Catch ex As Exception
-                'MessageBox.Show(ex.Message)
-
-            End Try
-
-        End If
 
         fetchAll()
 
