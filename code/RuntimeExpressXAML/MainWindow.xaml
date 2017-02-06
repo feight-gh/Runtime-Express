@@ -82,14 +82,14 @@
 
                     <Grid x:Name="gridOpinion" Background="White" Margin="-1,-2,1,-2" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
 
-                        <GroupBox x:Name="gbInstOptDx" Header="DirextX 9.0c 安装选项" HorizontalAlignment="Left" VerticalAlignment="Top" Height="72" Width="303" Margin="0,232,0,-40">
+                        <GroupBox x:Name="gbInstOptDx" Header="DirextX 9.0c 安装选项" HorizontalAlignment="Left" VerticalAlignment="Top" Height="72" Width="303" Margin="0,223,0,-31">
                             <Grid Margin="0,0,0,-1">
                                 <RadioButton x:Name="rbDxOnlineT1" Content="在线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,29,0,0" FontSize="12"/>
                                 <RadioButton x:Name="rbDxOnlineF1" Content="离线安装" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0" FontSize="12" IsChecked="True"/>
                             </Grid>
                         </GroupBox>
 
-                        <GroupBox x:Name="gbFilterOpt" Header="过滤器选项" HorizontalAlignment="Left" Height="227" VerticalAlignment="Top" Width="303">
+                        <GroupBox x:Name="gbFilterOpt" Header="过滤器选项" HorizontalAlignment="Left" Height="218" VerticalAlignment="Top" Width="303">
                             <Grid>
                                 <TextBlock x:Name="tbSysinfo"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="293" Margin="0,10,-2,0" FontSize="12"><Run Text="在这里你可以看到本程序检查到的系统信息。"/><LineBreak/><Run Text="如果这些信息不正确，你可以修改它们。"/></TextBlock>
                                 <ComboBox x:Name="cbOSver" HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top" Width="180" IsSynchronizedWithCurrentItem="True" FontSize="12">
@@ -106,9 +106,9 @@
                                     在Smart模式中，程序可以检查运行库安装情况并决定勾选哪些运行库。在经典模式中，程序不会检查安装情况，只会进行过滤（选中功能后会自动选择）。<LineBreak/>
                                     无论是哪种模式都不会自动做出实质性的更改。
                                 </TextBlock>
-                                <RadioButton x:Name="rbSmart" Content="Smart模式" HorizontalAlignment="Left" Margin="0,140,0,0" VerticalAlignment="Top" IsChecked="True"/>
-                                <RadioButton x:Name="rbClassical" Content="经典模式（1.x）" HorizontalAlignment="Left" Margin="0,161,0,0" VerticalAlignment="Top" IsChecked="True"/>
-                                <CheckBox x:Name="ckAutoCheck" Content="自动勾选" HorizontalAlignment="Left" Margin="19,182,0,0" VerticalAlignment="Top"/>
+                                <RadioButton x:Name="rbSmart" Content="Smart模式" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" IsChecked="True" FontSize="12"/>
+                                <RadioButton x:Name="rbClassical" Content="经典模式（1.x）" HorizontalAlignment="Left" Margin="0,154,0,0" VerticalAlignment="Top" FontSize="12"/>
+                                <CheckBox x:Name="ckAutoCheck" Content="自动勾选" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" FontSize="12"/>
                             </Grid>
                         </GroupBox>
 

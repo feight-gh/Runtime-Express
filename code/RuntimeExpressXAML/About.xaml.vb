@@ -18,7 +18,7 @@ Public Class About
 
     Private Sub btnHomepage_Click(sender As Object, e As RoutedEventArgs) Handles btnHomepage.Click
 
-        Process.Start("http://feightwywx.github.io/Runtime-Express/")
+        Process.Start("https://feightwywx.github.io/Runtime-Express/")
 
     End Sub
 

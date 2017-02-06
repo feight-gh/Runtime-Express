@@ -1,6 +1,6 @@
 ﻿Class MainWindow
 
-    Private Const countTotal As Integer = 39
+    Private countTotal As Integer = 39 'listBoxRt.Items.Count - 1
     Private selectStatus(countTotal) As Boolean
     Public path As String = My.Application.Info.DirectoryPath
     Public sys32path As String = Environment.GetFolderPath(Environment.SpecialFolder.SystemX86)
@@ -35,7 +35,6 @@
     End Sub
 
     Private Sub cleanAll()
-
 
         For rei = 0 To listBoxRt.Items.Count - 1 '重置所有项已存储的状态
             selectStatus(rei) = False
@@ -83,8 +82,6 @@
                 cbOStarget.SelectedIndex = 1
 
         End Select
-
-
 
         labelStat.Content = "就绪。程序版本" & My.Application.Info.Version.ToString & "。"
 
@@ -170,8 +167,7 @@
 
                 End If
 
-                If IO.File.Exists(sys32path & "\msvcp140.dll") = False Or
-                    IO.File.Exists(sys32path & "\msvcr140.dll") = False Then
+                If IO.File.Exists(sys32path & "\msvcp140.dll") = False Then
                     ck2015x86.IsChecked = True
 
                 End If
@@ -195,8 +191,7 @@
 
                     End If
 
-                    If IO.File.Exists(syspath & "\msvcp140.dll") = False Or
-                        IO.File.Exists(syspath & "\msvcr140.dll") = False Then
+                    If IO.File.Exists(syspath & "\msvcp140.dll") = False Then
                         ck2015x64.IsChecked = True
 
                     End If
