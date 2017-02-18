@@ -113,7 +113,10 @@
                         IO.Directory.Exists(winpath & "\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.762_none_10b2f55f9bffb8f8") = False And
                         IO.Directory.Exists(winpath & "\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.8428_none_d08a11e2442dc25d") = False And
                         IO.Directory.Exists(winpath & "\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.91_none_db5f5c9d98cb161f") = False And
-                        IO.Directory.Exists(winpath & "\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.9268_none_d08e1538442a243e") = False Then
+                        IO.Directory.Exists(winpath & "\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.9268_none_d08e1538442a243e") = False And
+                        IO.Directory.Exists(winpath & "\WinSxS\x86_microsoft.vc80.mfc_1fc8b3b9a1e18e3b_8.0.50727.6195_none_cbf5e994470a1a8f") = False And
+                        IO.Directory.Exists(winpath & "\WinSxS\x86_microsoft.vc80.mfc_1fc8b3b9a1e18e3b_8.0.50727.762_none_0c178a139ee2a7ed") = False And
+                        IO.Directory.Exists(winpath & "\WinSxS\x86_microsoft.vc80.mfc_1fc8b3b9a1e18e3b_8.0.50727.91_none_d6c3f1519bae0514") = False Then
                     ck2005x86.IsChecked = True
                 End If
 
@@ -122,7 +125,10 @@
                         IO.Directory.Exists(winpath & "\winsxs\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.4940_none_50916076bcb9a742") = False And
                         IO.Directory.Exists(winpath & "\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_50934f2ebcb7eb57") = False And
                         IO.Directory.Exists(winpath & "\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.8387_none_5094ca96bcb6b2bb") = False And
-                        IO.Directory.Exists(winpath & "\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9247_none_5090cb78bcba4a35") = False Then
+                        IO.Directory.Exists(winpath & "\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9247_none_5090cb78bcba4a35") = False And
+                        IO.Directory.Exists(winpath & "\WinSxS\x86_microsoft.vc90.mfc_1fc8b3b9a1e18e3b_9.0.30729.1_none_dcc7eae99ad0d9cf") = False And
+                        IO.Directory.Exists(winpath & "\winsxs\x86_microsoft.vc90.mfc_1fc8b3b9a1e18e3b_9.0.30729.4148_none_4bf5400abf9d60b7") = False And
+                        IO.Directory.Exists(winpath & "\WinSxS\x86_microsoft.vc90.mfc_1fc8b3b9a1e18e3b_9.0.30729.6161_none_4bf7e3e2bf9ada4c") = False Then
                     ck2008x86.IsChecked = True
                 End If
 
@@ -131,7 +137,8 @@
                     If IO.Directory.Exists(winpath & "\winsxs\amd64_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.4940_none_88df89932faf0bf6") = False And
                         IO.Directory.Exists(winpath & "\WinSxS\amd64_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.762_none_c905be8887838ff2") = False And
                         IO.Directory.Exists(winpath & "\WinSxS\amd64_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.8428_none_88dcdb0b2fb19957") = False And
-                        IO.Directory.Exists(winpath & "\WinSxS\amd64_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.9268_none_88e0de612fadfb38") = False Then
+                        IO.Directory.Exists(winpath & "\WinSxS\amd64_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.9268_none_88e0de612fadfb38") = False And
+                        IO.Directory.Exists(winpath & "\WinSxS\amd64_microsoft.vc80.mfc_1fc8b3b9a1e18e3b_8.0.50727.762_none_c46a533c8a667ee7") = False Then
                         ck2005x64.IsChecked = True
 
                     End If
@@ -141,7 +148,10 @@
                         IO.Directory.Exists(winpath & "\winsxs\amd64_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.4940_none_08e4299fa83d7e3c") = False And
                         IO.Directory.Exists(winpath & "\WinSxS\amd64_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_08e61857a83bc251") = False And
                         IO.Directory.Exists(winpath & "\WinSxS\amd64_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.8387_none_08e793bfa83a89b5") = False And
-                        IO.Directory.Exists(winpath & "\WinSxS\amd64_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9247_none_08e394a1a83e212f") = False Then
+                        IO.Directory.Exists(winpath & "\WinSxS\amd64_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.9247_none_08e394a1a83e212f") = False And
+                        IO.Directory.Exists(winpath & "\WinSxS\amd64_microsoft.vc90.mfc_1fc8b3b9a1e18e3b_9.0.30729.1_none_951ab4128654b0c9") = False And
+                        IO.Directory.Exists(winpath & "\WinSxS\amd64_microsoft.vc90.mfc_1fc8b3b9a1e18e3b_9.0.30729.4148_none_04480933ab2137b1") = False And
+                        IO.Directory.Exists(winpath & "\winsxs\amd64_microsoft.vc90.mfc_1fc8b3b9a1e18e3b_9.0.30729.6161_none_044aad0bab1eb146") = False Then
                         ck2008x64.IsChecked = True
 
                     End If
@@ -150,54 +160,85 @@
 
                 '查找VC++ 2010/2012/2013/2015
                 If IO.File.Exists(sys32path & "\msvcp100.dll") = False Or
-                    IO.File.Exists(sys32path & "\msvcr100.dll") = False Then
+                    IO.File.Exists(sys32path & "\msvcr100.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfc100.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfc100u.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfcm100.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfcm100u.dll") = False Then
                     ck2010x86.IsChecked = True
 
                 End If
 
                 If IO.File.Exists(sys32path & "\msvcp110.dll") = False Or
-                    IO.File.Exists(sys32path & "\msvcr110.dll") = False Then
+                    IO.File.Exists(sys32path & "\msvcr110.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfc110.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfc110u.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfcm110.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfcm110u.dll") = False Then
                     ck2012x86.IsChecked = True
 
                 End If
 
                 If IO.File.Exists(sys32path & "\msvcp120.dll") = False Or
-                    IO.File.Exists(sys32path & "\msvcr120.dll") = False Then
+                    IO.File.Exists(sys32path & "\msvcr120.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfc120.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfc120u.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfcm120.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfcm120u.dll") = False Then
                     ck2013x86.IsChecked = True
 
                 End If
 
-                If IO.File.Exists(sys32path & "\msvcp140.dll") = False Then
+                If IO.File.Exists(sys32path & "\msvcp140.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfc140.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfc140u.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfcm140.dll") = False Or
+                    IO.File.Exists(sys32path & "\mfcm140u.dll") = False Then
                     ck2015x86.IsChecked = True
 
                 End If
 
                 If ost = 1 Then 'x64
                     If IO.File.Exists(syspath & "\msvcp100.dll") = False Or
-                    IO.File.Exists(syspath & "\msvcr100.dll") = False Then
-                        ck2010x64.IsChecked = True
+                    IO.File.Exists(syspath & "\msvcr100.dll") = False Or
+                    IO.File.Exists(syspath & "\mfc100.dll") = False Or
+                    IO.File.Exists(syspath & "\mfc100u.dll") = False Or
+                    IO.File.Exists(syspath & "\mfcm100.dll") = False Or
+                    IO.File.Exists(syspath & "\mfcm100u.dll") = False Then
+                        ck2010x86.IsChecked = True
 
                     End If
 
                     If IO.File.Exists(syspath & "\msvcp110.dll") = False Or
-                        IO.File.Exists(syspath & "\msvcr110.dll") = False Then
-                        ck2012x64.IsChecked = True
+                    IO.File.Exists(syspath & "\msvcr110.dll") = False Or
+                    IO.File.Exists(syspath & "\mfc110.dll") = False Or
+                    IO.File.Exists(syspath & "\mfc110u.dll") = False Or
+                    IO.File.Exists(syspath & "\mfcm110.dll") = False Or
+                    IO.File.Exists(syspath & "\mfcm110u.dll") = False Then
+                        ck2012x86.IsChecked = True
 
                     End If
 
                     If IO.File.Exists(syspath & "\msvcp120.dll") = False Or
-                        IO.File.Exists(syspath & "\msvcr120.dll") = False Then
-                        ck2013x64.IsChecked = True
+                    IO.File.Exists(syspath & "\msvcr120.dll") = False Or
+                    IO.File.Exists(syspath & "\mfc120.dll") = False Or
+                    IO.File.Exists(syspath & "\mfc120u.dll") = False Or
+                    IO.File.Exists(syspath & "\mfcm120.dll") = False Or
+                    IO.File.Exists(syspath & "\mfcm120u.dll") = False Then
+                        ck2013x86.IsChecked = True
 
                     End If
 
-                    If IO.File.Exists(syspath & "\msvcp140.dll") = False Then
-                        ck2015x64.IsChecked = True
+                    If IO.File.Exists(syspath & "\msvcp140.dll") = False Or
+                    IO.File.Exists(syspath & "\mfc140.dll") = False Or
+                    IO.File.Exists(syspath & "\mfc140u.dll") = False Or
+                    IO.File.Exists(syspath & "\mfcm140.dll") = False Or
+                    IO.File.Exists(syspath & "\mfcm140u.dll") = False Then
+                        ck2015x86.IsChecked = True
 
                     End If
 
                 End If
-
 
                 '查找.NET Framework 4.6
                 If IO.Directory.Exists(winpath & "\Microsoft.NET\Framework\v4.0.30319\") = True Then
