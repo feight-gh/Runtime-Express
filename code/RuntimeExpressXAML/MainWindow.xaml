@@ -127,8 +127,7 @@
             <Button x:Name="btnOverview" Content="概览" HorizontalAlignment="Left" Margin="255,406,0,0" VerticalAlignment="Top" Width="44" Height="26" Foreground="White" Background="#FFFF7E00" BorderBrush="White" FontWeight="Bold"/>
             <StatusBar Height="32" VerticalAlignment="Bottom" Width="309" Background="DodgerBlue">
 
-                <Label x:Name="labelStat" Content="就绪" HorizontalAlignment="Left" Width="195" Foreground="White"/>
-                <ProgressBar x:Name="sbMain" Width="101" Height="22" Background="DodgerBlue"/>
+                <Label x:Name="labelStat" Content="就绪" HorizontalAlignment="Left" Width="309" Foreground="White"/>
 
             </StatusBar>
 

@@ -1,7 +1,10 @@
-﻿Class MainWindow
+﻿Imports System.Threading
+
+Class MainWindow
 
     Private countTotal As Integer = 39 'listBoxRt.Items.Count - 1
     Private selectStatus(countTotal) As Boolean
+    Private dxolstat As Boolean
     Public path As String = My.Application.Info.DirectoryPath
     Public sys32path As String = Environment.GetFolderPath(Environment.SpecialFolder.SystemX86)
     Public syspath As String = Environment.GetFolderPath(Environment.SpecialFolder.System)
@@ -537,6 +540,14 @@
     Private Sub btnApply_Click(sender As Object, e As RoutedEventArgs) Handles btnApply.Click
 
         fetchAll()
+        Dim applyActivity As New Thread(AddressOf apply)
+        dxolstat = rbDxOnlineT1.IsChecked
+        applyActivity.Start()
+
+
+    End Sub
+
+    Private Sub apply(ByVal dxol As Boolean)
 
         Dim rtsrc(countTotal) '定义安装源
         rtsrc = {
@@ -556,16 +567,26 @@
             "\sources\DX\DXSETUP.exe", "\sources\openal.exe", "\sources\gfwlive.exe", "\sources\mwse3.msi", "\sources\physx.msi" '35-countTotal
         }
 
-        If rbDxOnlineT1.IsChecked = True Then rtsrc(35) = "\sources\dxwebsetup.exe" '读取DX安装选项
+        If dxolstat = True Then
+            rtsrc(35) = "\sources\dxwebsetup.exe" '读取DX安装选项
+        Else rtsrc(35) = "\sources\DX\DXSETUP.exe"
+        End If
 
+        Dim isNull As Boolean = True
         For i = 0 To countTotal
             If selectStatus(i) = True Then
+                isNull = False
                 If IO.File.Exists(path & rtsrc(i)) = True Then
                     Process.Start(path & rtsrc(i)).WaitForExit()
                 Else MsgBox("文件" & rtsrc(i) & "不存在！请检查文件完整性后再试。", MsgBoxStyle.Critical, "错误")
                 End If
             End If
+            'labelStat.Content = "正在运行。第" & i + 1 & "个，共" & countTotal + 1 & "个。"
         Next
+
+        If isNull = True Then
+            MsgBox("没有勾选任何项，去勾选一些试试？", MsgBoxStyle.Information, "Runtime Express")
+        End If
 
     End Sub
 

@@ -17,7 +17,7 @@ Public Class updater
             Select Case UpdateChannel
 
                 Case "Release"
-                    checkserver = "https://raw.githubusercontent.com/feight-github/Runtime-Express/re-2/Windows/version.xml"
+                    checkserver = "https://raw.githubusercontent.com/feight-github/Runtime-Express/re-2/version.xml"
 
                     Dim doc As New Xml.XmlDocument
                     doc.Load(checkserver.Trim)
