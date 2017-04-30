@@ -1,5 +1,5 @@
 ﻿Imports System.Threading
-
+Imports System.Text.RegularExpressions
 Class MainWindow
 
     Private countTotal As Integer = 39 'listBoxRt.Items.Count - 1
@@ -208,7 +208,7 @@ Class MainWindow
                     IO.File.Exists(syspath & "\mfc100u.dll") = False Or
                     IO.File.Exists(syspath & "\mfcm100.dll") = False Or
                     IO.File.Exists(syspath & "\mfcm100u.dll") = False Then
-                        ck2010x86.IsChecked = True
+                        ck2010x64.IsChecked = True
 
                     End If
 
@@ -218,7 +218,7 @@ Class MainWindow
                     IO.File.Exists(syspath & "\mfc110u.dll") = False Or
                     IO.File.Exists(syspath & "\mfcm110.dll") = False Or
                     IO.File.Exists(syspath & "\mfcm110u.dll") = False Then
-                        ck2012x86.IsChecked = True
+                        ck2012x64.IsChecked = True
 
                     End If
 
@@ -228,7 +228,7 @@ Class MainWindow
                     IO.File.Exists(syspath & "\mfc120u.dll") = False Or
                     IO.File.Exists(syspath & "\mfcm120.dll") = False Or
                     IO.File.Exists(syspath & "\mfcm120u.dll") = False Then
-                        ck2013x86.IsChecked = True
+                        ck2013x64.IsChecked = True
 
                     End If
 
@@ -237,7 +237,7 @@ Class MainWindow
                     IO.File.Exists(syspath & "\mfc140u.dll") = False Or
                     IO.File.Exists(syspath & "\mfcm140.dll") = False Or
                     IO.File.Exists(syspath & "\mfcm140u.dll") = False Then
-                        ck2015x86.IsChecked = True
+                        ck2015x64.IsChecked = True
 
                     End If
 
@@ -488,22 +488,65 @@ Class MainWindow
 
                 End If
 
+                '查找MGFW
                 If IO.File.Exists(sys32path & "\xlive.dll") = False Then
                     ckmgfwl.IsChecked = True
 
                 End If
 
+                '查找PhysX
                 If IO.Directory.Exists(program32path & "\NVIDIA Corporation\PhysX") = False Then
                     cknvpx.IsChecked = True
 
                 End If
+
+                '查找vsjsharp
+                If IO.Directory.Exists(winpath & "\assembly\GAC_32\vjslib\2.0.0.0__b03f5f7f11d50a3a") = False Then
+                    ckdotnetjs.IsChecked = True
+
+                End If
+
+                '查找vsfsharp
+                If IO.Directory.Exists(winpath & "\Microsoft.NET\assembly\GAC_MSIL\FSharp.Core\v4.0_4.0.0.0__b03f5f7f11d50a3a") = False Or
+                   IO.Directory.Exists(winpath & "\assembly\GAC_MSIL\FSharp.Core\2.0.0.0__b03f5f7f11d50a3a") = False Then
+                    ckdotnetfs.IsChecked = True
+
+                End If
+
+                '查找XNA
+                If IO.Directory.Exists(program32path & "\Common Files\Microsoft Shared\XNA\Framework\v2.0") = False Or
+                   IO.Directory.Exists(winpath & "\assembly\GAC_32\Microsoft.Xna.Framework\2.0.0.0__6d5c3888ef60e27d") = False Then
+                    ckxna2.IsChecked = True
+
+                End If
+
+                If IO.Directory.Exists(program32path & "\Common Files\Microsoft Shared\XNA\Framework\v3.1") = False Or
+                   IO.Directory.Exists(winpath & "\assembly\GAC_32\Microsoft.Xna.Framework\3.1.0.0__6d5c3888ef60e27d") = False Then
+                    ckxna3.IsChecked = True
+
+                End If
+
+                If IO.Directory.Exists(program32path & "\Common Files\Microsoft Shared\XNA\Framework\v4.0") = False Or
+                   IO.Directory.Exists(winpath & "\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework\v4.0_4.0.0.0__842cf8be1de50553") = False Then
+                    ckxna4.IsChecked = True
+
+                End If
+
+                '查找jre
+                If IO.Directory.Exists(program32path & "\Java\jre7\bin") = False Then ckjre7x86.IsChecked = True
+                If IO.Directory.Exists(programpath & "\Java\jre7\bin") = False Then ckjre7x64.IsChecked = True
+                If IO.Directory.Exists(program32path & "\Java\jre1.8.0_131\bin") = False Then ckjre8x86.IsChecked = True
+                If IO.Directory.Exists(programpath & "\Java\jre1.8.0_131\bin") = False Then ckjre8x64.IsChecked = True
+
+                '查找WSE3
+                If IO.Directory.Exists(program32path & "\Microsoft WSE\v3.0") = False Then ckmwse.IsChecked = True
 
             Case False '不进入Smart模式 而是开始无脑勾选
                 '如果被选项禁用则不勾选
                 For i = 0 To listBoxRt.Items.Count - 1
                     If i <> 0 And i <> 13 And i <> 14 And i <> 18 And i <> 19 And i <> 24 And i <> 25 And i <> 29 And
                             i <> 30 And i <> 33 And i <> 34 Then
-                        If listBoxRt.Items.Item(i).IsEnabled = True Then
+                        If listBoxRt.Items.Item(i).IsEnabled = True And ckAutoCheck.IsChecked = True Then
                             listBoxRt.Items.Item(i).IsChecked = True
 
                         End If
