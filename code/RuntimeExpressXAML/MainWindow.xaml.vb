@@ -2,6 +2,7 @@
 Imports System.Text.RegularExpressions
 Class MainWindow
 
+    Private buildType As Integer = 1
     Private countTotal As Integer = 39 'listBoxRt.Items.Count - 1
     Private selectStatus(countTotal) As Boolean
     Private dxolstat As Boolean
@@ -56,6 +57,16 @@ Class MainWindow
 
     End Sub
 
+    Private Sub checkUpdate()
+
+        Dim updater As New updater
+        If updater.isNewest(buildType) = False Then
+            labelStat.Content = "有更新可用！请前往选项中查看"
+            btnCheckUpdate.Content = "更新可用"
+        End If
+
+    End Sub
+
     Private Sub MainWindow_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
 
         Dim osVersion As String = Environment.OSVersion.ToString.Substring(0, 24)
@@ -86,6 +97,7 @@ Class MainWindow
 
         End Select
 
+        checkUpdate()
         labelStat.Content = "就绪。程序版本" & My.Application.Info.Version.ToString & "。"
 
     End Sub
@@ -633,11 +645,15 @@ Class MainWindow
 
     End Sub
 
-    Private Sub btnAbout_Click(sender As Object, e As RoutedEventArgs) Handles btnAbout.Click
+    Private Sub btnHomepage_Click(sender As Object, e As RoutedEventArgs) Handles btnHomepage.Click
 
-        Dim about As New About
-        about.Show()
+        Process.Start("https://feightwywx.github.io/Runtime-Express/")
 
     End Sub
 
+    Private Sub btnCheckUpdate_Click(sender As Object, e As RoutedEventArgs) Handles btnCheckUpdate.Click
+
+        checkUpdate()
+
+    End Sub
 End Class

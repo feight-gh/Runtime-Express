@@ -16,7 +16,7 @@
 
         </Grid>
 
-        <Grid x:Name="gridMain" Margin="0,0,0,32">
+        <Grid x:Name="gridMain" Margin="0,0,0,71">
 
             <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="401" VerticalAlignment="Top" Width="309">
 
@@ -111,11 +111,14 @@
                                 <CheckBox x:Name="ckAutoCheck" Content="自动勾选" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top" FontSize="12"/>
                             </Grid>
                         </GroupBox>
-
-                        <Button x:Name="btnAbout" Content="关于 Runtime Express" Margin="0,0,0,-108" FontSize="12" Height="27" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="141.28"/>
+                        <Button x:Name="btnCheckUpdate" Content="检查更新" FontSize="12" HorizontalAlignment="Right" Width="81" Height="21" Margin="0,0,86,-103" VerticalAlignment="Bottom"/>
+                        <Button x:Name="btnHomepage" Content="项目主页" FontSize="12" HorizontalAlignment="Right" Width="81" Height="21" Margin="0,0,0,-103" VerticalAlignment="Bottom"/>
+                        <Label x:Name="labelAbout"  Width="303" Margin="0,0,0,-63" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="27" Content="Copyright (c) 2017 F8.Using GPLv3."/>
                     </Grid>
 
                 </TabItem>
+
+
 
             </TabControl>
 
